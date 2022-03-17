@@ -7,10 +7,6 @@ use \core\Controller;
 class HomeController extends Controller
 {
 
-    /*public function index()
-    {
-        $this->render('home');
-    }*/
 
     public function home()
     {
@@ -45,6 +41,12 @@ class HomeController extends Controller
     {
         $this->render('sobre');
     }
+
+    public function sair()
+    {
+        $this->render('sair');
+    }
+
 
     public function sobreP($args)
     {

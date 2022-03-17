@@ -322,16 +322,17 @@ $render('sidebar');
                         <form id="" autocomplete="off" enctype="multipart/form-data" class="form-horizontal">
 
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Descrição Obra/Serviço: <span
-                                        class="text-danger">*</span></label>
+                                <label class="col-sm-3 col-form-label" style="text-align: end;">Descrição Obra/Serviço:
+                                    <span class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="text" name="titulo_aplicacao" id="titulo_aplicacao"
-                                        class="form-control text-uppercase" placeholder="Insira a descrição ou serviço">
+                                        class="form-control text-uppercase"
+                                        placeholder="Insira a descrição da obra ou serviço">
                                     <span class="p-0" id="lista_titulo_aplicacao"></span>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Cliente: <span
+                                <label class="col-sm-3 col-form-label" style="text-align: end;">Cliente: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="text" name="num_projeto" class="form-control text-uppercase"
@@ -339,7 +340,7 @@ $render('sidebar');
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Cidade: <span
+                                <label class="col-sm-3 col-form-label" style="text-align: end;">Cidade: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="text" name="revisao" class="form-control text-uppercase"
@@ -347,7 +348,7 @@ $render('sidebar');
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Estado UF: <span
+                                <label class="col-sm-3 col-form-label" style="text-align: end;">Estado UF: <span
                                         class="text-danger">*</span></label>
                                 <div class="col-sm-9">
                                     <input type="text" name="revisao" class="form-control text-uppercase"
@@ -355,7 +356,7 @@ $render('sidebar');
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Obserações:</label>
+                                <label class="col-sm-3 col-form-label" style="text-align: end;">Obserações:</label>
                                 <div class="col-sm-9">
                                     <textarea type="text" name="observacao" rows="3" class="form-control text-uppercase"
                                         placeholder="Observações"></textarea>

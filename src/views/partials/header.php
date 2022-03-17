@@ -1,3 +1,15 @@
+<?php
+
+
+if ((!isset($_SESSION['cLogin'])) && (empty($_SESSION['cLogin']))) { ?>
+<script type="text/javascript">
+window.location.href = "login";
+</script>
+<?php exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +97,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="true">
-                        <?php echo /*$user_logado */ 'Idiframk Silva' ?></a>
+                        <?php echo $_SESSION['cLogin'] ?></a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                         <a class="dropdown-item" href="#" id="edit_senha"><i class="fas fa-lock mr-2"></i> Alterar
                             Senha</a>
@@ -93,8 +105,7 @@
                             role="document"></div>
                         <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i> Perfil do Usuário</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="<?php echo $base; ?>/assets/sair.php"><i
-                                class="fas fa-power-off mr-2"></i>Sair do Sistema</a>
+                        <a class="dropdown-item" href="sair"><i class="fas fa-power-off mr-2"></i>Sair do Sistema</a>
                     </div>
                 </li>
 

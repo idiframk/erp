@@ -130,7 +130,7 @@ $render('sidebar');
 
                                         <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
+                                                <i class="fas fa-print">
                                                 </i>
                                                 View
                                             </a>
@@ -161,7 +161,7 @@ $render('sidebar');
 
                                         <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
+                                                <i class="fas fa-print">
                                                 </i>
                                                 View
                                             </a>
@@ -194,7 +194,7 @@ $render('sidebar');
                                         </td>
                                         <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
+                                                <i class="fas fa-print">
                                                 </i>
                                                 View
                                             </a>
@@ -226,7 +226,7 @@ $render('sidebar');
 
                                         <td class="project-actions text-right">
                                             <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
+                                                <i class="fas fa-print">
                                                 </i>
                                                 View
                                             </a>
