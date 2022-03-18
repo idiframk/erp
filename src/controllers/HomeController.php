@@ -3,6 +3,9 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\models\tbl_user;
+
+
 
 class HomeController extends Controller
 {
@@ -10,7 +13,10 @@ class HomeController extends Controller
 
     public function home()
     {
-        $this->render('home');
+        $usuarios = tbl_user::select(['user_nome', 'user_sobrenome'])->execute();
+
+
+        $this->render('home', ['usuarios' => $usuarios]);
     }
 
     public function cad_obra()

@@ -97,7 +97,15 @@ window.location.href = "login";
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                         aria-haspopup="true" aria-expanded="true">
-                        <?php echo $_SESSION['cLogin'] ?></a>
+                        <?php
+
+                        echo $_SESSION['cLogin'];
+
+
+
+                        ?>
+
+                    </a>
                     <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
                         <a class="dropdown-item" href="#" id="edit_senha"><i class="fas fa-lock mr-2"></i> Alterar
                             Senha</a>
