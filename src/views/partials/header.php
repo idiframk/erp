@@ -36,10 +36,20 @@ window.location.href = "login";
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/toastr/toastr.min.css">
     <link rel="shortcut icon" href="<?php echo $base; ?>/assets/img/sultec-favicon.ico" type="image/x-icon">
 
+    <!-- Select2 -->
+    <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet"
+        href="<?php echo $base; ?>/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/dropzone/min/dropzone.min.css">
+
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet"
         href="<?php echo $base; ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <script src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
+    <script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+
 </head>
 
 <body class="sidebar-mini layout-fixed vsc-initialized text-sm" data-panel-auto-height-mode="height">
