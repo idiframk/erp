@@ -14,6 +14,8 @@ class UsuariosController extends Controller
 
 
 
+
+
     public function loginAction()
     {
 
@@ -47,19 +49,19 @@ class UsuariosController extends Controller
         }
     }
 
+
+
     public function addAction()
     {
         //echo 'Recebido';
         $email = filter_input(INPUT_POST, 'email');
         $name = filter_input(INPUT_POST, 'name');
-        $senha = sha1('senha');
 
         if ($name && $email) {
             $data = tbl_user::select()->where('user_email', $email)->execute();
 
             if (count($data) === 0) {
                 tbl_user::insert([
-                    'user_senha' => $senha,
                     'user_nome' => $name,
                     'user_email' => $email
                 ])->execute();

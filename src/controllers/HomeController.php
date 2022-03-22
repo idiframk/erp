@@ -3,13 +3,13 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\models\tbl_obra;
 use src\models\tbl_user;
 
 
 
 class HomeController extends Controller
 {
-
 
     public function home()
     {
@@ -19,34 +19,6 @@ class HomeController extends Controller
         $this->render('home', ['usuarios' => $usuarios]);
     }
 
-    public function cad_obra()
-    {
-        $this->render('cad_obra');
-    }
-
-    public function ger_rdo()
-    {
-        $this->render('ger_rdo');
-    }
-
-
-    public function list_rdo()
-    {
-        $this->render('list_rdo');
-    }
-
-
-
-    public function modal_cad_obra()
-    {
-        $this->render('modal_cad_obra');
-    }
-
-
-    public function sobre()
-    {
-        $this->render('sobre');
-    }
 
     public function sair()
     {
@@ -54,8 +26,9 @@ class HomeController extends Controller
     }
 
 
-    public function sobreP($args)
+
+    public function addObraAction()
     {
-        print_r($args);
+        $this->render('addObraAction');
     }
 }

@@ -66,6 +66,3 @@
 <body class="sidebar-mini layout-fixed vsc-initialized text-sm" data-panel-auto-height-mode="height">
     <!--layout-navbar-fixed-->
     <div class="wrapper">
-        <!-- Modal Global-->
-        <div id="modal_global" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog"></div>
-        <div id="modal_auxiliar" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog"></div>

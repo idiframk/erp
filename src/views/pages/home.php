@@ -86,7 +86,7 @@ $render('sidebar');
 
                         <div class="col-6">
                             <div class="column mcb-column mcb-item-81a5f7258 one column_column">
-                                <div class="column_attr clearfix" style="">
+                                <div class="column_attr clearfix">
                                     <h2>Conheça um pouco mais <span class="themecolor finance3-highlight">sobre
                                             nós</span></h2>
 

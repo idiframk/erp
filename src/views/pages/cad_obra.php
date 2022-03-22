@@ -3,6 +3,10 @@ $render('header');
 $render('sidebar');
 ?>
 
+<script src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -110,8 +114,7 @@ $render('sidebar');
                         <div class="card-header card card-primary">
                             <div class="row">
                                 <div class="">
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#modal-lg">
+                                    <button onclick="cadastrar()" class="btn btn-success">
                                         Cadastrar Obra
                                     </button>
                                 </div>
@@ -292,8 +295,6 @@ $render('sidebar');
                                         <th>Progresso</th>
                                         <th>Ação</th>
                                     </tr>
-
-
                                 </tfoot>
                             </table>
                         </div>
@@ -307,220 +308,25 @@ $render('sidebar');
         </div>
         <!-- /.container-fluid -->
 
-        <!-- /.modal -->
-
-        <div class="modal fade" id="modal-lg" data-backdrop="static">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Cadastrar Obra</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="" autocomplete="off" enctype="multipart/form-data" class="form-horizontal">
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Nome da Obra
-                                    <span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="titulo_aplicacao" id="titulo_aplicacao"
-                                        class="form-control text-uppercase" placeholder="Insira o nome da obra">
-                                    <span class="p-0" id="lista_titulo_aplicacao"></span>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Razão
-                                    Social/Cliente:
-                                    <span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="num_projeto" class="form-control text-uppercase"
-                                        placeholder="Insira nome da razão social nome do Cliente">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">CNPJ: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="revisao" class="form-control text-uppercase" id="cpfcnpj"
-                                        placeholder="Insira o CPF ou CNPJ">
-                                    <script>
-                                    $("input[id*='cpfcnpj']").inputmask({
-                                        mask: ['999.999.999-99', '99.999.999/9999-99'],
-                                        keepStatic: true
-                                    });
-                                    </script>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Endereço: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="revisao" class="form-control text-uppercase"
-                                        placeholder="Insira o endereço da obra ">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Número: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="observacao" rows="3" class="form-control text-uppercase"
-                                        placeholder="Insira o número, caso não tenha insira S/N"></input>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Bairro: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="observacao" rows="3" class="form-control text-uppercase"
-                                        placeholder="Insira o bairro"></input>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">UF/Estado: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <select class="form-control select2" style="width: 100%;"
-                                        data-placeholder="Uma Unidade Federativa/Estado do Brasil">>
-                                        <option selected="selected"></option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Municipio/Cidade:
-                                    <span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <select class="form-control select2" style="width: 100%;"
-                                        data-placeholder="Selecione um municipio/Cidade">>
-                                        <option selected="selected"></option>
-                                        <option>Alaska</option>
-                                        <option>California</option>
-                                        <option>Delaware</option>
-                                        <option>Tennessee</option>
-                                        <option>Texas</option>
-                                        <option>Washington</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Bairro: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="observacao" rows="3" class="form-control text-uppercase"
-                                        placeholder="Insira o bairro"></input>
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" for="validationCustomEmail"
-                                    style="text-align: end;">E-Mail: <span class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="observacao" rows="3" class="form-control text-uppercase"
-                                        placeholder="Insira um email" class="form-control" id="validationCustomEmail"
-                                        value="" required></input>
-                                    <div class="valid-feedback">e-mail válido!</div>
-                                    <div class="invalid-feedback">Entre com um e-mail válido!.</div>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label" style="text-align: end;">Contato: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="observacao" rows="3" class="form-control text-uppercase"
-                                        id="telefone" onkeyup="mascaraFone(event)"
-                                        placeholder="Insira um número de telefone"></input>
-
-                                    <script>
-                                    function mascaraFone(event) {
-                                        s
-                                        var valor = document.getElementById("telefone").attributes[0].ownerElement[
-                                            'value'];
-                                        var retorno = valor.replace(/\D/g, "");
-                                        retorno = retorno.replace(/^0/, "");
-                                        if (retorno.length > 10) {
-                                            retorno = retorno.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-                                        } else if (retorno.length > 5) {
-                                            if (retorno.length == 6 && event.code == "Backspace") {
-                                                // necessário pois senão o "-" fica sempre voltando ao dar backspace
-                                                return;
-                                            }
-                                            retorno = retorno.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-                                        } else if (retorno.length > 2) {
-                                            retorno = retorno.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-                                        } else {
-                                            if (retorno.length != 0) {
-                                                retorno = retorno.replace(/^(\d*)/, "($1");
-                                            }
-                                        }
-                                        document.getElementById("telefone").attributes[0].ownerElement['value'] =
-                                            retorno;
-                                    }
-                                    </script>
-                                </div>
-                            </div>
-
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i
-                                class="fa fa-times"></i> Cancelar</button>
-                        <button type="button" onclick="cad_dfp()" class="btn btn-sm btn-success"><i
-                                class="fa fa-save"></i> Salvar</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-
-
-    </section>
 </div>
 
-<script>
-(() => {
-        'use strict';
-        const forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms).forEach((form) => {
-            form.addEventListener('submit', (event) => {
-                if (!form.checkValidity()) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                }
-                form.classList.add('was-validated');
-            }, false);
-        });
-        var email = document.getElementById('validationCustomEmail');
-        email.oninput = () => {
-            const re =
-                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if (!re.test(email.value)) {
-                email.setCustomValidity("Invalid field.");
-                email.classList.add('is-invalid');
-            } else {
-                email.classList.remove('is-invalid');
-                email.setCustomValidity("")
-            }
-        }
-    }
 
-)();
-</script>
-
+</section>
+</div>
 <?php
 $render('footer');
 ?>
+<script>
+//Chamar Modal para Cadastrar Registro Genérico
+function cadastrar() {
+    $.ajax({
+        url: "<?= $base ?>/mod_cad_obras",
+        success: function(ajaxData) {
+            $("#modal_global").html(ajaxData);
+            $("#modal_global").modal('show', {
+                backdrop: 'true'
+            });
+        }
+    });
+};
+</script>
