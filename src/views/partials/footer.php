@@ -21,28 +21,30 @@
 <!-- jQuery -->
 <!--<script src="plugins/jquery/jquery.min.js"></script>-->
 <script src="<?php echo $base; ?>/assets/plugins/jquery/jquery.min.js"></script>
+
+<!-- Funções Modais-->
+<script src="<?php echo $base; ?>/assets/dist/js/modais.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="<?php echo $base; ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Select2 -->
+<script src="<?php echo $base; ?>/assets/plugins/select2/js/select2.full.min.js"></script>
+<script src="<?php echo $base; ?>/assets/plugins/select2/js/select2.min.js"></script>
+
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo $base; ?>/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
 $.widget.bridge('uibutton', $.ui.button)
 </script>
-
-<!-- jQuery -->
-<script src="<?php echo $base; ?>/assets/plugins/jquery/jquery.min.js"></script>
-
-
-<!-- Bootstrap 4 -->
-<script src="<?php echo $base; ?>/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- overlayScrollbars -->
 <script src="<?php echo $base; ?>/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 
 <!-- AdminLTE App -->
 <script src="<?php echo $base; ?>/assets/dist/js/adminlte.js"></script>
-
-<!-- Select2 -->
-<script src="<?php echo $base; ?>/assets/plugins/select2/js/select2.full.min.js"></script>
 
 
 <!-- DataTables  & Plugins -->
@@ -62,10 +64,6 @@ $.widget.bridge('uibutton', $.ui.button)
 
 <!-- Toastr -->
 <script src="<?php echo $base; ?>/assets/plugins/toastr/toastr.min.js"></script>
-
-
-<!-- SweetAlert2 -->
-<script src="<?php echo $base; ?>/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 
 
 <!-- Page specific script -->
@@ -327,8 +325,7 @@ $(function() {
 
 
 });
-</script>
-<script>
+
 $(window).on('hashchange', function(e) {
     history.replaceState("", document.title, e.originalEvent.oldURL);
 });
@@ -343,21 +340,36 @@ $(document).ready(function() {
     });
 });
 
-$(function() {
-    //Initialize Select2 Elements
-    $('.select2').select2()
+/* validador de CPF ou CNPJ - start */
+function formatarCampo(campoTexto) {
+    if (campoTexto.value.length <= 11) {
+        campoTexto.value = mascaraCpf(campoTexto.value);
+    } else {
+        campoTexto.value = mascaraCnpj(campoTexto.value);
+    }
+}
 
-    //Initialize Select2 Elements   
-    $('.select2bs4').select2({
-        theme: 'bootstrap4'
-    })
+function retirarFormatacao(campoTexto) {
+    campoTexto.value = campoTexto.value.replace(/(\.|\/|\-)/g, "");
+}
 
-})
+function mascaraCpf(valor) {
+    return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3\-\$4");
+}
 
-/*$("input[id*='cpfcnpj']").inputmask({
-    mask: ['999.999.999-99', '99.999.999/9999-99'],
-    keepStatic: true
-});*/
+function mascaraCnpj(valor) {
+    return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/g, "\$1.\$2.\$3\/\$4\-\$5");
+}
+
+function somenteNumeros(num) {
+    var er = /[^0-9.]/;
+    er.lastIndex = 0;
+    var campo = num;
+    if (er.test(campo.value)) {
+        campo.value = "";
+    }
+}
+/* validador de CPF ou CNPJ - end */
 
 function mascaraFone(event) {
     var valor = document.getElementById("telefone").attributes[0].ownerElement['value'];
@@ -381,6 +393,7 @@ function mascaraFone(event) {
     document.getElementById("telefone").attributes[0].ownerElement['value'] = retorno;
 }
 </script>
+
 
 </body>
 

@@ -42,15 +42,20 @@ window.location.href = "login";
     <!--icon-->
     <link rel="shortcut icon" href="<?php echo $base; ?>/assets/img/sultec-favicon.ico" type="image/x-icon">
 
+    <!-- datetable   -->
+    <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+
+
     <!-- Select2 -->
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/select2/css/select2.min.css">
     <link rel="stylesheet"
         href="<?php echo $base; ?>/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 
-    <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet"
         href="<?php echo $base; ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <!--mask-->
 
 
 </head>
@@ -58,8 +63,10 @@ window.location.href = "login";
 <body class="sidebar-mini layout-fixed vsc-initialized text-sm" data-panel-auto-height-mode="height">
     <!--layout-navbar-fixed-->
     <div class="wrapper">
+        <base base="<?= $base ?>">
         <!-- Modal Global-->
-        <div id="modal_global" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog"></div>
+        <div id="modal_global" class="modal fade" data-backdrop="static" role="dialog"></div>
+        <!--quero criar outro modal-->
         <div id="modal_auxiliar" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog"></div>
 
         <!-- Navbar -->

@@ -83,8 +83,9 @@ $render('sidebar');
                         <div class="card-header card card-primary">
                             <div class="row">
                                 <div class="">
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                        data-target="#modal-lg">
+                                    <button onclick="cadastrar(this)" modal="/mod_rdo" type="button"
+                                        class="btn btn-success">
+                                        <!--Ele vai chamar na mesma posiço-->
                                         Emitir RDO
                                     </button>
                                 </div>
@@ -269,82 +270,6 @@ $render('sidebar');
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-
-        <!-- /.modal -->
-
-        <div class="modal fade" id="modal-lg" data-backdrop="static">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Cadastrar Obra</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="" autocomplete="off" enctype="multipart/form-data" class="form-horizontal">
-
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Descrição Obra/Serviço: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="titulo_aplicacao" id="titulo_aplicacao"
-                                        class="form-control text-uppercase" placeholder="Insira a descrição ou serviço">
-                                    <span class="p-0" id="lista_titulo_aplicacao"></span>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Cliente: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="num_projeto" class="form-control text-uppercase"
-                                        placeholder="Insira nome da Superestrutura">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Cidade: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="revisao" class="form-control text-uppercase"
-                                        placeholder="Insira nome da cidade">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Estado UF: <span
-                                        class="text-danger">*</span></label>
-                                <div class="col-sm-9">
-                                    <input type="text" name="revisao" class="form-control text-uppercase"
-                                        placeholder="Insira nome da Unidade Federativa ">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Obserações:</label>
-                                <div class="col-sm-9">
-                                    <textarea type="text" name="observacao" rows="3" class="form-control text-uppercase"
-                                        placeholder="Observações"></textarea>
-                                </div>
-                            </div>
-
-                            <input type="hidden" name="empresa" value="1">
-                            <input type="hidden" name="obra" value="1">
-                            <input type="hidden" name="form_cad_dfp">
-
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-
-                        <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i
-                                class="fa fa-times"></i> Cancelar</button>
-                        <button type="button" onclick="cad_dfp()" class="btn btn-sm btn-success"><i
-                                class="fa fa-save"></i> Salvar</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-
-
     </section>
 </div>
 

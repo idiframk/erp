@@ -3,8 +3,6 @@ $render('header');
 $render('sidebar');
 ?>
 
-<script src="https://code.jquery.com/jquery-1.10.0.min.js"></script>
-<script src="https://rawgit.com/RobinHerbots/Inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
 
 
 <!-- Content Wrapper. Contains page content -->
@@ -114,7 +112,7 @@ $render('sidebar');
                         <div class="card-header card card-primary">
                             <div class="row">
                                 <div class="">
-                                    <button onclick="cadastrar()" class="btn btn-success">
+                                    <button onclick="cadastrar(this)" modal="/mod_cad_obras" class="btn btn-success">
                                         Cadastrar Obra
                                     </button>
                                 </div>
@@ -307,20 +305,21 @@ $render('sidebar');
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->
-
 </div>
-
-
 </section>
 </div>
+
+
 <?php
 $render('footer');
 ?>
+
+
 <script>
 //Chamar Modal para Cadastrar Registro Genérico
-function cadastrar() {
+/*function cadastrar() {
     $.ajax({
-        url: "<?= $base ?>/mod_cad_obras",
+        url: base() + '/mod_cad_obras',
         success: function(ajaxData) {
             $("#modal_global").html(ajaxData);
             $("#modal_global").modal('show', {
@@ -328,5 +327,5 @@ function cadastrar() {
             });
         }
     });
-};
+};*/
 </script>
