@@ -26,3 +26,25 @@ function cadastrar(valor) {
         }
     });
 };
+
+//Chamar Modal para Editar Registro Genérico
+function editar(valor) {
+    let id = $(valor).attr('id_registro');
+    let modal = $(valor).attr('modal');
+    let tipo = $(valor).attr('tipo');
+    $.ajax({
+        url: base() + modal,
+        // type: "POST",
+        async: true,
+        data: {
+            id: id,
+            tipo: tipo
+        },
+        success: function (ajaxData) {
+            $("#modal_global").html(ajaxData);
+            $("#modal_global").modal('show', {
+                backdrop: 'true'
+            });
+        }
+    });
+};

@@ -12,8 +12,8 @@ class ObrasController extends Controller
 
     public function cad_obra()
     {
-
-        $this->render('cad_obra');
+        $obras = tbl_obra::select()->execute();
+        $this->render('cad_obra', ['obras' => $obras]);
     }
 
     public function mod_cad_obras()
@@ -103,8 +103,29 @@ class ObrasController extends Controller
     }
 
 
+    public function mod_compra()
+    {
+        $this->render('mod_compra');
+    }
+
+
+
+
     public function list_rdo()
     {
         $this->render('list_rdo');
+    }
+
+    public function mod_edit_obras($args)
+    {
+        $edit_Obra = tbl_obra::select()->where('obra_id', $args['id'])->one();
+
+
+        //print_r($edit_Obra);
+        $estados = tbl_estado::select()->execute();
+        $this->render('mod_edit_obras', [
+            'edit_Obra' => $edit_Obra,
+            'estados' => $estados
+        ]);
     }
 }

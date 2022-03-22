@@ -88,6 +88,11 @@ $render('sidebar');
                                         <!--Ele vai chamar na mesma posiço-->
                                         Emitir RDO
                                     </button>
+                                    <button onclick="cadastrar(this)" modal="/mod_compra" type="button"
+                                        class="btn btn-success">
+                                        <!--Ele vai chamar na mesma posiço-->
+                                        Emitir RDO
+                                    </button>
                                 </div>
                             </div>
                         </div>

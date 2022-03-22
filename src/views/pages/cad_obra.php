@@ -132,22 +132,25 @@ $render('sidebar');
                                 <thead>
                                     <tr>
                                         <th style="width:32px;text-align: center">#Cod.</th>
-                                        <th>Eng. Responsável</th>
-                                        <th>Descrição Obra/Serviço</th>
-                                        <th>Cliente</th>
-                                        <th>Endereço</th>
+                                        <th>Nome da Obra</th>
+                                        <th>Razão Social</th>
+                                        <th>UF</th>
+                                        <th>Municipio</th>
                                         <th>Progresso</th>
                                         <th style="width:15%;text-align: center">Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                    <?php foreach ($obras as $obra) : ?>
+
                                     <tr>
-                                        <td>#001</td>
-                                        <td>Diego Muller</td>
-                                        <td>Impermeabilização
-                                        </td>
-                                        <td>Zimmermann</td>
-                                        <td> AvantGarde - Rua 305</td>
+
+                                        <td>#<?= $obra['obra_id']; ?></td>
+                                        <td><?= $obra['obra_nome']; ?></td>
+                                        <td><?= $obra['obra_razao']; ?></td>
+                                        <td><?= $obra['obra_endEstado']; ?></td>
+                                        <td><?= $obra['obra_endMunic']; ?></td>
 
                                         <td>
                                             <div class="progress">
@@ -155,7 +158,6 @@ $render('sidebar');
                                                     role="progressbar" style="width: 25%;" aria-valuenow="25"
                                                     aria-valuemin="0" aria-valuemax="100">25%</div>
                                             </div>
-
                                         </td>
 
                                         <td class="project-actions text-right">
@@ -164,7 +166,9 @@ $render('sidebar');
                                                 </i>
                                                 View
                                             </a>
-                                            <a class="btn btn-info btn-sm" href="#">
+                                            <a class="btn btn-info btn-sm" onclick="editar(this)" href="#"
+                                                modal="/mod_edit_obras/<?= $obra['obra_id']; ?>/editar"
+                                                id_registro="<?= $obra['obra_id']; ?>">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 Edit
@@ -176,111 +180,7 @@ $render('sidebar');
                                             </a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>#002</td>
-                                        <td>Diego Muller</td>
-                                        <td>Injeção
-                                        </td>
-                                        <td>CNA Cartier Residence</td>
-                                        <td>Obras no Literotal</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped bg-success"
-                                                    role="progressbar" style="width: 25%;" aria-valuenow="25"
-                                                    aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
-                                        </td>
-
-
-                                        <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
-                                                </i>
-                                                View
-                                            </a>
-                                            <a class="btn btn-info btn-sm" href="#">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>#003</td>
-                                        <td>Diego Muller</td>
-                                        <td>Injeção
-                                        </td>
-                                        <td>Pasquallotto - Yachthouse</td>
-                                        <td>Obras no Literotal</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped bg-success"
-                                                    role="progressbar" style="width: 25%;" aria-valuenow="25"
-                                                    aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
-                                        </td>
-
-
-                                        <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
-                                                </i>
-                                                View
-                                            </a>
-                                            <a class="btn btn-info btn-sm" href="#">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>#004</td>
-                                        <td>Rafael</td>
-                                        <td>Revitalização
-                                        </td>
-                                        <td>UHE - ITA</td>
-                                        <td>Ita - Santa Catarina</td>
-                                        <td>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped bg-success"
-                                                    role="progressbar" style="width: 25%;" aria-valuenow="25"
-                                                    aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
-                                        </td>
-
-
-                                        <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
-                                                </i>
-                                                View
-                                            </a>
-                                            <a class="btn btn-info btn-sm" href="#">
-                                                <i class="fas fa-pencil-alt">
-                                                </i>
-                                                Edit
-                                            </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Delete
-                                            </a>
-                                        </td>
-                                    </tr>
-
+                                    <?php endforeach; ?>
 
                                 </tbody>
                                 <tfoot>

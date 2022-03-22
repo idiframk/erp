@@ -183,7 +183,7 @@
         //Exibe mensagem na subcategoria enquanto carrega dados
         $("select[name=" + $(valor).attr("cidade") + "]").html('<option value="0">Carregando...</option>');
         //Envia código do grupo para selecionar as categorias
-        $.post(base() + '/list_ciddades', {
+        $.post('<?= $base ?>/mod_cad_obras', {
                 grupo: $(valor).val()
             },
             function(dados) {
@@ -252,8 +252,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: '<?php $base; ?>/mod_cad_obras',
-                // url: base() + '/mod_cad_obras',
+                url: '<?php $base; ?>/mod_cad_obras', //modal
                 async: true,
                 data: dados,
                 success: function(data) {

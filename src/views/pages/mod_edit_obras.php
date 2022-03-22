@@ -15,8 +15,8 @@
                     <label class="col-sm-3 col-form-label" style="text-align: end;">Nome da Obra
                         <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" name="nome_obra" id="titulo_aplicacao" class="form-control text-uppercase"
-                            placeholder="Insira o nome da obra">
+                        <input type="text" name="nome_obra" value="<?= $edit_Obra['obra_nome'] ?>" id="titulo_aplicacao"
+                            class="form-control text-uppercase" placeholder="Insira o nome da obra">
                         <span class="p-0" id="lista_titulo_aplicacao"></span>
                     </div>
                 </div>
@@ -26,7 +26,8 @@
                         Social/Cliente:
                         <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" name="razao_social" class="form-control text-uppercase"
+                        <input type="text" value="<?= $edit_Obra['obra_razao'] ?>" name="razao_social"
+                            class="form-control text-uppercase"
                             placeholder="Insira nome da razão social nome do Cliente">
 
                     </div>
@@ -36,10 +37,10 @@
                     <label class="col-sm-3 col-form-label" style="text-align: end;">CNPJ: <span
                             class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" name="cnpj" class="form-control text-uppercase" id="cpfcnpj"
-                            onkeyup="somenteNumeros(this);" onfocus="javascript: retirarFormatacao(this);"
-                            onblur="javascript: formatarCampo(this);" maxlength="14"
-                            placeholder="Insira o CPF ou CNPJ - * SOMENTE NÚMEROS!*" />
+                        <input type="text" value="<?= $edit_Obra['obra_cnpj'] ?>" name="cnpj"
+                            class="form-control text-uppercase" id="cpfcnpj" onkeyup="somenteNumeros(this);"
+                            onfocus="javascript: retirarFormatacao(this);" onblur="javascript: formatarCampo(this);"
+                            maxlength="14" placeholder="Insira o CPF ou CNPJ - * SOMENTE NÚMEROS!*" />
 
                     </div>
                 </div>
@@ -48,8 +49,8 @@
                     <label class="col-sm-3 col-form-label" style="text-align: end;">Endereço: <span
                             class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" name="endereco" class="form-control text-uppercase"
-                            placeholder="Insira o endereço da obra ">
+                        <input type="text" value="<?= $edit_Obra['obra_endRua'] ?>" name="endereco"
+                            class="form-control text-uppercase" placeholder="Insira o endereço da obra ">
 
                     </div>
                 </div>
@@ -58,7 +59,8 @@
                     <label class="col-sm-3 col-form-label" style="text-align: end;">Número: <span
                             class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" name="numero" rows="3" class="form-control text-uppercase"
+                        <input type="text" value="<?= $edit_Obra['obra_endNum'] ?>" name="numero" rows="3"
+                            class="form-control text-uppercase"
                             placeholder="Insira o número, caso não tenha insira S/N"></input>
 
                     </div>
@@ -68,8 +70,8 @@
                     <label class="col-sm-3 col-form-label" style="text-align: end;">Bairro: <span
                             class="text-danger">*</span></label>
                     <div class="col-sm-9">
-                        <input type="text" name="bairro" rows="3" class="form-control text-uppercase"
-                            placeholder="Insira o bairro"></input>
+                        <input type="text" value="<?= $edit_Obra['obra_endBairro'] ?>" name="bairro" rows="3"
+                            class="form-control text-uppercase" placeholder="Insira o bairro"></input>
 
                     </div>
                 </div>
@@ -82,9 +84,10 @@
                         <select name="uf" cidade="cidade" class="form-control select2" onchange="getCidade(this)"
                             style="width: 100%;" data-placeholder="Uma Unidade Federativa/Estado do Brasil">
                             <option selected="selected"></option>
-                            <?php foreach ($estados as $estado) : ?>
-                            <option value="<?= $estado['id'] ?>"><?= $estado['sigla'] ?></option>
-                            <?php endforeach; ?>
+                            <?php foreach ($estados as $estado) :
+                                $sel = $edit_Obra['obra_endEstado'] == $estado['id'] ? ' selected' : '';
+                                echo '<option value="' . $estado['id'] . '"' . $sel . '>' . $estado['sigla'] . '</option>';
+                            endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -107,8 +110,9 @@
                         <span class="text-danger">*</span></label>
 
                     <div class="col-sm-9">
-                        <input type="text" name="email" id="email" onblur="checarEmail();" rows="3" class="form-control"
-                            placeholder="Insira um email" class="form-control" value="" required></input>
+                        <input type="text" value="<?= $edit_Obra['obra_email'] ?>" name="email" id="email"
+                            onblur="checarEmail();" rows="3" class="form-control" placeholder="Insira um email"
+                            class="form-control" value="" required></input>
 
                     </div>
                 </div>
@@ -119,8 +123,9 @@
                             class="text-danger">*</span></label>
 
                     <div class="col-sm-9">
-                        <input type="text" name="contato" rows="3" class="form-control text-uppercase" id="telefone"
-                            onkeyup="mascaraFone(event)" placeholder="Insira um número de telefone"></input>
+                        <input type="text" value="<?= $edit_Obra['obra_fone'] ?>" name="contato" rows="3"
+                            class="form-control text-uppercase" id="telefone" onkeyup="mascaraFone(event)"
+                            placeholder="Insira um número de telefone"></input>
                     </div>
                 </div>
                 <p>Campos com (<span class="text-danger">*</span>) são obrigatórios.</p>
