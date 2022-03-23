@@ -99,8 +99,7 @@
 
                         <select name="cidade" class="form-control select2" style="width: 100%;"
                             data-placeholder="Selecione um municipio/Cidade">
-                            <option selected="selected"></option>
-
+                            <option value="$edit_Obra['obra_endMunic']"></option>
                         </select>
                     </div>
                 </div>
@@ -152,6 +151,8 @@
             theme: 'bootstrap4'
         })
 
+        editCidade('cidade', $("select[name=uf]").val(), $("select[name=cidade]").val());
+
     })
 
 
@@ -182,6 +183,21 @@
         }
 
     )();
+
+    //Carregar SELECT CIDADES de forma dinâmica
+    function editCidade($nomeImput, $grupo, $cidade) {
+        //Exibe mensagem na subcategoria enquanto carrega dados
+        $("select[name=" + $nomeImput + "]").html('<option value="0">Carregando...</option>');
+        //Envia código do grupo para selecionar as categorias
+        $.post(base() + '/list_ciddades', {
+                grupo: $grupo,
+                cidade: $cidade
+
+            },
+            function(dados) {
+                $("select[name=" + $nomeImput + "]").html(dados);
+            })
+    }
 
     //Carregar SELECT CIDADES de forma dinâmica
     function getCidade(valor) {

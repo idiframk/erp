@@ -13,12 +13,12 @@ $render('sidebar');
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Dashboard de Clientes/</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard </li>
+                            <li class="breadcrumb-item active">Dashboard de Clientes/ </li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -40,7 +40,7 @@ $render('sidebar');
                         <div class="inner">
                             <h3>5<sup style="font-size: 20px"></sup></h3>
 
-                            <p>Obras Ativas</p>
+                            <p>Obras/Contratos Ativos</p>
                         </div>
 
                         <div class="icon">
@@ -55,7 +55,7 @@ $render('sidebar');
                     <div class="small-box bg-danger">
                         <div class="inner">
                             <h3>145</h3>
-                            <p>Obras Encerradas</p>
+                            <p>Obras/Contratos Encerradas</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-close-circled"></i>
@@ -71,26 +71,10 @@ $render('sidebar');
                         <div class="inner">
                             <h3>150</h3>
 
-                            <p>Total de Obras</p>
+                            <p>Total de Obras/Contratos</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-briefcase"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-warning">
-                        <div class="inner">
-                            <h3>44</h3>
-
-                            <p>RDO's Emitidas</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-clipboard"></i>
                         </div>
                         <a href="#" class="small-box-footer">Mais informação <i
                                 class="fas fa-arrow-circle-right"></i></a>
@@ -136,8 +120,8 @@ $render('sidebar');
                                         <th>Razão Social</th>
                                         <th>UF</th>
                                         <th>Municipio</th>
-                                        <th>Progresso</th>
-                                        <th style="width:15%;text-align: center">Ação</th>
+                                        <th style="width:10%;text-align: center">Status</th>
+                                        <th style="width:10%;text-align: center">Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -149,23 +133,47 @@ $render('sidebar');
                                         <td>#<?= $obra['obra_id']; ?></td>
                                         <td><?= $obra['obra_nome']; ?></td>
                                         <td><?= $obra['obra_razao']; ?></td>
-                                        <td><?= $obra['obra_endEstado']; ?></td>
-                                        <td><?= $obra['obra_endMunic']; ?></td>
+                                        <td>
+                                            <?php
+                                                //print_r($ufs);
+                                                foreach ($ufs as $uf) :
+
+                                                    if ($obra['obra_endEstado'] == $uf['id']) {
+                                                        echo $uf['descricao'];
+                                                    }
+                                                endforeach;
+                                                ?>
+                                        </td>
+                                        <td>
+
+                                            <?php foreach ($city_lists as $city_list) :
+                                                    if ($obra['obra_endMunic'] == $city_list['id']) {
+                                                        echo $city_list['descricao'];
+                                                    }
+                                                endforeach;
+                                                ?>
+                                        </td>
 
                                         <td>
-                                            <div class="progress">
-                                                <div class="progress-bar progress-bar-striped bg-success"
-                                                    role="progressbar" style="width: 25%;" aria-valuenow="25"
-                                                    aria-valuemin="0" aria-valuemax="100">25%</div>
-                                            </div>
+                                            <?php
+
+                                                if ($obra['obra_status'] == 1) {
+                                                ?>
+                                            <button type="button" class="btn btn-block bg-gradient-success"
+                                                disabled>Ativo</button>
+                                            <?php
+
+                                                } else {
+                                                ?>
+                                            <button type="button" class="btn btn-block bg-gradient-danger"
+                                                disabled>Inativo</button>
+                                            <?php
+
+                                                } ?>
+
                                         </td>
 
                                         <td class="project-actions text-right">
-                                            <a class="btn btn-primary btn-sm" href="#">
-                                                <i class="fas fa-eye">
-                                                </i>
-                                                View
-                                            </a>
                                             <a class="btn btn-info btn-sm" onclick="editar(this)" href="#"
                                                 modal="/mod_edit_obras/<?= $obra['obra_id']; ?>/editar"
                                                 id_registro="<?= $obra['obra_id']; ?>">

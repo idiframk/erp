@@ -12,8 +12,15 @@ class ObrasController extends Controller
 
     public function cad_obra()
     {
-        $obras = tbl_obra::select()->execute();
-        $this->render('cad_obra', ['obras' => $obras]);
+        $ufs  = tbl_estado::select()->get();
+        $city_lists = tbl_cidade::select()->get();
+        $obras = tbl_obra::select()->get();
+
+        $this->render('cad_obra', [
+            'obras' => $obras,
+            'ufs' => $ufs,
+            'city_lists' => $city_lists
+        ]);
     }
 
     public function mod_cad_obras()
@@ -62,8 +69,18 @@ class ObrasController extends Controller
         $bairro = mb_strtoupper(filter_input(INPUT_POST, 'bairro'), 'UTF-8');
         $uf = mb_strtoupper(filter_input(INPUT_POST, 'uf'), 'UTF-8');
         $cidade = mb_strtoupper(filter_input(INPUT_POST, 'cidade'), 'UTF-8');
+        $nome_cliente = mb_strtoupper(filter_input(INPUT_POST, 'nome_cliente'), 'UTF-8');
+
         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
         $contato = mb_strtoupper(filter_input(INPUT_POST, 'contato'), 'UTF-8');
+
+        $num_contrato = mb_strtoupper(filter_input(INPUT_POST, 'num_contrato'), 'UTF-8');
+        $dtinic_contrato = mb_strtoupper(filter_input(INPUT_POST, 'dtinic_contrato'), 'UTF-8');
+        $dtfim_contrato = mb_strtoupper(filter_input(INPUT_POST, 'dtfim_contrato'), 'UTF-8');
+
+        $dec_srv = mb_strtoupper(filter_input(INPUT_POST, 'dec_srv'), 'UTF-8');
+
+
 
         if (isset($cnpj) && !empty($cnpj)) {
             $data = tbl_obra::select()->where('obra_cnpj', $cnpj)->execute();
@@ -78,8 +95,16 @@ class ObrasController extends Controller
                     'obra_endBairro' => $bairro,
                     'obra_endEstado' => $uf,
                     'obra_endMunic' => $cidade,
+                    'obra_cliente' => $nome_cliente,
                     'obra_email' => $email,
-                    'obra_fone' => $contato
+                    'obra_fone' => $contato,
+                    'obra_NumContrato' => $num_contrato,
+                    'obra_dtinic' => $dtinic_contrato,
+                    'obra_dtfim' => $dtfim_contrato,
+                    'obra_desc_srv' => $dec_srv
+
+
+
 
                 ])->execute();
                 $e['retorno'] = 1;
