@@ -38,7 +38,7 @@ $render('sidebar');
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>5<sup style="font-size: 20px"></sup></h3>
+                            <h3><?= $obras_ativas; ?><sup style="font-size: 20px"></sup></h3>
 
                             <p>Obras/Contratos Ativos</p>
                         </div>
@@ -54,7 +54,7 @@ $render('sidebar');
 
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>145</h3>
+                            <h3><?= $obras_finaliz; ?></h3>
                             <p>Obras/Contratos Encerradas</p>
                         </div>
                         <div class="icon">
@@ -69,7 +69,7 @@ $render('sidebar');
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $total_obras; ?></h3>
 
                             <p>Total de Obras/Contratos</p>
                         </div>

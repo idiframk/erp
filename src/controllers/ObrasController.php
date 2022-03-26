@@ -16,10 +16,22 @@ class ObrasController extends Controller
         $city_lists = tbl_cidade::select()->get();
         $obras = tbl_obra::select()->get();
 
+        $obras = tbl_obra::select()->get();
+        $obras_status1 = tbl_obra::select()->where('obra_status', 1)->get();
+        $obras_status0 = tbl_obra::select()->where('obra_status', 0)->get();
+
+        $total_obras = count($obras);
+        $obras_ativas = count($obras_status1);
+        $obras_finaliz = count($obras_status0);
+
+
         $this->render('cad_obra', [
             'obras' => $obras,
             'ufs' => $ufs,
-            'city_lists' => $city_lists
+            'city_lists' => $city_lists,
+            'obras_ativas' => $obras_ativas,
+            'obras_finaliz' => $obras_finaliz,
+            'total_obras' => $total_obras
         ]);
     }
 
@@ -179,7 +191,7 @@ class ObrasController extends Controller
 
 
 
-        if (isset($cnpj) && !empty($cnpj)) {
+        if (isset($args) && !empty($args)) {
             tbl_obra::update()
                 ->set('obra_razao', $razao_social)
                 ->set('obra_nome', $nome_obra)
