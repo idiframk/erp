@@ -5,9 +5,6 @@ namespace src;
 class Config
 {
     const BASE_DIR = '';
-    //const ulr_empresa = 'Sultec';
-
-    //const UR_LOCAL = '/sultec.eng.com/public';
 
     const DB_DRIVER = 'mysql';
     const DB_HOST = 'localhost';

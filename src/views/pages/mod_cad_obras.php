@@ -136,8 +136,6 @@
                         </div>
                     </div>
                     <div class="card-body">
-
-
                         <div class="form-group row">
                             <div class="form-group col-md-6">
                                 <label class="col-form-label">Número do Contrato: <span
@@ -166,6 +164,7 @@
 
                         </div>
                     </div>
+                </div>
             </form>
         </div>
         <div class="modal-footer">
@@ -315,8 +314,8 @@ function cad_obra() {
         $.ajax({
             type: 'POST',
             dataType: 'json',
-            url: '<?php $base; ?>/mod_cad_obras',
-            // url: base() + '/mod_cad_obras',
+
+            url: base() + '/mod_cad_obras',
             async: true,
             data: dados,
             success: function(data) {

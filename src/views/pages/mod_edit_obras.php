@@ -2,7 +2,7 @@
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">Cadastrar Obra</h4>
+            <h4 class="modal-title">EDITAR OBRA</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -10,123 +10,170 @@
         <div class="modal-body">
             <form id="form_cad_obra" method="POST" autocomplete="off" enctype="multipart/form-data"
                 class="form-horizontal">
+                <div class="card card-primary ">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-city"></i>
+                            Dados da obra
+                        </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="form-label">Nome da Obra
+                                    <span class="text-danger">*</span></label>
+                                <input type="text" name="nome_obra" value="<?= $edit_Obra['obra_nome'] ?>"
+                                    id="titulo_aplicacao" class="form-control text-uppercase"
+                                    placeholder="Insira o nome da obra">
+                                <span class="p-0" id="lista_titulo_aplicacao"></span>
+                            </div>
+                        </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Nome da Obra
-                        <span class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" name="nome_obra" value="<?= $edit_Obra['obra_nome'] ?>" id="titulo_aplicacao"
-                            class="form-control text-uppercase" placeholder="Insira o nome da obra">
-                        <span class="p-0" id="lista_titulo_aplicacao"></span>
+                        <div class="form-row">
+                            <div class="form-group col-md-9">
+                                <label class="form-label">Razão
+                                    Social/Cliente:
+                                    <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_razao'] ?>" name="razao_social"
+                                    class="form-control text-uppercase"
+                                    placeholder="Insira nome da razão social nome do Cliente">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="form-label">CNPJ: <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_cnpj'] ?>" name="cnpj"
+                                    class="form-control text-uppercase" id="cpfcnpj" onkeyup="somenteNumeros(this);"
+                                    onfocus="javascript: retirarFormatacao(this);"
+                                    onblur="javascript: formatarCampo(this);" maxlength="14"
+                                    placeholder="Insira o CPF ou CNPJ - * SOMENTE NÚMEROS!*" />
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-row">
+                            <div class="col-sm-9">
+                                <label class="form-label">Endereço: <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_endRua'] ?>" name="endereco"
+                                    class="form-control text-uppercase" placeholder="Insira o endereço da obra ">
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-label">Número: <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_endNum'] ?>" name="numero" rows="3"
+                                    class="form-control text-uppercase"
+                                    placeholder="Insira o número, caso não tenha insira S/N"></input>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-sm-4">
+                                <label class="form-label">Bairro: <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_endBairro'] ?>" name="bairro" rows="3"
+                                    class="form-control text-uppercase" placeholder="Insira o bairro"></input>
+                            </div>
+                            <div class="col-sm-2">
+                                <label class="form-label">UF/Estado: <span class="text-danger">*</span></label>
+                                <select name="uf" cidade="cidade" class="form-control select2"
+                                    onchange="getCidade(this)" style="width: 100%;"
+                                    data-placeholder="Uma Unidade Federativa/Estado do Brasil">
+                                    <option selected="selected"></option>
+                                    <?php foreach ($estados as $estado) :
+                                        $sel = $edit_Obra['obra_endEstado'] == $estado['id'] ? ' selected' : '';
+                                        echo '<option value="' . $estado['id'] . '"' . $sel . '>' . $estado['sigla'] . '</option>';
+                                    endforeach; ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Municipio/Cidade:
+                                    <span class="text-danger">*</span></label>
+                                <select name="cidade" class="form-control select2" style="width: 100%;"
+                                    data-placeholder="Selecione um municipio/Cidade">
+                                    <option value="<?= $edit_Obra['obra_endMunic']; ?>"></option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label class="col-sm-3 col-form-label" for="formGroupExampleInput">Nome do Cliente:<span
+                                        class="text-danger">*</span></label></label>
+                                <input type="text" value="<?= $edit_Obra['obra_cliente'] ?>" name="nome_cliente"
+                                    id="titulo_aplicacao" class="form-control text-uppercase" class="form-control"
+                                    id="formGroupExampleInput" placeholder="Insira o nome do cliente">
+                                <span class="p-0"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-sm-6">
+                                <label class="form-label" for="validationCustomEmail">E-Mail:
+                                    <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_email'] ?>" name="email" id="email"
+                                    onblur="checarEmail();" rows="3" class="form-control" placeholder="Insira um email"
+                                    class="form-control" value="" required></input>
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="form-label">Contato: <span class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_fone'] ?>" name="contato" rows="3"
+                                    class="form-control text-uppercase" id="telefone" onkeyup="mascaraFone(event)"
+                                    placeholder="Insira um número de telefone"></input>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Razão
-                        Social/Cliente:
-                        <span class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_razao'] ?>" name="razao_social"
-                            class="form-control text-uppercase"
-                            placeholder="Insira nome da razão social nome do Cliente">
-
+                <div class="card card-primary ">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-city"></i>
+                            Dados do Contrato
+                        </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
                     </div>
+                    <div class="card-body">
+
+
+                        <div class="form-group row">
+                            <div class="form-group col-md-6">
+                                <label class="col-form-label">Número do Contrato: <span
+                                        class="text-danger">*</span></label>
+                                <input type="text" value="<?= $edit_Obra['obra_NumContrato'] ?>" name="num_contrato"
+                                    class="form-control text-uppercase" placeholder="Insira o número do contrato">
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="col-form-label">Início do Contrato:<span
+                                        class="text-danger">*</span></label>
+                                <input type="date" value="<?= $edit_Obra['obra_dtinic'] ?>" name="dtinic_contrato"
+                                    class="form-control" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label class="col-form-label">Fim do Contrato:<span class="text-danger">*</span></label>
+                                <input type="date" value="<?= $edit_Obra['obra_dtfim'] ?>" name="dtfim_contrato"
+                                    class="form-control" />
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group row">
+                            <div class="form-group col-md-12">
+                                <label class="col-form-label" for="validationCustomEmail">Descrição do Serviço:<span
+                                        class="text-danger">*</span></label>
+                                <textarea class="form-control" name="dec_srv" id="exampleFormControlTextarea1"
+                                    rows="3"><?= $edit_Obra['obra_desc_srv'] ?></textarea>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class=" form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">CNPJ: <span
-                            class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_cnpj'] ?>" name="cnpj"
-                            class="form-control text-uppercase" id="cpfcnpj" onkeyup="somenteNumeros(this);"
-                            onfocus="javascript: retirarFormatacao(this);" onblur="javascript: formatarCampo(this);"
-                            maxlength="14" placeholder="Insira o CPF ou CNPJ - * SOMENTE NÚMEROS!*" />
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Endereço: <span
-                            class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_endRua'] ?>" name="endereco"
-                            class="form-control text-uppercase" placeholder="Insira o endereço da obra ">
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Número: <span
-                            class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_endNum'] ?>" name="numero" rows="3"
-                            class="form-control text-uppercase"
-                            placeholder="Insira o número, caso não tenha insira S/N"></input>
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Bairro: <span
-                            class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_endBairro'] ?>" name="bairro" rows="3"
-                            class="form-control text-uppercase" placeholder="Insira o bairro"></input>
-
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">UF/Estado: <span
-                            class="text-danger">*</span></label>
-
-                    <div class="col-sm-9">
-                        <select name="uf" cidade="cidade" class="form-control select2" onchange="getCidade(this)"
-                            style="width: 100%;" data-placeholder="Uma Unidade Federativa/Estado do Brasil">
-                            <option selected="selected"></option>
-                            <?php foreach ($estados as $estado) :
-                                $sel = $edit_Obra['obra_endEstado'] == $estado['id'] ? ' selected' : '';
-                                echo '<option value="' . $estado['id'] . '"' . $sel . '>' . $estado['sigla'] . '</option>';
-                            endforeach; ?>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Municipio/Cidade:
-                        <span class="text-danger">*</span></label>
-                    <div class="col-sm-9">
-
-                        <select name="cidade" class="form-control select2" style="width: 100%;"
-                            data-placeholder="Selecione um municipio/Cidade">
-                            <option value="$edit_Obra['obra_endMunic']"></option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" for="validationCustomEmail" style="text-align: end;">E-Mail:
-                        <span class="text-danger">*</span></label>
-
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_email'] ?>" name="email" id="email"
-                            onblur="checarEmail();" rows="3" class="form-control" placeholder="Insira um email"
-                            class="form-control" value="" required></input>
-
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" style="text-align: end;">Contato: <span
-                            class="text-danger">*</span></label>
-
-                    <div class="col-sm-9">
-                        <input type="text" value="<?= $edit_Obra['obra_fone'] ?>" name="contato" rows="3"
-                            class="form-control text-uppercase" id="telefone" onkeyup="mascaraFone(event)"
-                            placeholder="Insira um número de telefone"></input>
-                    </div>
-                </div>
+                <input type="hidden" name="obra_id" value="<?= $edit_Obra['obra_id']; ?>" />
                 <p>Campos com (<span class="text-danger">*</span>) são obrigatórios.</p>
             </form>
         </div>
@@ -154,6 +201,33 @@
         editCidade('cidade', $("select[name=uf]").val(), $("select[name=cidade]").val());
 
     })
+    //Carregar SELECT CIDADES de forma dinâmica
+    function editCidade($nomeImput, $grupo, $cidade) {
+        //Exibe mensagem na subcategoria enquanto carrega dados
+        $("select[name=" + $nomeImput + "]").html('<option value="0">Carregando...</option>');
+        //Envia código do grupo para selecionar as categorias
+        $.post(base() + '/list_ciddades', {
+                grupo: $grupo,
+                cidade: $cidade
+
+            },
+            function(dados) {
+                $("select[name=" + $nomeImput + "]").html(dados);
+            })
+    }
+
+    //Carregar SELECT CIDADES de forma dinâmica
+    function getCidade(valor) {
+        //Exibe mensagem na subcategoria enquanto carrega dados
+        $("select[name=" + $(valor).attr("cidade") + "]").html('<option value="0">Carregando...</option>');
+        //Envia código do grupo para selecionar as categorias
+        $.post(base() + '/list_ciddades', {
+                grupo: $(valor).val()
+            },
+            function(dados) {
+                $("select[name=" + $(valor).attr("cidade") + "]").html(dados);
+            })
+    }
 
 
     (() => {
@@ -184,33 +258,7 @@
 
     )();
 
-    //Carregar SELECT CIDADES de forma dinâmica
-    function editCidade($nomeImput, $grupo, $cidade) {
-        //Exibe mensagem na subcategoria enquanto carrega dados
-        $("select[name=" + $nomeImput + "]").html('<option value="0">Carregando...</option>');
-        //Envia código do grupo para selecionar as categorias
-        $.post(base() + '/list_ciddades', {
-                grupo: $grupo,
-                cidade: $cidade
 
-            },
-            function(dados) {
-                $("select[name=" + $nomeImput + "]").html(dados);
-            })
-    }
-
-    //Carregar SELECT CIDADES de forma dinâmica
-    function getCidade(valor) {
-        //Exibe mensagem na subcategoria enquanto carrega dados
-        $("select[name=" + $(valor).attr("cidade") + "]").html('<option value="0">Carregando...</option>');
-        //Envia código do grupo para selecionar as categorias
-        $.post(base() + '/list_ciddades', {
-                grupo: $(valor).val()
-            },
-            function(dados) {
-                $("select[name=" + $(valor).attr("cidade") + "]").html(dados);
-            })
-    }
 
 
     //Salvar dados
@@ -273,13 +321,11 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: '<?php $base; ?>/mod_cad_obras',
-                // url: base() + '/mod_cad_obras',
+                url: base() + '/mod_edit_obras/<?= $edit_Obra['obra_id']; ?>/editar', ///aqui testar
                 async: true,
                 data: dados,
                 success: function(data) {
                     if (data['retorno'] == 1) {
-
 
                         Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                         setTimeout(function() {

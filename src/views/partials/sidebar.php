@@ -4,7 +4,8 @@
     <a href="home" class="brand-link navbar-primary">
         <img src="<?php echo $base; ?>/assets/img/sultec-logo-smb.png" alt="Sultec Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"><strong><?php echo 'Sultec -  Eng. e Geotecnia' ?></strong></span>
+        <span style="color: #ffff"
+            class="brand-text font-weight-bold"><?php echo 'Sultec -  Eng. e Geotecnia'  ?></span>
     </a>
 
     <!-- Sidebar -->
@@ -139,11 +140,9 @@
                             </li>
                         </ul>
                     </li>
-
                 </ul>
         </nav>
-    </div>
-    <!-- /.sidebar-menu -->
+        <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
 </aside>

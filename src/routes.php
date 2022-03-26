@@ -24,6 +24,7 @@ $router->post('/mod_cad_obras', 'ObrasController@obra_addAction');
 $router->post('/list_ciddades', 'ObrasController@list_ciddades');
 
 $router->get('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obras');
+$router->post('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obrasAction');
 
 $router->get('/mod_edit_obras/{id}/excluir', 'ObrasController@mod_del_obras');
 
