@@ -26,7 +26,9 @@ $router->post('/list_ciddades', 'ObrasController@list_ciddades');
 $router->get('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obras');
 $router->post('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obrasAction');
 
-$router->get('/mod_edit_obras/{id}/excluir', 'ObrasController@mod_del_obras');
+
+$router->get('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obra');
+$router->post('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obrasAction');
 
 
 

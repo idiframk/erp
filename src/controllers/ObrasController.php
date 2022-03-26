@@ -153,7 +153,7 @@ class ObrasController extends Controller
         ]);
     }
 
-    public function mod_edit_obrasAction($args) // fez alteracao!!!
+    public function mod_edit_obrasAction($args)
     {
 
         $e = array();
@@ -161,7 +161,6 @@ class ObrasController extends Controller
 
         $nome_obra = mb_strtoupper(filter_input(INPUT_POST, 'nome_obra'), 'UTF-8');
         $razao_social = mb_strtoupper(filter_input(INPUT_POST, 'razao_social'), 'UTF-8');
-        $cnpj = mb_strtoupper(filter_input(INPUT_POST, 'cnpj'), 'UTF-8');
         $endereco = mb_strtoupper(filter_input(INPUT_POST, 'endereco'), 'UTF-8');
         $numero = mb_strtoupper(filter_input(INPUT_POST, 'numero'), 'UTF-8');
         $bairro = mb_strtoupper(filter_input(INPUT_POST, 'bairro'), 'UTF-8');
@@ -204,6 +203,30 @@ class ObrasController extends Controller
             $e['retorno'] = 0;
         }
 
+        echo json_encode($e);
+    }
+
+    public function mod_del_obra($args)
+    {
+        $edit_Obra = tbl_obra::select()->where('obra_id', $args['id'])->one();
+
+
+        $this->render('mod_del_obra');
+    }
+
+    public function mod_del_obrasAction($args)
+    {
+        $e = array();
+        $e['sucesso'] = 0;
+
+        if (isset($args) && !empty($args)) {
+            tbl_obra::delete()->where('obra_id', $args['id'])->execute();
+
+            //$this->redirect('/cad_obra');
+            $e['sucesso'] = 1;
+        } else {
+            $e['sucesso'] = 0;
+        }
         echo json_encode($e);
     }
 }

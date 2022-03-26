@@ -14,7 +14,7 @@
                     <div class="card-header">
                         <h3 class="card-title">
                             <i class="fas fa-city"></i>
-                            Dados da obra
+                            Dados da obra: <?= $edit_Obra['obra_cnpj'] ?> | <?= $edit_Obra['obra_nome'] ?>
                         </h3>
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -49,7 +49,7 @@
                                     class="form-control text-uppercase" id="cpfcnpj" onkeyup="somenteNumeros(this);"
                                     onfocus="javascript: retirarFormatacao(this);"
                                     onblur="javascript: formatarCampo(this);" maxlength="14"
-                                    placeholder="Insira o CPF ou CNPJ - * SOMENTE NÚMEROS!*" />
+                                    placeholder="Insira o CPF ou CNPJ - * SOMENTE NÚMEROS!*" disabled />
 
                             </div>
                         </div>
@@ -281,9 +281,6 @@
         }
         else if (razao_social == "") {
             toastr["warning"]("O campo 'nome de Razão Social' é de preenchimento obrigatório", "Atenção!");
-
-        } else if (cnpj == "") {
-            toastr["warning"]("O campo 'número do CNPJ' é de preenchimento obrigatório", "Atenção!");
 
         } else if (endereco == "") {
             toastr["warning"]("O campo 'Endereço' é de preenchimento obrigatório", "Atenção!");

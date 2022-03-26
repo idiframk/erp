@@ -112,15 +112,19 @@ $render('sidebar');
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" style="width:100%" class="table table-bordered table-striped">
-                                <thead>
+                            <table id="example1" style="width:100%" class="table table-sm table-bordered table-striped">
+                                <thead class="bg-gradient-dark text-sm">
                                     <tr>
                                         <th style="width:32px;text-align: center">#Cod.</th>
+                                        <th>Num. Contrato</th>
+                                        <th>CNPJ</th>
                                         <th>Nome da Obra</th>
                                         <th>Razão Social</th>
+                                        <th>E-mail</th>
+                                        <th>Contato</th>
                                         <th>UF</th>
                                         <th>Municipio</th>
-                                        <th style="width:10%;text-align: center">Status</th>
+                                        <th style="width:10px;text-align: center">Status</th>
                                         <th style="width:10%;text-align: center">Ação</th>
                                     </tr>
                                 </thead>
@@ -131,8 +135,14 @@ $render('sidebar');
                                     <tr>
 
                                         <td>#<?= $obra['obra_id']; ?></td>
+                                        <td><?= $obra['obra_NumContrato']; ?></td>
+                                        <td><?= $obra['obra_cnpj']; ?></td>
                                         <td><?= $obra['obra_nome']; ?></td>
                                         <td><?= $obra['obra_razao']; ?></td>
+                                        <td><?= $obra['obra_email']; ?></td>
+                                        <td><?= $obra['obra_fone']; ?></td>
+
+
                                         <td>
                                             <?php
                                                 //print_r($ufs);
@@ -159,13 +169,12 @@ $render('sidebar');
 
                                                 if ($obra['obra_status'] == 1) {
                                                 ?>
-                                            <button type="button" class="btn btn-block bg-gradient-success"
-                                                disabled>Ativo</button>
+                                            <button type="button" class="btn btn-success btn-sm" disabled>Ativo</button>
                                             <?php
 
                                                 } else {
                                                 ?>
-                                            <button type="button" class="btn btn-block bg-gradient-danger"
+                                            <button type="button" class="btn btn-danger btn-sm"
                                                 disabled>Inativo</button>
                                             <?php
 
@@ -181,10 +190,10 @@ $render('sidebar');
                                                 </i>
                                                 Edit
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
+                                            <a class="btn btn-danger btn-sm action_del_user"
+                                                obra_id_del=<?= $obra['obra_id']; ?>>
                                                 <i class="fas fa-trash">
-                                                </i>
-                                                Delete
+                                                </i>Excluir
                                             </a>
                                         </td>
                                     </tr>
@@ -193,12 +202,18 @@ $render('sidebar');
                                 </tbody>
                                 <tfoot>
                                     <tr>
+
+
                                         <th>#Cod.</th>
-                                        <th>Eng. Responsável</th>
-                                        <th>Descrição Obra</th>
-                                        <th>Cliente</th>
-                                        <th>Endereço</th>
-                                        <th>Progresso</th>
+                                        <th>Num. Contrato</th>
+                                        <th>CNPJ</th>
+                                        <th>Nome da Obra</th>
+                                        <th>Razão Social</th>
+                                        <th>E-mail</th>
+                                        <th>Contato</th>
+                                        <th>UF</th>
+                                        <th>Municipio</th>
+                                        <th>Status</th>
                                         <th>Ação</th>
                                     </tr>
                                 </tfoot>
@@ -224,16 +239,59 @@ $render('footer');
 
 
 <script>
-//Chamar Modal para Cadastrar Registro Genérico
-/*function cadastrar() {
-    $.ajax({
-        url: base() + '/mod_cad_obras',
-        success: function(ajaxData) {
-            $("#modal_global").html(ajaxData);
-            $("#modal_global").modal('show', {
-                backdrop: 'true'
-            });
+//Chamar Modal para Excluir user
+$('#example1').on('click', '.action_del_user', function(e) {
+
+    let obra_nome = $(this).parents("tr").find("td:eq(3)").text();
+    var obra_id_del = $(this).attr("obra_id_del");
+
+    bootbox.confirm({
+        title: "EXCLUSÃO DE OBRA/CONTRATOS",
+        size: "Small",
+        message: "Você deseja excluir a Obra/Contrato: " + obra_nome + "?",
+
+        buttons: {
+            confirm: {
+                label: 'Sim',
+                className: 'btn-success'
+            },
+            cancel: {
+                label: 'Não',
+                className: 'btn-danger'
+            }
+        },
+        callback: function(result) {
+            if (result == true) {
+                $.ajax({
+                    type: "POST",
+
+                    url: base() + '/mod_del_obra/<?= $obra['obra_id']; ?>/excluir',
+                    async: true,
+                    data: {
+                        obra_id_del: obra_id_del
+                    },
+                    dataType: "json",
+                    success: function(data) {
+                        if (data['sucesso'] == 1) {
+                            Command: toastr["info"]("Obra/Contrato: " + obra_nome +
+                                " excluido com Sucesso!",
+                                "Concluído!");
+                            setTimeout(function() {
+                                window.location =
+                                    "<?php $base; ?>/cad_obra"; //lista geral<=
+                            }, 2000);
+
+                        }
+
+                        else if (data['sucesso'] == 0) {
+                            Command: toastr["error"](
+                                "O registro não foi alterado, tente novamente!",
+                                "Falha!");
+                        }
+                    }
+                });
+            }
         }
     });
-};*/
+});
 </script>

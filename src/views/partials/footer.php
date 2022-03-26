@@ -64,7 +64,8 @@ $.widget.bridge('uibutton', $.ui.button)
 
 <!-- Toastr -->
 <script src="<?php echo $base; ?>/assets/plugins/toastr/toastr.min.js"></script>
-
+<!-- bootbox -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
 
 <!-- Page specific script -->
 <script>
