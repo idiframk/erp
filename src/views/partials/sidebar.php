@@ -56,7 +56,7 @@
                             <li class="nav-item">
                                 <a href="cad_obra" class="nav-link">
                                     <i class="fa fa-briefcase nav-icon"></i>
-                                    <p>Cadastrar Obra</p>
+                                    <p>Lista de Obras</p>
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -126,6 +126,18 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="combustivel.php" class="nav-link ">
+                                    <i class="fa fa-gas-pump nav-icon"></i>
+                                    <p>Lanc. Contas a Pagar</p>
+                                </a>
+                            </li>1
+                            <li class="nav-item">
+                                <a href="combustivel.php" class="nav-link ">
+                                    <i class="fa fa-gas-pump nav-icon"></i>
+                                    <p>Lanc. Contas a Receber</p>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="combustivel.php" class="nav-link ">
                                     <i class="fa fa-gas-pump nav-icon"></i>
