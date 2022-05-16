@@ -43,12 +43,69 @@
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-cogs"></i>
+
+                            <p>
+                                Administração do Sistema
+                                <i class="right fas fa-angle-left"></i>
+
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-users nav-icon"></i>
+                                    <p>Usuários</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-sitemap nav-icon"></i>
+                                    <p>Cadastro de Plano de Contas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fas fa-inbox nav-icon"></i>
+                                    <p>Cadastro de Contas</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-calendar-plus nav-icon"></i>
+                                    <p>Cadastro de Cargos</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-address-card"></i>
+
+                            <p>
+                                RH - Recursos Humanos
+                                <i class="right fas fa-angle-left"></i>
+
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="fa fa-address-book nav-icon"></i>
+                                    <p>Lista de Funcionários</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-industry"></i>
                             <p>
-                                Obras
+                                Cliente/Obras
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -79,6 +136,18 @@
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="compra.php" class="nav-link">
+                                    <i class="fa fa-shopping-cart nav-icon"></i>
+                                    <p>Cadastro de Fornecedores</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="compra.php" class="nav-link">
+                                    <i class="fa fa-shopping-cart nav-icon"></i>
+                                    <p>RM - Requisições de Materiais</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="compra.php" class="nav-link">
                                     <i class="fa fa-barcode nav-icon"></i>
                                     <p>Compras</p>
                                 </a>
@@ -86,12 +155,43 @@
                             <li class="nav-item">
                                 <a href="amox.php" class="nav-link">
                                     <i class="fas fa-boxes nav-icon"></i>
-                                    <p>Almoxarife</p>
+                                    <i class="fa fa-plus-circle nav-icon"></i>
+                                    <p>Entradas de Materiais</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="amox.php" class="nav-link">
+                                    <i class="fas fa-boxes nav-icon"></i>
+                                    <i class="fa fa-minus-circle nav-icon"></i>
+                                    <p>Saída de Materiais</p>
                                 </a>
                             </li>
                         </ul>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-user-secret"></i>
+                            <p>
+                                EPI - Equip. de Prot. Indiv.
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="veiculos.php" class="nav-link ">
+                                    <i class="fa fa-random nav-icon"></i>
+                                    <p>Movimentação de EPI</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="ferramentas.php" class="nav-link">
+                                    <i class="fas fa-boxes nav-icon"></i>
+                                    <p>Estoque de EPI</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
                     <li class="nav-item">
                         <a href="#" class="nav-link">
