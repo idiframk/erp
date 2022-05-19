@@ -33,9 +33,6 @@ window.location.href = "login";
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/dist/css/adminlte.min.css">
 
-    <!--personal style-->
-    <link rel="stylesheet" href="<?php echo $base; ?>/assets/dist/css/style-personal.css">
-
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
@@ -57,6 +54,8 @@ window.location.href = "login";
     <link rel="stylesheet"
         href="<?php echo $base; ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <!--mask-->
 
 
 </head>

@@ -1,0 +1,28 @@
+
+    .home-inic {
+        text-align: justify;
+        font-weight: bold;
+    }
+    p.home-txt {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #div_img {
+        background-image:url('http://www.sitedaimagem.com/img/header.png'); /* url */
+        width:396px; /* largura */
+        height:153px; /* altura */
+      }
+      
+@media (max-width: 600px) {
+    .home-inic {
+        font-size: 16px;
+        text-align: justify;
+        font-weight: bold;
+    }
+
+    p.home-txt {
+        font-size: 12px;
+        text-align: center;
+    }
+  }

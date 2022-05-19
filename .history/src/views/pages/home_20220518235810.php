@@ -31,9 +31,10 @@ $render('sidebar');
                                 <div class="col-12">
                                     <div class="bg-white border rounded-5">
 
-                                        <section class="p-4 text-center w-100">
+                                        <section class="content">
                                             <div class="img-home">
-                                                <img src="<?php echo $base; ?>/assets/img/logo_ofic.png"
+                                                <img class="img-home"
+                                                    src="<?php echo $base; ?>/assets/img/logo_ofic.png"
                                                     style="width:413px">
                                             </div>
                                         </section>

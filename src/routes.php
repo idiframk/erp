@@ -33,6 +33,10 @@ $router->post('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obrasAction
 
 
 
+
+
+
+
 $router->get('/ger_rdo', 'ObrasController@ger_rdo');
 $router->post('/ger_rdo', 'ObrasController@addAction');
 

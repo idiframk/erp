@@ -1,0 +1,36 @@
+
+    .home-inic {
+        text-align: justify;
+        font-weight: bold;
+    }
+    p.home-txt {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    #div_img {
+        background-image:url('http://sultec.eng.com/assets/img/logo_ofic.png'); /* url */
+        width:396px; /* largura */
+        height:153px; /* altura */
+      }
+
+
+      img.img-home{
+        width:396px; /* largura */
+      }
+@media (max-width: 600px) {
+    .home-inic {
+        font-size: 16px;
+        text-align: justify;
+        font-weight: bold;
+    }
+
+    p.home-txt {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    mg.img-home{
+        width:150px; /* largura */
+      }
+  }

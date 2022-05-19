@@ -32,15 +32,15 @@ $render('sidebar');
                                     <div class="bg-white border rounded-5">
 
                                         <section class="p-4 text-center w-100">
-                                            <div class="img-home">
-                                                <img src="<?php echo $base; ?>/assets/img/logo_ofic.png"
-                                                    style="width:413px">
-                                            </div>
-                                        </section>
-                                        <div class=" text-center border-top ">
+                                            <img src="<?php echo $base; ?>/assets/img/sultec-logo-smb.png">
 
-                                            <p Class="home-txt">Uma empresa inovadora e comprometida com a satisfação
-                                                total de seus
+                                        </section>
+
+
+
+                                        <div class="p-4 text-center border-top mobile-hidden">
+
+                                            <p>Uma empresa inovadora e comprometida com a satisfação total de seus
                                                 clientes
                                                 . Contamos com parceiros e equipes de profissionais altamente
                                                 treinados
@@ -49,16 +49,14 @@ $render('sidebar');
                                                 a
                                                 qualidade, eficiência e competência.</p>
 
-                                            <p Class="home-txt">Seriedade, respeito, honestidade e confiança são os
-                                                valores
+                                            <p>Seriedade, respeito, honestidade e confiança são os valores
                                                 fundamentais
                                                 para
                                                 a SULTEC, visando sempre excelente relacionamento entre clientes,
                                                 parceiros
                                                 e empresa.</p>
 
-                                            <p Class="home-txt">Suprir as necessidades de nossos clientes, zelando pela
-                                                qualidade,
+                                            <p>Suprir as necessidades de nossos clientes, zelando pela qualidade,
                                                 satisfação
                                                 e conforto, alcançando assim nosso objetivo : O reconhecimento e
                                                 crescimento

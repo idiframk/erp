@@ -33,7 +33,8 @@ $render('sidebar');
 
                                         <section class="p-4 text-center w-100">
                                             <div class="img-home">
-                                                <img src="<?php echo $base; ?>/assets/img/logo_ofic.png"
+                                                <img class="img-home"
+                                                    src="<?php echo $base; ?>/assets/img/logo_ofic.png"
                                                     style="width:413px">
                                             </div>
                                         </section>

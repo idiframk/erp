@@ -33,8 +33,8 @@ window.location.href = "login";
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/dist/css/adminlte.min.css">
 
-    <!--personal style-->
-    <link rel="stylesheet" href="<?php echo $base; ?>/assets/dist/css/style-personal.css">
+    <!--personal-->
+    <link>
 
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="<?php echo $base; ?>/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
