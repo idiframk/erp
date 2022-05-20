@@ -59,7 +59,7 @@ window.location.href = "home";
                     <img id="logoLg" src="<?php echo $base; ?>/assets/img/logo_ofic.png" alt="" style="width: 292px">
 
                     <form class="login-form" method="POST" action="<?= $base; ?>/login">
-                        <div class="frm-campos">
+                        <div>
                             <input type="text" placeholder="Usuário ou E-mail" required name="email" />
                             <input type="password" placeholder="Sua senha" name="senha" required />
                             <button>Entrar</button>

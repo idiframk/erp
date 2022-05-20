@@ -34,11 +34,11 @@ $router->post('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obrasAction
 /*Obras - finish*/
 
 
-/*Suprimentos - materiais - start*/
-$router->get('/cad_material', 'SuprimentosController@cad_material');
+/*suprimentos - materiais - start*/
+$router->get('/cad_material', 'SurpimentosController@cad_material');
 
 
-/*Suprimentos - materiais - finish*/
+/*suprimentos - materiais - finish*/
 
 
 $router->get('/ger_rdo', 'ObrasController@ger_rdo');

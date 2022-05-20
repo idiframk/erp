@@ -13,16 +13,15 @@ $router->post('/login', 'UsuariosController@loginAction');
 $router->get('/', 'HomeController@home');
 $router->get('/home', 'HomeController@home');
 
-/*filter cyti*/
-$router->post('/list_ciddades', 'ObrasController@list_ciddades');
 
 
 
-/*Obras - start*/
+/*Obras*/
 $router->get('/cad_obra', 'ObrasController@cad_obra');
 $router->get('/mod_cad_obras', 'ObrasController@mod_cad_obras');
 $router->post('/mod_cad_obras', 'ObrasController@obra_addAction');
 
+$router->post('/list_ciddades', 'ObrasController@list_ciddades');
 
 $router->get('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obras');
 $router->post('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obrasAction');
@@ -31,14 +30,11 @@ $router->post('/mod_edit_obras/{id}/editar', 'ObrasController@mod_edit_obrasActi
 $router->get('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obra');
 $router->post('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obrasAction');
 
-/*Obras - finish*/
 
 
-/*Suprimentos - materiais - start*/
-$router->get('/cad_material', 'SuprimentosController@cad_material');
 
 
-/*Suprimentos - materiais - finish*/
+
 
 
 $router->get('/ger_rdo', 'ObrasController@ger_rdo');

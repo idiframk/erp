@@ -63,7 +63,7 @@ $.widget.bridge('uibutton', $.ui.button)
 <script src="<?php echo $base; ?>/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo $base; ?>/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
+<script src="<?php echo $base; ?>/assets/plugins/chart.js/Chart.min.js"></script>
 
 <!-- Toastr -->
 <script src="<?php echo $base; ?>/assets/plugins/toastr/toastr.min.js"></script>

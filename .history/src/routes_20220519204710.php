@@ -34,13 +34,6 @@ $router->post('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obrasAction
 /*Obras - finish*/
 
 
-/*Suprimentos - materiais - start*/
-$router->get('/cad_material', 'SuprimentosController@cad_material');
-
-
-/*Suprimentos - materiais - finish*/
-
-
 $router->get('/ger_rdo', 'ObrasController@ger_rdo');
 $router->post('/ger_rdo', 'ObrasController@addAction');
 

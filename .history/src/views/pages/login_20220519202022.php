@@ -56,17 +56,16 @@ window.location.href = "home";
         <div class="row">
             <div class="col">
                 <div class="form">
-                    <img id="logoLg" src="<?php echo $base; ?>/assets/img/logo_ofic.png" alt="" style="width: 292px">
-
+                    <img id="logoLg" src="<?php echo $base; ?>/assets/img/logo_ofic.png" alt="">
+                    <div class="img-home">
+                        <img src="<?php echo $base; ?>/assets/img/logo_ofic.png" style="width:413px">
+                    </div>
                     <form class="login-form" method="POST" action="<?= $base; ?>/login">
-                        <div class="frm-campos">
-                            <input type="text" placeholder="Usuário ou E-mail" required name="email" />
-                            <input type="password" placeholder="Sua senha" name="senha" required />
-                            <button>Entrar</button>
-                            <p class="message">Não é registrado? <a href="mailto:ti@sultec.eng.br">ti@sultec.eng.br</a>
-                            </p>
-                            <p class="message"><a href="esqueci-a-senha">Não Conseguiu entrar?</a></p>
-                        </div>
+                        <input type="text" placeholder="Usuário ou E-mail" required name="email" />
+                        <input type="password" placeholder="Sua senha" name="senha" required />
+                        <button>Entrar</button>
+                        <p class="message">Não é registrado? <a href="mailto:ti@sultec.eng.br">ti@sultec.eng.br</a></p>
+                        <p class="message"><a href="esqueci-a-senha">Não Conseguiu entrar?</a></p>
                     </form>
                 </div>
             </div>

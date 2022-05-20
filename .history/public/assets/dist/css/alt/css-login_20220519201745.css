@@ -10,10 +10,6 @@ img {
     max-height: 100%;
 }
 
-.frm-campos {
-    margin-top: 22px;
-}
-
 .form {
     position: relative;
     z-index: 1;
@@ -26,7 +22,7 @@ img {
 }
 
 #logoLg {
-    margin-top: -21px;
+    margin-top: -47px;
 }
 
 .form input {

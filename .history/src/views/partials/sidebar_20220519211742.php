@@ -79,7 +79,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="cad_material" class="nav-link">
+                                <a href="#" class="nav-link">
                                     <i class="fa fa-shopping-basket nav-icon"></i>
                                     <p>Cadastro de Materiais</p>
                                 </a>

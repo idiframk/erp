@@ -13,12 +13,12 @@ $render('sidebar');
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard de Clientes/</h1>
+                        <h1 class="m-0">Dashboard de Materiais</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard de Clientes/Obras </li>
+                            <li class="breadcrumb-item active">Dashboard de Clientes/ </li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -35,50 +35,63 @@ $render('sidebar');
             <div class="row">
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3><?= $obras_ativas; ?><sup style="font-size: 20px"></sup></h3>
-
-                            <p>Obras/Contratos Ativos</p>
+                    <div class="small-box bg-info">
+                        <div class="col-lg-12 col-12">
+                            <div class="inner">
+                                <h3>850</h3>
+                                <p>Produto(s) Cadastrados</p>
+                            </div>
                         </div>
-
+                        <div class="col-lg-12 col-12">
+                            <div class="inner">
+                                <h3>150</h3>
+                                <p>Produto(s) em Estoque</p>
+                            </div>
+                        </div>
                         <div class="icon">
-                            <i class="ion ion-cash"></i>
+                            <i class="ion ion-ios-barcode-outline"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
+                        <a href="#" class="small-box-footer">Ver Relação de Produtos <i
                                 class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
-
                     <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3><?= $obras_finaliz; ?></h3>
-                            <p>Obras/Contratos Encerradas</p>
+
+                        <div class="col-lg-12 col-12">
+                            <div class="inner">
+                                <h3>150</h3>
+                                <p>Produto(s) com Estoque Zerado</p>
+                            </div>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-close-circled"></i>
+                            <i class="ion ion-ios-barcode-outline"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
+                        <a href="#" class="small-box-footer">Ver Produtos Estoque Zerado <i
                                 class="fas fa-arrow-circle-right"></i></a>
+
                     </div>
+
                 </div>
                 <!-- ./col -->
                 <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3><?= $total_obras; ?></h3>
 
-                            <p>Total de Obras/Contratos</p>
+                    <div class="small-box bg-warning">
+
+                        <div class="col-lg-12 col-12">
+                            <div class="inner">
+                                <h3>100</h3>
+                                <p>Produtos com Estoque Minimo</p>
+                            </div>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-briefcase"></i>
+                            <i class="ion ion-ios-barcode-outline"></i>
                         </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
+                        <a href="#" class="small-box-footer">Ver Produtos Estoque Mínimo <i
                                 class="fas fa-arrow-circle-right"></i></a>
+
                     </div>
+
                 </div>
                 <!-- ./col -->
             </div>
@@ -93,15 +106,6 @@ $render('sidebar');
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header card card-primary">
-                            <div class="row">
-                                <div class="">
-                                    <button onclick="cadastrar(this)" modal="/mod_cad_obras" class="btn btn-success">
-                                        Cadastrar Obra
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                         <div class="card-header">
                             <div class="row">
                                 <div class="">
@@ -235,62 +239,3 @@ $render('sidebar');
 <?php
 $render('footer');
 ?>
-
-
-<script>
-//Chamar Modal para Excluir user
-$('#example1').on('click', '.action_del_user', function(e) {
-
-    let obra_nome = $(this).parents("tr").find("td:eq(3)").text();
-    var obra_id_del = $(this).attr("obra_id_del");
-
-    bootbox.confirm({
-        title: "EXCLUSÃO DE OBRA/CONTRATOS",
-        size: "Small",
-        message: "Você deseja excluir a Obra/Contrato: " + obra_nome + "?",
-
-        buttons: {
-            confirm: {
-                label: 'Sim',
-                className: 'btn-success'
-            },
-            cancel: {
-                label: 'Não',
-                className: 'btn-danger'
-            }
-        },
-        callback: function(result) {
-            if (result == true) {
-                $.ajax({
-                    type: "POST",
-
-                    url: base() + '/mod_del_obra/<?= $obra['obra_id']; ?>/excluir',
-                    async: true,
-                    data: {
-                        obra_id_del: obra_id_del
-                    },
-                    dataType: "json",
-                    success: function(data) {
-                        if (data['sucesso'] == 1) {
-                            Command: toastr["info"]("Obra/Contrato: " + obra_nome +
-                                " excluido com Sucesso!",
-                                "Concluído!");
-                            setTimeout(function() {
-                                window.location =
-                                    "<?php $base; ?>/cad_obra"; //lista geral<=
-                            }, 2000);
-
-                        }
-
-                        else if (data['sucesso'] == 0) {
-                            Command: toastr["error"](
-                                "O registro não foi alterado, tente novamente!",
-                                "Falha!");
-                        }
-                    }
-                });
-            }
-        }
-    });
-});
-</script>
