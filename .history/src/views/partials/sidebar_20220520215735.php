@@ -78,7 +78,12 @@
                                     <p>Cadastro de Cargos</p>
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a href="dash_material" class="nav-link">
+                                    <i class="fa fa-shopping-basket nav-icon"></i>
+                                    <p>Cadastro de Materiais</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -135,12 +140,6 @@
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="dash_material" class="nav-link">
-                                    <i class="fa fa-shopping-basket nav-icon"></i>
-                                    <p>Cadastro de Materiais</p>
-                                </a>
-                            </li>
                             <li class="nav-item">
                                 <a href="compra.php" class="nav-link">
                                     <i class="fa fa-shopping-cart nav-icon"></i>

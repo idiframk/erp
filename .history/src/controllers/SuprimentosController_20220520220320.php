@@ -14,6 +14,6 @@ class SuprimentosController extends Controller
 
     public function cad_list_material()
     {
-        $this->render('cad_list_material');
+        $this->render('cad-list_material');
     }
 }

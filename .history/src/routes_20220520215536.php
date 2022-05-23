@@ -36,7 +36,6 @@ $router->post('/mod_del_obra/{id}/excluir', 'ObrasController@mod_del_obrasAction
 
 /*Suprimentos - materiais - start*/
 $router->get('/dash_material', 'SuprimentosController@dash_material');
-$router->get('/cad_list_material', 'SuprimentosController@cad_list_material');
 
 
 /*Suprimentos - materiais - finish*/

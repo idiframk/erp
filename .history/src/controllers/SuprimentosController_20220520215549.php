@@ -11,9 +11,4 @@ class SuprimentosController extends Controller
     {
         $this->render('dash_material');
     }
-
-    public function cad_list_material()
-    {
-        $this->render('cad_list_material');
-    }
 }
