@@ -1,7 +1,9 @@
 {
     "require": {
         "clancats/hydrahon": "^1.1",
-        "fpdf/fpdf": "^1.84"
+        "fpdf/fpdf": "^1.84",
+        "davidhsianturi/blade-bootstrap-icons": "^1.3",
+        "blade-ui-kit/blade-ui-kit": "^0.3.4"
     },
     "autoload": {
         "psr-4": {

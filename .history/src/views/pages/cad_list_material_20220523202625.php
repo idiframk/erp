@@ -4,21 +4,22 @@ $render('sidebar');
 ?>
 
 
-
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
+                    <i class="fas fa-boxes "></i>
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard de Clientes/</h1>
+                        <h1 class="m-0">Cadastro de Materiais</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard de Clientes/Obras </li>
+                            <li class="breadcrumb-item"><a href="dash_material">Dashboard de Clientes</a></li>
+                            <li class="breadcrumb-item active">Cadastro de Materiais</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -26,67 +27,6 @@ $render('sidebar');
         </div>
         <!-- /.content-header -->
     </section>
-
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
-            <div class="row">
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-success">
-                        <div class="inner">
-                            <h3><?= $obras_ativas; ?><sup style="font-size: 20px"></sup></h3>
-
-                            <p>Obras/Contratos Ativos</p>
-                        </div>
-
-                        <div class="icon">
-                            <i class="ion ion-cash"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6">
-
-                    <div class="small-box bg-danger">
-                        <div class="inner">
-                            <h3><?= $obras_finaliz; ?></h3>
-                            <p>Obras/Contratos Encerradas</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-close-circled"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-                <div class="col-lg-3 col-6">
-                    <!-- small box -->
-                    <div class="small-box bg-info">
-                        <div class="inner">
-                            <h3><?= $total_obras; ?></h3>
-
-                            <p>Total de Obras/Contratos</p>
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-briefcase"></i>
-                        </div>
-                        <a href="#" class="small-box-footer">Mais informação <i
-                                class="fas fa-arrow-circle-right"></i></a>
-                    </div>
-                </div>
-                <!-- ./col -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
 
     <section class="content">
         <div class="container-fluid">
@@ -97,7 +37,8 @@ $render('sidebar');
                             <div class="row">
                                 <div class="">
                                     <button onclick="cadastrar(this)" modal="/mod_cad_obras" class="btn btn-success">
-                                        Cadastrar Obra
+                                        <i class="fas fa-boxes "></i>
+                                        Cadastrar Material
                                     </button>
                                 </div>
                             </div>
@@ -105,7 +46,7 @@ $render('sidebar');
                         <div class="card-header">
                             <div class="row">
                                 <div class="">
-                                    <h3 class="card-title">Lista das Obras</h3>
+                                    <h3 class="card-title">Lista das Materiais Cadastrados</h3>
                                 </div>
                             </div>
                         </div>
@@ -229,69 +170,11 @@ $render('sidebar');
         <!-- /.container-fluid -->
 
     </section>
+
+
+
 </div>
-
-
 
 <?php
 $render('footer');
 ?>
-
-
-<script>
-//Chamar Modal para Excluir user
-$('#example1').on('click', '.action_del_user', function(e) {
-
-    let obra_nome = $(this).parents("tr").find("td:eq(3)").text();
-    var obra_id_del = $(this).attr("obra_id_del");
-
-    bootbox.confirm({
-        title: "EXCLUSÃO DE OBRA/CONTRATOS",
-        size: "Small",
-        message: "Você deseja excluir a Obra/Contrato: " + obra_nome + "?",
-
-        buttons: {
-            confirm: {
-                label: 'Sim',
-                className: 'btn-success'
-            },
-            cancel: {
-                label: 'Não',
-                className: 'btn-danger'
-            }
-        },
-        callback: function(result) {
-            if (result == true) {
-                $.ajax({
-                    type: "POST",
-
-                    url: base() + '/mod_del_obra/<?= $obra['obra_id']; ?>/excluir',
-                    async: true,
-                    data: {
-                        obra_id_del: obra_id_del
-                    },
-                    dataType: "json",
-                    success: function(data) {
-                        if (data['sucesso'] == 1) {
-                            Command: toastr["info"]("Obra/Contrato: " + obra_nome +
-                                " excluido com Sucesso!",
-                                "Concluído!");
-                            setTimeout(function() {
-                                window.location =
-                                    "<?php $base; ?>/cad_obra"; //lista geral<=
-                            }, 2000);
-
-                        }
-
-                        else if (data['sucesso'] == 0) {
-                            Command: toastr["error"](
-                                "O registro não foi alterado, tente novamente!",
-                                "Falha!");
-                        }
-                    }
-                });
-            }
-        }
-    });
-});
-</script>

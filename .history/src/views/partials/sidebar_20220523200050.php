@@ -163,7 +163,7 @@
                                 <a href="amox.php" class="nav-link">
                                     <i class="fas fa-boxes nav-icon"></i>
                                     <i class="fa fa-plus-circle nav-icon"></i>
-                                    <i class="bi-sd-card"></i>
+                                    <x-fontisto-shopping-basket-add />
                                     <p>Entradas de Materiais</p>
                                 </a>
                             </li>

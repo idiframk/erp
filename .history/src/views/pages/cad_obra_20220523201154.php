@@ -230,7 +230,7 @@ $render('sidebar');
 
     </section>
 </div>
-
+</div>
 
 
 <?php
