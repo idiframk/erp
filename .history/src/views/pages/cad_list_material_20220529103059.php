@@ -58,10 +58,10 @@ $render('sidebar');
 
                                         <th>#Cod. Material</th>
                                         <th>Nome Do Produto/Material</th>
-                                        <th>Valor Med. Unit. R$</th>
                                         <th>U.M</th>
                                         <th>Estoq. Min.</th>
                                         <th>Estoq. Max.</th>
+                                        <th>Valor Med. Unit. R$</th>
                                         <th>Estoque Atual</th>
                                         <th>Entradas</th>
                                         <th>Saídas</th>
@@ -148,10 +148,10 @@ $render('sidebar');
 
                                         <th>#Cod. Material</th>
                                         <th>Nome Do Produto/Material</th>
-                                        <th>Valor Med. Unit. R$</th>
                                         <th>U.M</th>
                                         <th>Estoq. Min.</th>
                                         <th>Estoq. Max.</th>
+                                        <th>Valor Med. Unit. R$</th>
                                         <th>Estoque Atual</th>
                                         <th>Entradas</th>
                                         <th>Saídas</th>

@@ -58,13 +58,13 @@ $render('sidebar');
 
                                         <th>#Cod. Material</th>
                                         <th>Nome Do Produto/Material</th>
-                                        <th>Valor Med. Unit. R$</th>
                                         <th>U.M</th>
                                         <th>Estoq. Min.</th>
                                         <th>Estoq. Max.</th>
+                                        <th>Valor Med. Unit. R$</th>
                                         <th>Estoque Atual</th>
-                                        <th>Entradas</th>
-                                        <th>Saídas</th>
+                                        <th>Estoque Entradas</th>
+                                        <th>Estoque Saídas</th>
                                         <th>Estoque Futuro</th>
                                         <th style="width:10px;text-align: center">Status</th>
                                         <th style="width:10%;text-align: center">Ação</th>
@@ -148,13 +148,13 @@ $render('sidebar');
 
                                         <th>#Cod. Material</th>
                                         <th>Nome Do Produto/Material</th>
-                                        <th>Valor Med. Unit. R$</th>
                                         <th>U.M</th>
                                         <th>Estoq. Min.</th>
                                         <th>Estoq. Max.</th>
+                                        <th>Valor Med. Unit. R$</th>
                                         <th>Estoque Atual</th>
-                                        <th>Entradas</th>
-                                        <th>Saídas</th>
+                                        <th>Estoque Entradas</th>
+                                        <th>Estoque Saídas</th>
                                         <th>Estoque Futuro</th>
                                         <th>Status</th>
                                         <th>Ação</th>
