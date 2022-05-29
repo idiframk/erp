@@ -38,7 +38,7 @@ $render('sidebar');
                                 <div class="">
                                     <button onclick="cadastrar(this)" modal="/mod_cad_obras" class="btn btn-success">
                                         <i class="fas fa-boxes "></i>
-                                        Cadastrar Material/Produto
+                                        Cadastrar Material
                                     </button>
                                 </div>
                             </div>

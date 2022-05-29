@@ -57,7 +57,7 @@ $render('sidebar');
                                     <tr>
 
                                         <th>#Cod. Material</th>
-                                        <th>Nome Do Produto/Material</th>
+                                        <th>Nome Do Produto/<br>Material</th>
                                         <th>U.M</th>
                                         <th>Estoq. Min.</th>
                                         <th>Estoq. Max.</th>
