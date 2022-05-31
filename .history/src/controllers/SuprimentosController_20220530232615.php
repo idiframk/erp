@@ -17,9 +17,9 @@ class SuprimentosController extends Controller
         $this->render('cad_list_material');
     }
 
-    public function mod_cad_materiais()
+    public function mod_cad_obras()
     {
 
-        $this->render('mod_cad_materiais');
+        $this->render('cad_list_material');
     }
 }

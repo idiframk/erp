@@ -17,9 +17,17 @@ class SuprimentosController extends Controller
         $this->render('cad_list_material');
     }
 
-    public function mod_cad_materiais()
+    public function mod_cad_obras()
     {
+        $estados = tbl_estado::select()->execute();
 
-        $this->render('mod_cad_materiais');
+
+        $this->render(
+            'mod_cad_obras',
+            [
+                'estados' => $estados
+
+            ]
+        );
     }
 }

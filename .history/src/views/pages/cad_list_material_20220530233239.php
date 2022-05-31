@@ -35,7 +35,7 @@ $render('sidebar');
                     <div class="card">
                         <div class="card-header card card-primary">
                             <div class="row">
-                                <div class="">
+                                <div class="">mod_cad_materiais
                                     <button onclick="cadastrar(this)" modal="/mod_cad_materiais"
                                         class="btn btn-success">
                                         <i class="fas fa-boxes "></i>
