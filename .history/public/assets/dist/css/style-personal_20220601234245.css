@@ -65,19 +65,17 @@
         margin-left: 194px;
     }
   }
- 
-
-  @media only screen and (max-width: 1024px) and (min-width: 400px)  {
+  @media only screen and (max-width: 950px) and (min-width: 1024px) {
     .form-group.col-md-2.bt_add_gpmt {
         margin-top: -69px;
-        margin-left: 400px;
+        margin-left: 283px;
     }
   }
 
-  @media only screen and (max-width: 320px) and (min-width: 240px)  {
+  @media only screen and (max-width: 600px) and (min-width: 400px)  {
     .form-group.col-md-2.bt_add_gpmt {
         margin-top: -69px;
-        margin-left: 177px;
+        margin-left: 194px;
     }
   }
 

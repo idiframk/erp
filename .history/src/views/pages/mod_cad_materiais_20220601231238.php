@@ -2,7 +2,7 @@
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">CADASTRAR PAULO JAIR/RAISSON</h4>
+            <h4 class="modal-title">CADASTRAR PRODUTO/MATERIAIS</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -27,7 +27,7 @@
                             <div class="col-8">
                                 <hr>
                                 <div class="form-row">
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-8">
                                         <div class="form-group" data-select2-id="55">
                                             <label>Grupo PDM:</label>
                                             <select class="form-control select2bs4 select2-hidden-accessible"
@@ -50,14 +50,11 @@
 
                                     </div>
 
-                                    <div class="form-group col-md-2 bt_add_gpmt">
-                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-                                            <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success"> <i
-                                                        class="fas fa-plus"></i></button>
-                                            </div>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="form-label">Dimensão:<span class="text-danger">*</span>
+                                        </label>
+                                        <button type="text" name="razao_social" class="form-control text-uppercase"
+                                            placeholder="Insira as dimensões do Produto/Material">
                                     </div>
 
 
@@ -65,21 +62,21 @@
 
                                 <hr>
                                 <div class="form-row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label class="form-label">Tipo do Produto/Material:<span
                                                 class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="razao_social" class="form-control text-uppercase"
                                             placeholder="Insira o tipo do Produto/Material em um texto breve mais claro possivel">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label class="form-label">Dimensão:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="razao_social" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material">
                                     </div>
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-2">
                                         <div class="form-group" data-select2-id="55">
                                             <label>Cor:<span class="text-danger">*</span></label>
                                             <select class="form-control select2bs4 select2-hidden-accessible"
@@ -96,18 +93,10 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-2 bt_add_gpmt">
-                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-                                            <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success"> <i
-                                                        class="fas fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
 
 
-                                    <div class="form-group col-md-4">
+
+                                    <div class="form-group col-md-2">
                                         <div class="form-group" data-select2-id="55">
                                             <label>U.M:<span class="text-danger">*</span></label>
                                             <select class="form-control select2bs4 select2-hidden-accessible"
@@ -123,15 +112,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-2 bt_add_gpmt">
-                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
-                                            <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success"> <i
-                                                        class="fas fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-row">

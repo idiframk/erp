@@ -38,46 +38,26 @@
         max-height: 100%;
     }
 
- 
-
     
   }
 
-  @media (max-width: 360px) {
+  @media (max-width: 600px) {
     .form-group.col-md-2.bt_add_gpmt {
         margin-top: -69px;
         margin-left: 194px;
     }
-   
   }
 
-  @media (width: 640px) {
+  @media (max-width: 1024px) {
     .form-group.col-md-2.bt_add_gpmt {
         margin-top: -69px;
-        margin-left: 178px;
+        margin-left: 283px;
     }
-   
   }
-  
+
   @media (max-width: 740px) {
     .form-group.col-md-2.bt_add_gpmt {
         margin-top: -69px;
         margin-left: 194px;
     }
   }
- 
-
-  @media only screen and (max-width: 1024px) and (min-width: 400px)  {
-    .form-group.col-md-2.bt_add_gpmt {
-        margin-top: -69px;
-        margin-left: 400px;
-    }
-  }
-
-  @media only screen and (max-width: 320px) and (min-width: 240px)  {
-    .form-group.col-md-2.bt_add_gpmt {
-        margin-top: -69px;
-        margin-left: 177px;
-    }
-  }
-

@@ -2,7 +2,7 @@
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">CADASTRAR PAULO JAIR/RAISSON</h4>
+            <h4 class="modal-title">CADASTRAR PRODUTO/MATERIAIS</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -79,7 +79,7 @@
                                             placeholder="Insira as dimensões do Produto/Material">
                                     </div>
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-5">
                                         <div class="form-group" data-select2-id="55">
                                             <label>Cor:<span class="text-danger">*</span></label>
                                             <select class="form-control select2bs4 select2-hidden-accessible"
@@ -107,7 +107,7 @@
                                     </div>
 
 
-                                    <div class="form-group col-md-4">
+                                    <div class="form-group col-md-5">
                                         <div class="form-group" data-select2-id="55">
                                             <label>U.M:<span class="text-danger">*</span></label>
                                             <select class="form-control select2bs4 select2-hidden-accessible"
