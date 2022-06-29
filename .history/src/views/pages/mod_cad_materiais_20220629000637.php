@@ -1,5 +1,5 @@
 <!-- /.modal -->
-<div class="modal-dialog modal-xl">
+<div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">CADASTRAR OBRA</h4>

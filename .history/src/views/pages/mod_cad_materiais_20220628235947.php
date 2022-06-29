@@ -1,5 +1,5 @@
 <!-- /.modal -->
-<div class="modal-dialog modal-xl">
+<div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">CADASTRAR OBRA</h4>
@@ -48,7 +48,7 @@
                                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
                                             <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success btn_plus"> <i
+                                                <button type="button" class="btn btn-success"> <i
                                                         class="fas fa-plus"></i></button>
                                             </div>
                                         </div>

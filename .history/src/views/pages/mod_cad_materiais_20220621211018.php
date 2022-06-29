@@ -2,7 +2,7 @@
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">CADASTRAR OBRA</h4>
+            <h4 class="modal-title">CADASTRAR PRODUTO/MATERIAL</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -25,62 +25,41 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-8">
+
+
+                                <hr>
                                 <div class="form-row">
-                                    <div class="form-group col-md-10">
-                                        <label class="col-form-label">Grupo PDM:: <span class="text-danger">*</span>
-                                        </label>
-                                        <select name="uf" cidade="cidade" class="form-control select2"
-                                            onchange="getCidade(this)" style="width: 100%;"
-                                            data-placeholder="Escolha um grupo para material">
-                                            <option selected="selected"></option>
-                                            <option data-select2-id="57">PLUGUE ELETRICO, PREDIAL</option>
-                                            <option data-select2-id="58">LUMINARIA EMERGENCIA BLOCO AUTONOMO
-                                            </option>
-                                            <option data-select2-id="59">ARGAMASSA REPAROS, INDUSTRIALIZADA
-                                            </option>
-                                            <option data-select2-id="60">ARGAMASSA, REPARO</option>
-                                            <option data-select2-id="61">FILTRO, COMPONENTE</option>
-                                            <option data-select2-id="62">ABRACADEIRA ENGATE RAPIDO</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-md-2 bt_add_gpmt">
-                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-                                            <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success btn_plus"> <i
-                                                        class="fas fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-md-11">
+                                    <div class="form-group col-md-6">
                                         <label class="form-label">Tipo do Produto/Material:<span
                                                 class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="type_material" class="form-control text-uppercase"
                                             placeholder="Insira o tipo do Produto/Material em um texto breve mais objetivo possivel">
                                     </div>
-                                    <div class="form-group col-md-11">
+                                    <div class="form-group col-md-6">
                                         <label class="form-label">Dimensão:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="dimensao" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material">
                                     </div>
 
+
                                     <div class="form-group col-md-4">
-                                        <label class="col-form-label">Cor:<span class="text-danger">*</span>
-                                        </label>
-                                        <select name="uf" class="form-control select2" onchange="getCidade(this)"
-                                            style="width: 100%;" data-placeholder="Escolha uma cor igual ou similar">
-                                            <option selected="selected"></option>
-                                            <option data-select2-id="57"> AM - AMRELO</option>
-                                            <option data-select2-id="58"> BR - BRANCO</option>
-                                            <option data-select2-id="59">VERD - VERDE</option>
-                                            <option data-select2-id="60">VERM - VERMELHO</option>
-                                            <option data-select2-id="61"> INC - INCOLOR</option>
-                                            <option data-select2-id="62"> PT - PRETO</option>
-                                        </select>
+                                        <div class="form-group" data-select2-id="55">
+                                            <label>U.M:<span class="text-danger">*</span></label>
+                                            <select class="form-control select2bs4 select2-hidden-accessible"
+                                                style="width: 100%;" data-select2-id="17" tabindex="-1"
+                                                aria-hidden="true">
+                                                <option selected="selected" data-select2-id="19">Selecione a Und. Med.
+                                                </option>
+                                                <option data-select2-id="57"> G -GRAMA</option>
+                                                <option data-select2-id="57">KG - KILO GRAMA</option>
+                                                <option data-select2-id="58"> L - LITRO</option>
+                                                <option data-select2-id="59">PC - PECA</option>
+                                                <option data-select2-id="60">CX - CAIXA</option>
+                                                <option data-select2-id="61">UN - UNIDADE</option>
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div class="form-group col-md-2 bt_add_gpmt">
@@ -92,40 +71,16 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="form-group col-md-4">
-                                        <label class="col-form-label">U.M:<span class="text-danger">*</span>
-                                        </label>
-                                        <select name="uf" class="form-control select2" onchange="getCidade(this)"
-                                            style="width: 100%;" data-placeholder="Escolha uma cor igual ou similar">
-                                            <option selected="selected"></option>
-                                            <option data-select2-id="57"> G -GRAMA</option>
-                                            <option data-select2-id="57">KG - KILO GRAMA</option>
-                                            <option data-select2-id="58"> L - LITRO</option>
-                                            <option data-select2-id="59">PC - PECA</option>
-                                            <option data-select2-id="60">CX - CAIXA</option>
-                                            <option data-select2-id="61">UN - UNIDADE</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-md-2 bt_add_gpmt">
-                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-
-                                            <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success"> <i
-                                                        class="fas fa-plus"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <hr>
-                                    <div class="form-group col-md-11">
+                                <hr>
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Apelido do Material como é Conhecido em campo:
                                             <span class="text-danger">*</span></label>
                                         <input type="text" name="apelido" class="form-control text-uppercase"
                                             placeholder="Insira um nome como o material como é conhecido pela produção ">
                                     </div>
-
                                     <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fabricante: <span
                                                 class="text-danger">*</span></label>
@@ -141,6 +96,9 @@
                                             placeholder="Insira referência do Fornecedor"></input>
                                     </div>
 
+                                </div>
+
+                                <div class="form-row">
                                     <div class="form-group col-md-12">
                                         <label class="col-form-label">Observação de uso o algo relevante: <span
                                                 class="text-danger">*</span></label>
@@ -148,7 +106,10 @@
                                             class="form-control text-uppercase"
                                             placeholder="Descreva em um texto breve objetivo Uso, aplicação, ou algo relevante no Geral."></textarea>
                                     </div>
-                                    <hr>
+
+                                </div>
+                                <hr>
+                                <div class="form-row">
 
                                     <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
@@ -167,7 +128,6 @@
 
                                 </div>
                             </div>
-
                             <div class="col-xl-4">
                                 <div class="card mb-4">
                                     <div class="card-header">
@@ -214,20 +174,21 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+                    </div>
+                </div>
 
             </form>
         </div>
+        <div class="modal-footer">
+            <button id="cancelar" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i
+                    class="fa fa-times"></i>
+                Cancelar</button>
+            <button id="salvar" type="button" onclick="cad_obra()" class="btn btn-sm btn-success"><i
+                    class="fa fa-save"></i>
+                Salvar</button>
+        </div>
     </div>
-</div>
-<div class="modal-footer">
-    <button id="cancelar" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>
-        Cancelar</button>
-    <button id="salvar" type="button" onclick="cad_obra()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
-        Salvar</button>
-</div>
-</div>
 </div>
 
 <script>

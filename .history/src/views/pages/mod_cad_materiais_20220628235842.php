@@ -1,5 +1,5 @@
 <!-- /.modal -->
-<div class="modal-dialog modal-xl">
+<div class="modal-dialog modal-lg">
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">CADASTRAR OBRA</h4>
@@ -48,7 +48,7 @@
                                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
                                             <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success btn_plus"> <i
+                                                <button type="button" class="btn btn-success"> <i
                                                         class="fas fa-plus"></i></button>
                                             </div>
                                         </div>
@@ -167,54 +167,6 @@
 
                                 </div>
                             </div>
-
-                            <div class="col-xl-4">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="bi-file-earmark-person"></i>
-                                        Foto (Opcional)
-                                    </div>
-                                    <div class="card-body">
-
-                                        <div style="text-align:center" class="image_area">
-                                            <form method="post">
-                                                <label for="upload_image">
-                                                    <img width="150px"
-                                                        src="<?php echo $base; ?>/assets/img/produto_sem_foto.jpg"
-                                                        id="uploaded_image" class="rounded" style="width:200;">
-                                                    <div class="overlay">
-                                                        <div class="text">Click para trocar a imagem</div>
-                                                    </div>
-                                                    <input type="file" name="image" class="image" id="upload_image"
-                                                        style="display:none">
-                                                </label>
-                                            </form>
-                                        </div>
-
-                                        <table width="100%">
-                                            <tbody>
-                                                <tr>
-                                                    <td align="center"><span id="foto_produto"></span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center"><span id="foto_referencia_produto"></span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="center"><span id="foto_nome_produto"></span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="padding-top: 15px" align="center"><span
-                                                            id="foto_info_produto"></span></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-
-
-
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
             </form>
