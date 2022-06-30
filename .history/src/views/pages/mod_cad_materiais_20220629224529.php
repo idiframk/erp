@@ -8,7 +8,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <form id="form_cad_material" method="POST" autocomplete="on" enctype="multipart/form-data"
+            <form id="form_cad_obra" method="POST" autocomplete="on" enctype="multipart/form-data"
                 class="form-horizontal">
                 <div class="card card-primary ">
                     <div class="card-header">
@@ -223,7 +223,7 @@
 <div class="modal-footer">
     <button id="cancelar" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>
         Cancelar</button>
-    <button id="salvar" type="button" onclick="cad_material()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
+    <button id="salvar" type="button" onclick="cad_obra()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
         Salvar</button>
 </div>
 </div>
@@ -242,9 +242,22 @@ $(function() {
 
 })
 
+//Carregar SELECT CIDADES de forma dinâmica
+function getCidade(valor) {
+    //Exibe mensagem na subcategoria enquanto carrega dados
+    $("select[name=" + $(valor).attr("cidade") + "]").html('<option value="0">Carregando...</option>');
+    //Envia código do grupo para selecionar as categorias
+    $.post(base() + '/list_ciddades', {
+            grupo: $(valor).val()
+        },
+        function(dados) {
+            $("select[name=" + $(valor).attr("cidade") + "]").html(dados);
+        })
+}
+
 
 //Salvar dados
-function cad_material() {
+function cad_obra() {
 
     let grup_name = $("input[name=grup_name]").val();
     let type_material = $("input[name=type_material]").val();
@@ -291,16 +304,38 @@ function cad_material() {
     } else if (obs_material == "") {
         toastr["warning"]("O campo 'Observação sobre o uso do material' é de preenchimento obrigatório", "Atenção!");
 
+    } else if (document.forms[0].email.value.length == 0) {
+        Command: toastr["warning"]("O e-mail do usuário é obrigatório", "Atenção!");
+
+    }
+    else if (document.forms[0].email.value == "" || document.forms[0].email.value.indexOf('@') == -1 || document
+        .forms[0].email.value.indexOf('.') == -1) {
+        Command: toastr["warning"]("Por favor, informe um E-MAIL válido!", "Atenção!");
+
+    }
+    else if (num_contrato == "") {
+        toastr["warning"]("O campo 'Número do Contrato' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dtinic_contrato == "") {
+        toastr["warning"]("O campo 'Início do Contrato' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dtfim_contrato == "") {
+        toastr["warning"]("O campo 'Fim do Contrato' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dec_srv == "") {
+        toastr["warning"]("O campo 'Descrição do Serviço' é de preenchimento obrigatório", "Atenção!");
+
+
     } else {
 
         $("#salvar").prop("disabled", true);
         $("#cancelar").prop("disabled", true); // teste
-        var dados = $('#form_cad_material').serialize();
+        var dados = $('#form_cad_obra').serialize();
         $.ajax({
             type: 'POST',
             dataType: 'json',
 
-            url: base() + '/mod_cad_materiais',
+            url: base() + '/mod_cad_obras',
             async: true,
             data: dados,
             success: function(data) {
@@ -309,7 +344,7 @@ function cad_material() {
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {
-                        window.location = "<?php $base; ?>/dash_material"; //lista geral<=
+                        window.location = "<?php $base; ?>/cad_obra"; //lista geral<=
                     }, 2000);
 
                 }

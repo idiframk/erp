@@ -22,11 +22,8 @@ class SuprimentosController extends Controller
 
     public function mod_cad_materiais()
     {
+        $produtos = tbl_produto::select()->execute();
 
         $this->render('mod_cad_materiais');
-    }
-
-    public function material_addAction()
-    {
     }
 }

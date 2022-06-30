@@ -3,7 +3,6 @@
 namespace src\controllers;
 
 use \core\Controller;
-use src\models\tbl_produto;
 
 class SuprimentosController extends Controller
 {
@@ -22,11 +21,14 @@ class SuprimentosController extends Controller
 
     public function mod_cad_materiais()
     {
+        $produtos = tbl_produto::select()->execute();
 
-        $this->render('mod_cad_materiais');
-    }
+        $this->render(
+            'mod_cad_materiais',
+            [
+                'produtos' => $produtos
 
-    public function material_addAction()
-    {
+            ]
+        );
     }
 }

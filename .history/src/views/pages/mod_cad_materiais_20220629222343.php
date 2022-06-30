@@ -8,7 +8,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <form id="form_cad_material" method="POST" autocomplete="on" enctype="multipart/form-data"
+            <form id="form_cad_obra" method="POST" autocomplete="on" enctype="multipart/form-data"
                 class="form-horizontal">
                 <div class="card card-primary ">
                     <div class="card-header">
@@ -95,7 +95,7 @@
                                     <div class="form-group col-md-4">
                                         <label class="col-form-label">U.M:<span class="text-danger">*</span>
                                         </label>
-                                        <select name="um" class="form-control select2" onchange="getCidade(this)"
+                                        <select name="uf" class="form-control select2" onchange="getCidade(this)"
                                             style="width: 100%;" data-placeholder="Escolha uma cor igual ou similar">
                                             <option selected="selected"></option>
                                             <option data-select2-id="57"> G -GRAMA</option>
@@ -223,7 +223,7 @@
 <div class="modal-footer">
     <button id="cancelar" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>
         Cancelar</button>
-    <button id="salvar" type="button" onclick="cad_material()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
+    <button id="salvar" type="button" onclick="cad_obra()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
         Salvar</button>
 </div>
 </div>
@@ -243,64 +243,130 @@ $(function() {
 })
 
 
+(() => {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        Array.prototype.slice.call(forms).forEach((form) => {
+            form.addEventListener('submit', (event) => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+        var email = document.getElementById('validationCustomEmail');
+        email.oninput = () => {
+            const re =
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!re.test(email.value)) {
+                email.setCustomValidity("Invalid field.");
+                email.classList.add('is-invalid');
+            } else {
+                email.classList.remove('is-invalid');
+                email.setCustomValidity("")
+            }
+        }
+    }
+
+)();
+
+//Carregar SELECT CIDADES de forma dinâmica
+function getCidade(valor) {
+    //Exibe mensagem na subcategoria enquanto carrega dados
+    $("select[name=" + $(valor).attr("cidade") + "]").html('<option value="0">Carregando...</option>');
+    //Envia código do grupo para selecionar as categorias
+    $.post(base() + '/list_ciddades', {
+            grupo: $(valor).val()
+        },
+        function(dados) {
+            $("select[name=" + $(valor).attr("cidade") + "]").html(dados);
+        })
+}
+
+
 //Salvar dados
-function cad_material() {
+function cad_obra() {
 
-    let grup_name = $("input[name=grup_name]").val();
-    let type_material = $("input[name=type_material]").val();
-    let dimensao = $("input[name=dimensao]").val();
-    let cor = $("input[name=cor]").val();
-    let um = $("input[name=um]").val();
-    let apelido = $("select[name=apelido]").val();
-    let ref_fabric = $("input[name=ref_fabric]").val();
-    let ref_fornecedor = $("select[name=ref_fornecedor]").val();
+    let nome_obra = $("input[name=nome_obra]").val();
+    let razao_social = $("input[name=razao_social]").val();
+    let cnpj = $("input[name=cnpj]").val();
+    let endereco = $("input[name=endereco]").val();
+    let bairro = $("input[name=bairro]").val();
+    let uf = $("select[name=uf]").val();
+    let numero = $("input[name=numero]").val();
+    let cidade = $("select[name=cidade]").val();
     let nome_cliente = $("select[name=nome_cliente]").val();
-    let obs_material = $("input[name=obs_material]").val();
-    let desc_mat_curt = $("input[name=desc_mat_curt]").val();
-    let desc_mat_long = $("input[name=num_contrato]").val();
+    let email = $("input[name=email]").val();
+    let contato = $("input[name=contato]").val();
+
+    let num_contrato = $("input[name=num_contrato]").val();
+    let dtinic_contrato = $("input[name=dtinic_contrato]").val();
+    let dtfim_contrato = $("input[name=dtfim_contrato]").val();
+    let dec_srv = $("input[name=dec_srv]").val();
 
 
-    if (grup_name == "") {
-        Command: toastr["warning"]("O campo 'Grupo do Material' é de preenchimento obrigatório", "Atenção!");
+    if (nome_obra == "") {
+        Command: toastr["warning"]("O campo 'Nome da Obra' é de preenchimento obrigatório", "Atenção!");
     }
     else if (razao_social == "") {
-        toastr["warning"]("O campo 'Tipo do Material' é de preenchimento obrigatório", "Atenção!");
+        toastr["warning"]("O campo 'nome de Razão Social' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (dimensao == "") {
-        toastr["warning"]("O campo 'Ref. de Dimensão' é de preenchimento obrigatório", "Atenção!");
+    } else if (cnpj == "") {
+        toastr["warning"]("O campo 'número do CNPJ' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (cor == "") {
-        toastr["warning"]("O campo 'Cor' é de preenchimento obrigatório", "Atenção!");
+    } else if (endereco == "") {
+        toastr["warning"]("O campo 'Endereço' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (um == "") {
-        toastr["warning"]("O campo 'Unidade de Medida' é de preenchimento obrigatório, caso não tenha user 'S/N'",
+    } else if (numero == "") {
+        toastr["warning"]("O campo 'Número' é de preenchimento obrigatório, caso não tenha user 'S/N'",
             "Atenção!");
 
-    } else if (apelido == "") {
-        toastr["warning"](
-            "O campo 'Apelido ou Nome em que a produção identifica o material ' é de preenchimento obrigatório",
+    } else if (bairro == "") {
+        toastr["warning"]("O campo 'Bairro' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (uf == "") {
+        toastr["warning"]("O campo 'UF - Unidade Federativa é obrigatório' é de preenchimento obrigatório",
             "Atenção!");
 
-    } else if (ref_fabric == "") {
-        toastr["warning"]("O campo 'Referencia de fabricante ou similar' é obrigatório é de preenchimento obrigatório",
-            "Atenção!");
+    } else if (cidade == "") {
+        toastr["warning"]("O campo 'nome da Cidade' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (ref_fornecedor == "") {
-        toastr["warning"]("O campo 'Referencia de fornecedor ou similiar' é de preenchimento obrigatório", "Atenção!");
+    } else if (nome_cliente == "") {
+        toastr["warning"]("O campo 'Nome do Cliente' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (obs_material == "") {
-        toastr["warning"]("O campo 'Observação sobre o uso do material' é de preenchimento obrigatório", "Atenção!");
+    } else if (document.forms[0].email.value.length == 0) {
+        Command: toastr["warning"]("O e-mail do usuário é obrigatório", "Atenção!");
+
+    }
+    else if (document.forms[0].email.value == "" || document.forms[0].email.value.indexOf('@') == -1 || document
+        .forms[0].email.value.indexOf('.') == -1) {
+        Command: toastr["warning"]("Por favor, informe um E-MAIL válido!", "Atenção!");
+
+    }
+    else if (num_contrato == "") {
+        toastr["warning"]("O campo 'Número do Contrato' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dtinic_contrato == "") {
+        toastr["warning"]("O campo 'Início do Contrato' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dtfim_contrato == "") {
+        toastr["warning"]("O campo 'Fim do Contrato' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dec_srv == "") {
+        toastr["warning"]("O campo 'Descrição do Serviço' é de preenchimento obrigatório", "Atenção!");
+
 
     } else {
 
         $("#salvar").prop("disabled", true);
         $("#cancelar").prop("disabled", true); // teste
-        var dados = $('#form_cad_material').serialize();
+        var dados = $('#form_cad_obra').serialize();
         $.ajax({
             type: 'POST',
             dataType: 'json',
 
-            url: base() + '/mod_cad_materiais',
+            url: base() + '/mod_cad_obras',
             async: true,
             data: dados,
             success: function(data) {
@@ -309,7 +375,7 @@ function cad_material() {
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {
-                        window.location = "<?php $base; ?>/dash_material"; //lista geral<=
+                        window.location = "<?php $base; ?>/cad_obra"; //lista geral<=
                     }, 2000);
 
                 }

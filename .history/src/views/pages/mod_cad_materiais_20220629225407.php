@@ -223,7 +223,7 @@
 <div class="modal-footer">
     <button id="cancelar" type="button" class="btn btn-sm btn-danger" data-dismiss="modal"><i class="fa fa-times"></i>
         Cancelar</button>
-    <button id="salvar" type="button" onclick="cad_material()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
+    <button id="salvar" type="button" onclick="cad_obra()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
         Salvar</button>
 </div>
 </div>
@@ -244,7 +244,7 @@ $(function() {
 
 
 //Salvar dados
-function cad_material() {
+function cad_obra() {
 
     let grup_name = $("input[name=grup_name]").val();
     let type_material = $("input[name=type_material]").val();

@@ -225,6 +225,7 @@
         Cancelar</button>
     <button id="salvar" type="button" onclick="cad_material()" class="btn btn-sm btn-success"><i class="fa fa-save"></i>
         Salvar</button>
+    <button>teste</button>
 </div>
 </div>
 </div>

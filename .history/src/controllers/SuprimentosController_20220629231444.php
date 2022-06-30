@@ -3,6 +3,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\models\tbl_produto;
 
 class SuprimentosController extends Controller
 {
@@ -14,6 +15,14 @@ class SuprimentosController extends Controller
 
     public function cad_list_material()
     {
-        $this->render('cad-list_material');
+        $this->render('cad_list_material');
+    }
+
+
+
+    public function mod_cad_materiais()
+    {
+
+        $this->render('mod_cad_materiais');
     }
 }
