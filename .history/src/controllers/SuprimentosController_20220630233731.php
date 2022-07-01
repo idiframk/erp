@@ -35,7 +35,7 @@ class SuprimentosController extends Controller
         $grup_name = filter_input(INPUT_POST, 'grup_name', FILTER_VALIDATE_INT);
         $type_material = mb_strtoupper(filter_input(INPUT_POST, 'type_material'), 'UTF-8');
         $dimensao = mb_strtoupper(filter_input(INPUT_POST, 'dimensao'), 'UTF-8');
-        $cor = filter_input(INPUT_POST, 'cor');
+        $cor = filter_input(INPUT_POST, 'cor', FILTER_VALIDATE_INT);
         $apelido = mb_strtoupper(filter_input(INPUT_POST, 'apelido'), 'UTF-8');
         $ref_fabric = mb_strtoupper(filter_input(INPUT_POST, 'ref_fabric'), 'UTF-8');
         $ref_fornecedor = mb_strtoupper(filter_input(INPUT_POST, 'ref_fornecedor'), 'UTF-8');

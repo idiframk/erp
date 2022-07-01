@@ -81,6 +81,16 @@
                                             <option data-select2-id="78"> PT - PRETO</option>
                                         </select>
 
+                                        <!--<select name="cor" class="form-control select2" style="width: 100%;"
+                                            data-placeholder="Escolha uma cor igual ou similar">
+                                            <option selected="selected" data-select2-id="3">Alabama</option>
+                                            <option data-select2-id="35">Alaska</option>
+                                            <option data-select2-id="36">California</option>
+                                            <option data-select2-id="37">Delaware</option>
+                                            <option data-select2-id="38">Tennessee</option>
+                                            <option data-select2-id="39">Texas</option>
+                                            <option data-select2-id="40">Washington</option>
+                                        </select>-->
 
                                     </div>
 
@@ -100,12 +110,12 @@
                                         <select name="um" class="form-control select2" style="width: 100%;"
                                             data-placeholder="Escolha uma cor igual ou similar">
                                             <option selected="selected"></option>
-                                            <option data-select2-id="14"> G -GRAMA</option>
-                                            <option data-select2-id="74">KG - KILO GRAMA</option>
-                                            <option data-select2-id="94"> L - LITRO</option>
-                                            <option data-select2-id="35">PC - PECA</option>
-                                            <option data-select2-id="59">CX - CAIXA</option>
-                                            <option data-select2-id="78">UN - UNIDADE</option>
+                                            <option data-select2-id="57"> G -GRAMA</option>
+                                            <option data-select2-id="57">KG - KILO GRAMA</option>
+                                            <option data-select2-id="58"> L - LITRO</option>
+                                            <option data-select2-id="59">PC - PECA</option>
+                                            <option data-select2-id="60">CX - CAIXA</option>
+                                            <option data-select2-id="61">UN - UNIDADE</option>
                                         </select>
                                     </div>
 
@@ -155,7 +165,7 @@
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="desc_mat_curt" rows="3"
-                                            class="form-control text-uppercase"></input>
+                                            class="form-control text-uppercase" disabled></input>
                                     </div>
 
 
@@ -163,7 +173,7 @@
                                         <label class="col-form-label">Decrição do Produto/Material longa: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="desc_mat_long" rows="3"
-                                            class="form-control text-uppercase"></textarea>
+                                            class="form-control text-uppercase" disabled></textarea>
                                     </div>
 
                                 </div>

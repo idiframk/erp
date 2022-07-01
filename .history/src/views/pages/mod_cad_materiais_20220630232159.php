@@ -155,7 +155,7 @@
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="desc_mat_curt" rows="3"
-                                            class="form-control text-uppercase"></input>
+                                            class="form-control text-uppercase" disabled></input>
                                     </div>
 
 
@@ -163,7 +163,7 @@
                                         <label class="col-form-label">Decrição do Produto/Material longa: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="desc_mat_long" rows="3"
-                                            class="form-control text-uppercase"></textarea>
+                                            class="form-control text-uppercase" disabled></textarea>
                                     </div>
 
                                 </div>

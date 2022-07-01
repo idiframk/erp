@@ -3,7 +3,7 @@
 namespace src\controllers;
 
 use \core\Controller;
-use src\models\tbl_produto;
+use src\models\tbl_produtos;
 
 class SuprimentosController extends Controller
 {
@@ -35,7 +35,7 @@ class SuprimentosController extends Controller
         $grup_name = filter_input(INPUT_POST, 'grup_name', FILTER_VALIDATE_INT);
         $type_material = mb_strtoupper(filter_input(INPUT_POST, 'type_material'), 'UTF-8');
         $dimensao = mb_strtoupper(filter_input(INPUT_POST, 'dimensao'), 'UTF-8');
-        $cor = filter_input(INPUT_POST, 'cor');
+        $cor = filter_input(INPUT_POST, 'cor', FILTER_VALIDATE_INT);
         $apelido = mb_strtoupper(filter_input(INPUT_POST, 'apelido'), 'UTF-8');
         $ref_fabric = mb_strtoupper(filter_input(INPUT_POST, 'ref_fabric'), 'UTF-8');
         $ref_fornecedor = mb_strtoupper(filter_input(INPUT_POST, 'ref_fornecedor'), 'UTF-8');
@@ -46,11 +46,11 @@ class SuprimentosController extends Controller
 
 
         if (isset($apelido) && !empty($apelido)) {
-            $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
+            $data = tbl_produtos::select()->where('Prod_Apelido', $apelido)->execute();
 
 
             if (count($data) === 0) {
-                tbl_produto::insert([
+                tbl_produtos::insert([
                     'gr_mat_cod' => $grup_name,
                     'Prod_Tipo_Material' => $type_material,
                     'Prod_Dimensao' => $dimensao,

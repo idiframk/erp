@@ -35,7 +35,7 @@ class SuprimentosController extends Controller
         $grup_name = filter_input(INPUT_POST, 'grup_name', FILTER_VALIDATE_INT);
         $type_material = mb_strtoupper(filter_input(INPUT_POST, 'type_material'), 'UTF-8');
         $dimensao = mb_strtoupper(filter_input(INPUT_POST, 'dimensao'), 'UTF-8');
-        $cor = filter_input(INPUT_POST, 'cor');
+        $cor = filter_input(INPUT_POST, 'cor', FILTER_VALIDATE_INT);
         $apelido = mb_strtoupper(filter_input(INPUT_POST, 'apelido'), 'UTF-8');
         $ref_fabric = mb_strtoupper(filter_input(INPUT_POST, 'ref_fabric'), 'UTF-8');
         $ref_fornecedor = mb_strtoupper(filter_input(INPUT_POST, 'ref_fornecedor'), 'UTF-8');
@@ -45,22 +45,28 @@ class SuprimentosController extends Controller
 
 
 
-        if (isset($apelido) && !empty($apelido)) {
-            $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
-
+        if (isset($cnpj) && !empty($cnpj)) {
+            $data = tbl_obra::select()->where('obra_cnpj', $cnpj)->execute();
 
             if (count($data) === 0) {
-                tbl_produto::insert([
-                    'gr_mat_cod' => $grup_name,
-                    'Prod_Tipo_Material' => $type_material,
-                    'Prod_Dimensao' => $dimensao,
-                    'color_id' => $cor,
-                    'Prod_Apelido' => $apelido,
-                    'Prod_Ref_Fabric' => $ref_fabric,
-                    'Prod_Ref_Fornecedor' => $ref_fornecedor,
-                    'Prod_obs_material' => $obs_material,
-                    'Prod_Desc_Curta' => $desc_mat_curt,
-                    'Prod_Desc_Longa' => $desc_mat_long
+                tbl_obra::insert([
+                    'obra_nome' => $nome_obra,
+                    'obra_razao' => $razao_social,
+                    'obra_cnpj' => $cnpj,
+                    'obra_endRua' => $endereco,
+                    'obra_endNum' => $numero,
+                    'obra_endBairro' => $bairro,
+                    'obra_endEstado' => $uf,
+                    'obra_endMunic' => $cidade,
+                    'obra_cliente' => $nome_cliente,
+                    'obra_email' => $email,
+                    'obra_fone' => $contato,
+                    'obra_NumContrato' => $num_contrato,
+                    'obra_dtinic' => $dtinic_contrato,
+                    'obra_dtfim' => $dtfim_contrato,
+                    'obra_desc_srv' => $dec_srv
+
+
 
 
                 ])->execute();

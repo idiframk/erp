@@ -35,7 +35,7 @@ class SuprimentosController extends Controller
         $grup_name = filter_input(INPUT_POST, 'grup_name', FILTER_VALIDATE_INT);
         $type_material = mb_strtoupper(filter_input(INPUT_POST, 'type_material'), 'UTF-8');
         $dimensao = mb_strtoupper(filter_input(INPUT_POST, 'dimensao'), 'UTF-8');
-        $cor = filter_input(INPUT_POST, 'cor');
+        $cor = filter_input(INPUT_POST, 'cor', FILTER_VALIDATE_INT);
         $apelido = mb_strtoupper(filter_input(INPUT_POST, 'apelido'), 'UTF-8');
         $ref_fabric = mb_strtoupper(filter_input(INPUT_POST, 'ref_fabric'), 'UTF-8');
         $ref_fornecedor = mb_strtoupper(filter_input(INPUT_POST, 'ref_fornecedor'), 'UTF-8');
@@ -51,16 +51,15 @@ class SuprimentosController extends Controller
 
             if (count($data) === 0) {
                 tbl_produto::insert([
-                    'gr_mat_cod' => $grup_name,
-                    'Prod_Tipo_Material' => $type_material,
-                    'Prod_Dimensao' => $dimensao,
-                    'color_id' => $cor,
-                    'Prod_Apelido' => $apelido,
-                    'Prod_Ref_Fabric' => $ref_fabric,
-                    'Prod_Ref_Fornecedor' => $ref_fornecedor,
-                    'Prod_obs_material' => $obs_material,
-                    'Prod_Desc_Curta' => $desc_mat_curt,
-                    'Prod_Desc_Longa' => $desc_mat_long
+                    'obra_nome' => $grup_name,
+                    'obra_razao' => $type_material,
+                    'obra_cnpj' => $dimensao,
+                    'obra_endRua' => $cor,
+                    'obra_endNum' => $ref_fabric,
+                    'obra_endBairro' => $ref_fornecedor,
+                    'obra_endEstado' => $obs_material,
+                    'obra_endMunic' => $desc_mat_curt,
+                    'obra_cliente' => $desc_mat_long
 
 
                 ])->execute();

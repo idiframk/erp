@@ -73,15 +73,13 @@
                                         <select name="cor" class="form-control select2" style="width: 100%;"
                                             data-placeholder="Escolha uma cor igual ou similar">
                                             <option selected="selected"></option>
-                                            <option data-select2-id="12"> AM - AMRELO</option>
-                                            <option data-select2-id="32"> BR - BRANCO</option>
-                                            <option data-select2-id="3">VERD - VERDE</option>
-                                            <option data-select2-id="56">VERM - VERMELHO</option>
+                                            <option data-select2-id="57"> AM - AMRELO</option>
+                                            <option data-select2-id="58"> BR - BRANCO</option>
+                                            <option data-select2-id="59">VERD - VERDE</option>
+                                            <option data-select2-id="60">VERM - VERMELHO</option>
                                             <option data-select2-id="61"> INC - INCOLOR</option>
-                                            <option data-select2-id="78"> PT - PRETO</option>
+                                            <option data-select2-id="62"> PT - PRETO</option>
                                         </select>
-
-
                                     </div>
 
                                     <div class="form-group col-md-2 bt_add_gpmt">
@@ -97,15 +95,15 @@
                                     <div class="form-group col-md-4">
                                         <label class="col-form-label">U.M:<span class="text-danger">*</span>
                                         </label>
-                                        <select name="um" class="form-control select2" style="width: 100%;"
-                                            data-placeholder="Escolha uma cor igual ou similar">
+                                        <select name="um" class="form-control select2" onchange="getCidade(this)"
+                                            style="width: 100%;" data-placeholder="Escolha uma cor igual ou similar">
                                             <option selected="selected"></option>
-                                            <option data-select2-id="14"> G -GRAMA</option>
-                                            <option data-select2-id="74">KG - KILO GRAMA</option>
-                                            <option data-select2-id="94"> L - LITRO</option>
-                                            <option data-select2-id="35">PC - PECA</option>
-                                            <option data-select2-id="59">CX - CAIXA</option>
-                                            <option data-select2-id="78">UN - UNIDADE</option>
+                                            <option data-select2-id="57"> G -GRAMA</option>
+                                            <option data-select2-id="57">KG - KILO GRAMA</option>
+                                            <option data-select2-id="58"> L - LITRO</option>
+                                            <option data-select2-id="59">PC - PECA</option>
+                                            <option data-select2-id="60">CX - CAIXA</option>
+                                            <option data-select2-id="61">UN - UNIDADE</option>
                                         </select>
                                     </div>
 
@@ -155,7 +153,7 @@
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="desc_mat_curt" rows="3"
-                                            class="form-control text-uppercase"></input>
+                                            class="form-control text-uppercase" disabled></input>
                                     </div>
 
 
@@ -163,7 +161,7 @@
                                         <label class="col-form-label">Decrição do Produto/Material longa: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="desc_mat_long" rows="3"
-                                            class="form-control text-uppercase"></textarea>
+                                            class="form-control text-uppercase" disabled></textarea>
                                     </div>
 
                                 </div>
@@ -248,14 +246,15 @@ $(function() {
 //Salvar dados
 function cad_material() {
 
-    let grup_name = $("select[name=grup_name]").val();
+    let grup_name = $("input[name=grup_name]").val();
     let type_material = $("input[name=type_material]").val();
     let dimensao = $("input[name=dimensao]").val();
-    let cor = $("select[name=cor]").val();
-    let um = $("select[name=um]").val();
+    let cor = $("input[name=cor]").val();
+    let um = $("input[name=um]").val();
     let apelido = $("select[name=apelido]").val();
     let ref_fabric = $("input[name=ref_fabric]").val();
     let ref_fornecedor = $("select[name=ref_fornecedor]").val();
+    let nome_cliente = $("select[name=nome_cliente]").val();
     let obs_material = $("input[name=obs_material]").val();
     let desc_mat_curt = $("input[name=desc_mat_curt]").val();
     let desc_mat_long = $("input[name=num_contrato]").val();
@@ -264,7 +263,7 @@ function cad_material() {
     if (grup_name == "") {
         Command: toastr["warning"]("O campo 'Grupo do Material' é de preenchimento obrigatório", "Atenção!");
     }
-    else if (type_material == "") {
+    else if (razao_social == "") {
         toastr["warning"]("O campo 'Tipo do Material' é de preenchimento obrigatório", "Atenção!");
 
     } else if (dimensao == "") {
