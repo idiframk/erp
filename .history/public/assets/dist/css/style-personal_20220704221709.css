@@ -40,4 +40,10 @@
 
 
 
-
+@media (max-width: 736px){
+.form-group.col-md-2.bt_add_gpmt {
+   
+    display: none;
+}
+ 
+}

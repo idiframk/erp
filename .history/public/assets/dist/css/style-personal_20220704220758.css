@@ -34,10 +34,17 @@
         max-height: 100%;
     }
 
-  
+ 
+
     
   }
 
+  @media screen and (max-width:480px) {
+
+    .form-group.col-md-2.bt_add_gpmt {
+        display: none;
+    }
+    }
 
 
-
+ 

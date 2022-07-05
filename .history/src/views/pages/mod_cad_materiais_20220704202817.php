@@ -1,5 +1,5 @@
 <!-- /.modal -->
-<div class="modal-dialog modal-lg">
+<div class="modal-dialog modal-xl">
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">CADASTRAR PRODTUTO/MATERIAL</h4>
@@ -11,7 +11,17 @@
             <form id="form_cad_material" method="POST" autocomplete="on" enctype="multipart/form-data"
                 class="form-horizontal">
                 <div class="card card-primary ">
-
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-boxes"></i>
+                            Cadastrar Produto/Material
+                        </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
@@ -31,129 +41,111 @@
                                             <option data-select2-id="61">FILTRO, COMPONENTE</option>
                                             <option data-select2-id="62">ABRACADEIRA ENGATE RAPIDO</option>
                                         </select>
+                                        <div class="form-group col-md-2 bt_add_gpmt">
+                                            <div class="btn-toolbar" role="toolbar"
+                                                aria-label="Toolbar with button groups">
+
+                                                <div class="btn-group" role="group" aria-label="Third group">
+                                                    <button type="button" class="btn btn-success btn_plus"> <i
+                                                            class="fas fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
                                     </div>
 
-                                    <div class="d-none d-lg-block form-group col-md-2 bt_add_gpmt">
+                                    <div class="form-group col-md-2 bt_add_gpmt">
                                         <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
                                             <div class="btn-group" role="group" aria-label="Third group">
-                                                <button type="button" class="btn btn-success "> <i
+                                                <button type="button" class="btn btn-success btn_plus"> <i
                                                         class="fas fa-plus"></i></button>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-6">
                                         <label class="form-label">Tipo do Produto/Material:<span
                                                 class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="type_material" class="form-control text-uppercase"
                                             placeholder="Insira o tipo do Produto/Material em um texto breve mais objetivo possivel">
                                     </div>
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-6">
                                         <label class="form-label">Dimensão:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="dimensao" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material">
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-8">
-                                                <label class="form-label">Estoq. Min.:<span class="text-danger">*</span>
-                                                </label>
-                                                <input type="text" name="dimensao" class="form-control text-uppercase"
-                                                    placeholder="Insira as dimensões do Produto/Material">
-                                            </div>
 
-                                            <div class="form-group col-md-8">
-                                                <label class="form-label">Estoq. Max.:<span class="text-danger">*</span>
-                                                </label>
-                                                <input type="text" name="dimensao" class="form-control text-uppercase"
-                                                    placeholder="Insira as dimensões do Produto/Material">
-                                            </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-form-label">Cor:<span class="text-danger">*</span>
+                                        </label>
+                                        <select name="cor" class="form-control select2" style="width: 100%;"
+                                            data-placeholder="Escolha uma cor igual ou similar">
+                                            <option selected="selected"></option>
+                                            <option data-select2-id="12"> AM - AMRELO</option>
+                                            <option data-select2-id="32"> BR - BRANCO</option>
+                                            <option data-select2-id="3">VERD - VERDE</option>
+                                            <option data-select2-id="56">VERM - VERMELHO</option>
+                                            <option data-select2-id="61"> INC - INCOLOR</option>
+                                            <option data-select2-id="78"> PT - PRETO</option>
+                                        </select>
 
+
+                                    </div>
+
+                                    <div class="form-group col-md-2 bt_add_gpmt">
+                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+                                            <div class="btn-group" role="group" aria-label="Third group">
+                                                <button type="button" class="btn btn-success"> <i
+                                                        class="fas fa-plus"></i></button>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-8">
-                                                <label class="col-form-label">Cor:<span class="text-danger">*</span>
-                                                </label>
-                                                <select name="cor" class="form-control select2" style="width: 100%;"
-                                                    data-placeholder="Escolha uma cor igual ou similar">
-                                                    <option selected="selected"></option>
-                                                    <option data-select2-id="12"> AM - AMRELO</option>
-                                                    <option data-select2-id="32"> BR - BRANCO</option>
-                                                    <option data-select2-id="3">VERD - VERDE</option>
-                                                    <option data-select2-id="56">VERM - VERMELHO</option>
-                                                    <option data-select2-id="61"> INC - INCOLOR</option>
-                                                    <option data-select2-id="78"> PT - PRETO</option>
-                                                </select>
 
-                                            </div>
+                                    <div class="form-group col-md-4">
+                                        <label class="col-form-label">U.M:<span class="text-danger">*</span>
+                                        </label>
+                                        <select name="um" class="form-control select2" style="width: 100%;"
+                                            data-placeholder="Escolha uma cor igual ou similar">
+                                            <option selected="selected"></option>
+                                            <option data-select2-id="14"> G -GRAMA</option>
+                                            <option data-select2-id="74">KG - KILO GRAMA</option>
+                                            <option data-select2-id="94"> L - LITRO</option>
+                                            <option data-select2-id="35">PC - PECA</option>
+                                            <option data-select2-id="59">CX - CAIXA</option>
+                                            <option data-select2-id="78">UN - UNIDADE</option>
+                                        </select>
+                                    </div>
 
-                                            <div class="d-none d-lg-block form-group col-md-2 bt_add_gpmt">
-                                                <div class="btn-toolbar" role="toolbar"
-                                                    aria-label="Toolbar wit h button groups">
+                                    <div class="form-group col-md-2 bt_add_gpmt">
+                                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
 
-                                                    <div class="btn-group" role="group" aria-label="Third group">
-                                                        <button type="button" class="btn btn-success"> <i
-                                                                class="fas fa-plus"></i></button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-8">
-                                                <label class="col-form-label">U.M:<span class="text-danger">*</span>
-                                                </label>
-                                                <select name="um" class="form-control select2" style="width: 100%;"
-                                                    data-placeholder="Escolha uma cor igual ou similar">
-                                                    <option selected="selected"></option>
-                                                    <option data-select2-id="14"> G -GRAMA</option>
-                                                    <option data-select2-id="74">KG - KILO GRAMA</option>
-                                                    <option data-select2-id="94"> L - LITRO</option>
-                                                    <option data-select2-id="35">PC - PECA</option>
-                                                    <option data-select2-id="59">CX - CAIXA</option>
-                                                    <option data-select2-id="78">UN - UNIDADE</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="d-none d-lg-block form-group col-md-2 bt_add_gpmt">
-                                                <div class="btn-toolbar" role="toolbar"
-                                                    aria-label="Toolbar with button groups">
-
-                                                    <div class="btn-group" role="group" aria-label="Third group">
-                                                        <button type="button" class="btn btn-success"> <i
-                                                                class="fas fa-plus"></i></button>
-                                                    </div>
-                                                </div>
+                                            <div class="btn-group" role="group" aria-label="Third group">
+                                                <button type="button" class="btn btn-success"> <i
+                                                        class="fas fa-plus"></i></button>
                                             </div>
                                         </div>
                                     </div>
 
                                     <hr>
-
-
-                                </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-11">
                                         <label class="col-form-label">Apelido do Material como é Conhecido em campo:
                                             <span class="text-danger">*</span></label>
                                         <input type="text" name="apelido" class="form-control text-uppercase"
                                             placeholder="Insira um nome como o material como é conhecido pela produção ">
                                     </div>
 
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fabricante: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="ref_fabric" class="form-control text-uppercase"
                                             placeholder="Insira referência do Fabricante ">
                                     </div>
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fornecedor: <span
                                                 class="text-danger">*</span></label>
 
@@ -162,7 +154,7 @@
                                             placeholder="Insira referência do Fornecedor"></input>
                                     </div>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Observação de uso o algo relevante: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="obs_material" rows="3"
@@ -171,7 +163,7 @@
                                     </div>
                                     <hr>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="desc_mat_curt" rows="3"
@@ -179,15 +171,17 @@
                                     </div>
 
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material longa: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="desc_mat_long" rows="3"
                                             class="form-control text-uppercase"></textarea>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
+
+
                         </div>
 
             </form>

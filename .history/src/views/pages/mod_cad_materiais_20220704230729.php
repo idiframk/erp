@@ -147,13 +147,13 @@
                                             placeholder="Insira um nome como o material como é conhecido pela produção ">
                                     </div>
 
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fabricante: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="ref_fabric" class="form-control text-uppercase"
                                             placeholder="Insira referência do Fabricante ">
                                     </div>
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fornecedor: <span
                                                 class="text-danger">*</span></label>
 
@@ -162,7 +162,7 @@
                                             placeholder="Insira referência do Fornecedor"></input>
                                     </div>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Observação de uso o algo relevante: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="obs_material" rows="3"
@@ -171,7 +171,7 @@
                                     </div>
                                     <hr>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="desc_mat_curt" rows="3"
@@ -179,7 +179,7 @@
                                     </div>
 
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material longa: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="desc_mat_long" rows="3"

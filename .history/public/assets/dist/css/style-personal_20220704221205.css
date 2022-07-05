@@ -38,6 +38,11 @@
     
   }
 
-
-
-
+  @media only screen and (max-width: 320px) and (min-width: 240px){
+  .form-group.col-md-2.bt_add_gpmt {
+      margin-top: -69px;
+      margin-left: 177px;
+      display: none;
+  }
+}
+ 

@@ -11,7 +11,17 @@
             <form id="form_cad_material" method="POST" autocomplete="on" enctype="multipart/form-data"
                 class="form-horizontal">
                 <div class="card card-primary ">
-
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-boxes"></i>
+                            Cadastrar Produto/Material
+                        </h3>
+                        <div class="card-tools">
+                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
@@ -138,22 +148,20 @@
 
 
                                 </div>
-
-                                <div class="form-row">
-                                    <div class="form-group col-md-10">
+                                <!--<div class="form-group col-md-10">
                                         <label class="col-form-label">Apelido do Material como é Conhecido em campo:
                                             <span class="text-danger">*</span></label>
                                         <input type="text" name="apelido" class="form-control text-uppercase"
                                             placeholder="Insira um nome como o material como é conhecido pela produção ">
                                     </div>
 
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fabricante: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="ref_fabric" class="form-control text-uppercase"
                                             placeholder="Insira referência do Fabricante ">
                                     </div>
-                                    <div class="form-group col-md-5">
+                                    <div class="form-group col-md-6">
                                         <label class="col-form-label">Ref. Fornecedor: <span
                                                 class="text-danger">*</span></label>
 
@@ -162,7 +170,7 @@
                                             placeholder="Insira referência do Fornecedor"></input>
                                     </div>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Observação de uso o algo relevante: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="obs_material" rows="3"
@@ -171,7 +179,7 @@
                                     </div>
                                     <hr>
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material Curto: <span
                                                 class="text-danger">*</span></label>
                                         <input type="text" name="desc_mat_curt" rows="3"
@@ -179,16 +187,18 @@
                                     </div>
 
 
-                                    <div class="form-group col-md-10">
+                                    <div class="form-group col-md-12">
                                         <label class="col-form-label">Decrição do Produto/Material longa: <span
                                                 class="text-danger">*</span></label>
                                         <textarea type="text" name="desc_mat_long" rows="3"
                                             class="form-control text-uppercase"></textarea>
-                                    </div>
-                                </div>
+                                    </div>-->
 
                             </div>
                         </div>
+
+
+
 
             </form>
         </div>

@@ -38,6 +38,10 @@
     
   }
 
+  @media (max-width: 740px){
+  .form-group.col-md-2.bt_add_gpmt {
+    display: none;
+  }
+}
 
-
-
+ 

@@ -41,3 +41,21 @@
 
 
 
+@media (max-width: 740px){
+.form-group.col-md-2.bt_add_gpmt {
+    margin-top: -69px;
+    margin-left: 194px;
+    display: none;
+}}
+@media (max-width: 360px){
+.form-group.col-md-2.bt_add_gpmt {
+    margin-top: -69px;
+    margin-left: 194px;
+    display: none;
+}}
+@media (max-width: 600px){
+.form-group.col-md-2.bt_add_gpmt {
+    margin-top: -69px;
+    margin-left: 194px;
+    display: none;
+}}

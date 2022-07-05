@@ -34,10 +34,16 @@
         max-height: 100%;
     }
 
-  
+ 
+
     
   }
 
+  @media screen and (max-width:480px) {
+    .ocultar_mobile {
+     display: none;
+    }
+    }
 
 
-
+ 
