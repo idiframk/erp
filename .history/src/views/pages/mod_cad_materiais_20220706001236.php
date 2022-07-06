@@ -254,7 +254,7 @@ function cad_material() {
     let type_acab = $("input[name=type_acab]").val();
     let type_fornec = $("input[name=type_fornec]").val();
     let type_encaixe = $("input[name=type_encaixe]").val();
-    let ean_ncm = $("input[name=ean_ncm]").val();
+
     let cor = $("select[name=cor]").val();
     let um = $("select[name=um]").val();
     let estoq_mim = $("select[name=estoq_mim]").val();
@@ -320,10 +320,6 @@ function cad_material() {
 
     } else if (obs_material == "") {
         toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ean_ncm == "") {
-        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
             "Atenção!");
 
     } else {

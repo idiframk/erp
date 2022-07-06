@@ -1,6 +1,5 @@
 <!-- /.modal -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
 
@@ -75,22 +74,10 @@
                                             placeholder="Insira a composição do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="form-label">Tipo de Acabamento:<span class="text-danger">*</span>
+                                        <label class="form-label">Tipo de Acabamneto:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="type_acab" class="form-control text-uppercase"
                                             placeholder="Insira tipo de acabamenoto do Produto/Material">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">Tipo de Encaixe:<span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" name="type_encaixe" class="form-control text-uppercase"
-                                            placeholder="Insira as dimensões do Produto/Material">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">EAN/NCM:<span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" name="ean_ncm" class="form-control text-uppercase"
-                                            placeholder="Insira o EAN/NCM do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label">Tipo de Fornecimento:<span
@@ -203,16 +190,24 @@
                                 </div>
                                 <hr>
 
-
-                                <div class=" col-md-12">
-                                    <div class="tags">
-                                        <input type="text" name="desc_mat_tags">
-                                    </div>
+                                <div class="form-group col-md-12">
+                                    <label class="col-form-label">Decrição do Produto/Material Curto: <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" name="desc_mat_curt" rows="3"
+                                        class="form-control text-uppercase"></input>
                                 </div>
 
 
+                                <div class="form-group col-md-12">
+                                    <label class="col-form-label">Decrição do Produto/Material longa: <span
+                                            class="text-danger">*</span></label>
+                                    <textarea type="text" name="desc_mat_long" rows="3"
+                                        class="form-control text-uppercase"></textarea>
+                                </div>
                             </div>
+
                         </div>
+                    </div>
 
             </form>
         </div>
@@ -253,8 +248,8 @@ function cad_material() {
     let composicao = $("input[name=composicao]").val();
     let type_acab = $("input[name=type_acab]").val();
     let type_fornec = $("input[name=type_fornec]").val();
-    let type_encaixe = $("input[name=type_encaixe]").val();
-    let ean_ncm = $("input[name=ean_ncm]").val();
+
+
     let cor = $("select[name=cor]").val();
     let um = $("select[name=um]").val();
     let estoq_mim = $("select[name=estoq_mim]").val();
@@ -263,7 +258,8 @@ function cad_material() {
     let ref_fabric = $("input[name=ref_fabric]").val();
     let ref_fornecedor = $("select[name=ref_fornecedor]").val();
     let obs_material = $("input[name=obs_material]").val();
-    let desc_mat_tags = $("input[name=desc_mat_tags]").val();
+    let desc_mat_curt = $("input[name=desc_mat_curt]").val();
+    let desc_mat_long = $("input[name=num_contrato]").val();
 
 
     if (grup_name == "") {
@@ -283,11 +279,10 @@ function cad_material() {
     } else if (type_acab == "") {
         toastr["warning"]("O campo 'Tipo de Acabamento' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (type_encaixe == "") {
-        toastr["warning"]("O campo 'Tipo de Encaixe' é de preenchimento obrigatório", "Atenção!");
 
-    } else if (type_fornec == "") {
-        toastr["warning"]("O campo 'Tipo de Fornecimento' é de preenchimento obrigatório", "Atenção!");
+    } else if (type_acab == "") {
+        toastr["warning"]("O campo 'Tipo de Acabamento' é de preenchimento obrigatório", "Atenção!");
+
 
     } else if (cor == "") {
         toastr["warning"]("O campo 'Cor' é de preenchimento obrigatório", "Atenção!");
@@ -319,11 +314,7 @@ function cad_material() {
             "Atenção!");
 
     } else if (obs_material == "") {
-        toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ean_ncm == "") {
-        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
+        toastr["warning"]("O campo 'Observação sobre o uso do material' é de preenchimento obrigatório",
             "Atenção!");
 
     } else {
@@ -397,68 +388,4 @@ function moeda(a, e, r, t) {
     }
     return !1
 }
-
-function tagCreator(par) {
-    par.append('<div class="tagInsert"></div>');
-    var newTags = par.children('input:text');
-    newTags.addClass('newTag');
-    newTags.appendTo('.tagInsert');
-    $('.tagInsert').add(newTags);
-
-    var tags = newTags.val().split(',');
-
-    function renderTags() {
-        tags.forEach(function(el, i) {
-            if (i != tags.length) {
-                newTags.before('<div class="tag"><span class="tagName">' + el +
-                    '</span><span class="tagClose">x</span></div>');
-            }
-        })
-        $('.newTag').val('');
-    }
-    renderTags()
-    var i = 0;
-    newTags.bind("keydown", function(e) {
-
-        var keyCode = (e.keyCode ? e.keyCode : e.which)
-
-        $(this).css('max-width', $(this).closest('div').parent('div').width());
-        $(this).css('width', (this.value.length + 1) * 6);
-
-        $('.tag:last').css('opacity', '1');
-
-        if (keyCode == 13 || keyCode == 188) {
-            $(this).val(this.value.replace(/[,]/g, ''))
-            e.preventDefault();
-            if (/\w/g.test(this.value)) {
-                $('.tag').remove();
-                tags.push(this.value.replace(',', ''))
-                renderTags();
-            }
-        }
-
-        if (keyCode == 8 && this.value == "") {
-            i++;
-            if (i == 1) {
-                $('.tag:last').css('opacity', '0.6');
-            } else if (i == 2) {
-                $('.tag:last').remove();
-                tags.pop();
-                i = 0;
-            }
-        } else {
-            i = 0;
-        }
-    })
-
-    $(document).on('click', '.tagClose', function(e) {
-        tags.splice($(this).index('.tagClose'), 1);
-        $(this).closest('div.tag').remove();
-    })
-
-    par.on('click', function(e) {
-        newTags.focus();
-    })
-}
-tagCreator($('.tags'));
 </script>

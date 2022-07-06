@@ -87,12 +87,6 @@
                                             placeholder="Insira as dimensões do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="form-label">EAN/NCM:<span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" name="ean_ncm" class="form-control text-uppercase"
-                                            placeholder="Insira o EAN/NCM do Produto/Material">
-                                    </div>
-                                    <div class="form-group col-md-6">
                                         <label class="form-label">Tipo de Fornecimento:<span
                                                 class="text-danger">*</span>
                                         </label>
@@ -254,7 +248,7 @@ function cad_material() {
     let type_acab = $("input[name=type_acab]").val();
     let type_fornec = $("input[name=type_fornec]").val();
     let type_encaixe = $("input[name=type_encaixe]").val();
-    let ean_ncm = $("input[name=ean_ncm]").val();
+
     let cor = $("select[name=cor]").val();
     let um = $("select[name=um]").val();
     let estoq_mim = $("select[name=estoq_mim]").val();
@@ -320,10 +314,6 @@ function cad_material() {
 
     } else if (obs_material == "") {
         toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ean_ncm == "") {
-        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
             "Atenção!");
 
     } else {

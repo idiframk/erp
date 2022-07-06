@@ -38,10 +38,9 @@ class SuprimentosController extends Controller
         $composicao = mb_strtoupper(filter_input(INPUT_POST, 'composicao'), 'UTF-8');
         $type_acab = mb_strtoupper(filter_input(INPUT_POST, 'type_acab'), 'UTF-8');
         $type_fornec = mb_strtoupper(filter_input(INPUT_POST, 'type_fornec'), 'UTF-8');
-        $ean_ncm = mb_strtoupper(filter_input(INPUT_POST, 'ean_ncm'), 'UTF-8');
-
-
         $type_encaixe = mb_strtoupper(filter_input(INPUT_POST, 'type_encaixe'), 'UTF-8');
+
+
         $cor = mb_strtoupper(filter_input(INPUT_POST, 'cor'), 'UTF-8');
         $um = mb_strtoupper(filter_input(INPUT_POST, 'um'), 'UTF-8');
         $apelido = mb_strtoupper(filter_input(INPUT_POST, 'apelido'), 'UTF-8');
@@ -50,11 +49,7 @@ class SuprimentosController extends Controller
         $obs_material = mb_strtoupper(filter_input(INPUT_POST, 'obs_material'), 'UTF-8');
         $desc_mat_tags = mb_strtoupper(filter_input(INPUT_POST, 'desc_mat_tags'), 'UTF-8');
 
-        $estoq_mim = mb_strtoupper(filter_input(INPUT_POST, 'estoq_mim'), 'UTF-8');
-        $estoq_max = mb_strtoupper(filter_input(INPUT_POST, 'estoq_max'), 'UTF-8');
 
-        $estoq_mim_php = str_replace(',', '.', $estoq_mim);
-        $estoq_max_php =  str_replace(',', '.', $estoq_max);
 
         if (isset($apelido) && !empty($apelido)) {
             $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
@@ -70,9 +65,7 @@ class SuprimentosController extends Controller
                     'Prod_Tipo_Acab' => $type_acab,
                     'Prod_Tipo_Fonecimento' => $type_fornec,
                     'Prod_Tipo_Encaixe' => $type_encaixe,
-                    'Prod_Esoq_min' => $estoq_mim_php,
-                    'Prod_Estoq_max' => $estoq_max_php,
-                    'Prod_EAN_NCM' => $ean_ncm,
+
                     'color_id' => $cor,
                     'Prod_Apelido' => $apelido,
                     'Prod_Ref_Fabric' => $ref_fabric,

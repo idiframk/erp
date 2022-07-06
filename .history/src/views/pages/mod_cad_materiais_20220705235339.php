@@ -75,7 +75,7 @@
                                             placeholder="Insira a composição do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="form-label">Tipo de Acabamento:<span class="text-danger">*</span>
+                                        <label class="form-label">Tipo de Acabamneto:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="type_acab" class="form-control text-uppercase"
                                             placeholder="Insira tipo de acabamenoto do Produto/Material">
@@ -85,12 +85,6 @@
                                         </label>
                                         <input type="text" name="type_encaixe" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">EAN/NCM:<span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" name="ean_ncm" class="form-control text-uppercase"
-                                            placeholder="Insira o EAN/NCM do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label">Tipo de Fornecimento:<span
@@ -206,7 +200,8 @@
 
                                 <div class=" col-md-12">
                                     <div class="tags">
-                                        <input type="text" name="desc_mat_tags">
+                                        <input type="text" name="desc_mat_tags" class="form-control text-uppercase"
+                                            placeholder="Insira tags ou palavras chaves">
                                     </div>
                                 </div>
 
@@ -254,7 +249,7 @@ function cad_material() {
     let type_acab = $("input[name=type_acab]").val();
     let type_fornec = $("input[name=type_fornec]").val();
     let type_encaixe = $("input[name=type_encaixe]").val();
-    let ean_ncm = $("input[name=ean_ncm]").val();
+
     let cor = $("select[name=cor]").val();
     let um = $("select[name=um]").val();
     let estoq_mim = $("select[name=estoq_mim]").val();
@@ -318,12 +313,12 @@ function cad_material() {
         toastr["warning"]("O campo 'Referencia de fornecedor ou similiar' é de preenchimento obrigatório",
             "Atenção!");
 
-    } else if (obs_material == "") {
-        toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
+    } else if (desc_mat_tags == "") {
+        toastr["warning"]("'Insira Tags ou Palavras chaves' é de preenchimento obrigatório",
             "Atenção!");
 
-    } else if (ean_ncm == "") {
-        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
+    } else if (obs_material == "") {
+        toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
             "Atenção!");
 
     } else {

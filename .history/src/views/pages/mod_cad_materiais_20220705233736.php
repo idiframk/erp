@@ -1,6 +1,5 @@
 <!-- /.modal -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
 
@@ -75,7 +74,7 @@
                                             placeholder="Insira a composição do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label class="form-label">Tipo de Acabamento:<span class="text-danger">*</span>
+                                        <label class="form-label">Tipo de Acabamneto:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="type_acab" class="form-control text-uppercase"
                                             placeholder="Insira tipo de acabamenoto do Produto/Material">
@@ -85,12 +84,6 @@
                                         </label>
                                         <input type="text" name="type_encaixe" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="form-label">EAN/NCM:<span class="text-danger">*</span>
-                                        </label>
-                                        <input type="text" name="ean_ncm" class="form-control text-uppercase"
-                                            placeholder="Insira o EAN/NCM do Produto/Material">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label class="form-label">Tipo de Fornecimento:<span
@@ -203,16 +196,24 @@
                                 </div>
                                 <hr>
 
-
-                                <div class=" col-md-12">
-                                    <div class="tags">
-                                        <input type="text" name="desc_mat_tags">
-                                    </div>
+                                <div class="form-group col-md-12">
+                                    <label class="col-form-label">Decrição do Produto/Material Curto: <span
+                                            class="text-danger">*</span></label>
+                                    <input type="text" name="desc_mat_curt" rows="3"
+                                        class="form-control text-uppercase"></input>
                                 </div>
 
 
+                                <div class="form-group col-md-12">
+                                    <label class="col-form-label">Decrição do Produto/Material longa: <span
+                                            class="text-danger">*</span></label>
+                                    <textarea type="text" name="desc_mat_long" rows="3"
+                                        class="form-control text-uppercase"></textarea>
+                                </div>
                             </div>
+
                         </div>
+                    </div>
 
             </form>
         </div>
@@ -254,7 +255,7 @@ function cad_material() {
     let type_acab = $("input[name=type_acab]").val();
     let type_fornec = $("input[name=type_fornec]").val();
     let type_encaixe = $("input[name=type_encaixe]").val();
-    let ean_ncm = $("input[name=ean_ncm]").val();
+
     let cor = $("select[name=cor]").val();
     let um = $("select[name=um]").val();
     let estoq_mim = $("select[name=estoq_mim]").val();
@@ -263,7 +264,8 @@ function cad_material() {
     let ref_fabric = $("input[name=ref_fabric]").val();
     let ref_fornecedor = $("select[name=ref_fornecedor]").val();
     let obs_material = $("input[name=obs_material]").val();
-    let desc_mat_tags = $("input[name=desc_mat_tags]").val();
+    let desc_mat_curt = $("input[name=desc_mat_curt]").val();
+    let desc_mat_tags = $("input[name=num_contrato]").val();
 
 
     if (grup_name == "") {
@@ -318,12 +320,8 @@ function cad_material() {
         toastr["warning"]("O campo 'Referencia de fornecedor ou similiar' é de preenchimento obrigatório",
             "Atenção!");
 
-    } else if (obs_material == "") {
-        toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ean_ncm == "") {
-        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
+    } else if (desc_mat_tags == "") {
+        toastr["warning"]("'Insira Tags ou Palavras chaves' é de preenchimento obrigatório",
             "Atenção!");
 
     } else {
