@@ -57,7 +57,7 @@ class SuprimentosController extends Controller
         $estoq_max_php =  str_replace(',', '.', $estoq_max);
 
         //if (isset($apelido) && !empty($apelido)) {
-        $data = tbl_produto::select()->where('Prod_Apelido', 'LAMPADA LEDE')->execute();
+        $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
 
 
         if (count($data) === 0) {
@@ -86,6 +86,6 @@ class SuprimentosController extends Controller
         } else {
             $e['retorno'] = 0;
         }
-        // }
+        //}
     }
 }

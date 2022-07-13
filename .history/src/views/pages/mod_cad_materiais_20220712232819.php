@@ -217,7 +217,7 @@
             Cancelar</button>
         <button id="salvar" type="button" onclick="cad_material()" class="btn btn-sm btn-success"><i
                 class="fa fa-save"></i>
-            Salvar </button>
+            Salvar</button>
     </div>
 </div>
 
@@ -237,6 +237,123 @@ $(function() {
 
 })
 
+
+//Salvar dados
+function cad_material() {
+
+    let grup_name = $("select[name=grup_name]").val();
+    let type_material = $("input[name=type_material]").val();
+    let dimensao = $("input[name=dimensao]").val();
+    let composicao = $("input[name=composicao]").val();
+    let type_acab = $("input[name=type_acab]").val();
+    let type_fornec = $("input[name=type_fornec]").val();
+    let type_encaixe = $("input[name=type_encaixe]").val();
+    let ean_ncm = $("input[name=ean_ncm]").val();
+    let cor = $("select[name=cor]").val();
+    let um = $("select[name=um]").val();
+    let estoq_mim = $("select[name=estoq_mim]").val();
+    let estoq_max = $("select[name=estoq_max]").val();
+    let apelido = $("select[name=apelido]").val();
+    let ref_fabric = $("input[name=ref_fabric]").val();
+    let ref_fornecedor = $("select[name=ref_fornecedor]").val();
+    let obs_material = $("input[name=obs_material]").val();
+    let desc_mat_tags = $("input[name=desc_mat_tags]").val();
+
+
+    if (grup_name == "") {
+        Command: toastr["warning"]("O campo 'Grupo do Material' é de preenchimento obrigatório", "Atenção!");
+    }
+    else if (type_material == "") {
+        toastr["warning"]("O campo 'Tipo do Material' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (dimensao == "") {
+        toastr["warning"]("O campo 'Ref. de Dimensão' é de preenchimento obrigatório", "Atenção!");
+
+
+    } else if (composicao == "") {
+        toastr["warning"]("O campo 'Composição' é de preenchimento obrigatório", "Atenção!");
+
+
+    } else if (type_acab == "") {
+        toastr["warning"]("O campo 'Tipo de Acabamento' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (type_encaixe == "") {
+        toastr["warning"]("O campo 'Tipo de Encaixe' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (type_fornec == "") {
+        toastr["warning"]("O campo 'Tipo de Fornecimento' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (cor == "") {
+        toastr["warning"]("O campo 'Cor' é de preenchimento obrigatório", "Atenção!");
+
+    } else if (um == "") {
+        toastr["warning"]("O campo 'Unidade de Medida' é de preenchimento obrigatório, caso não tenha user 'S/N'",
+            "Atenção!");
+    } else if (estoq_mim == "") {
+        toastr["warning"]("O campo 'de Quantidade Mínima' é de preenchimento obrigatório, caso não tenha user 'S/N'",
+            "Atenção!");
+
+    } else if (estoq_max == "") {
+        toastr["warning"](
+            "O campo 'de Quantidade Máxima' é de preenchimento obrigatório, caso não tenha user 'S/N'",
+            "Atenção!");
+
+    } else if (apelido == "") {
+        toastr["warning"](
+            "O campo 'Apelido ou Nome em que a produção identifica o material ' é de preenchimento obrigatório",
+            "Atenção!");
+
+    } else if (ref_fabric == "") {
+        toastr["warning"](
+            "O campo 'Referencia de fabricante ou similar' é obrigatório é de preenchimento obrigatório",
+            "Atenção!");
+
+    } else if (ref_fornecedor == "") {
+        toastr["warning"]("O campo 'Referencia de fornecedor ou similiar' é de preenchimento obrigatório",
+            "Atenção!");
+
+    } else if (obs_material == "") {
+        toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
+            "Atenção!");
+
+    } else if (ean_ncm == "") {
+        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
+            "Atenção!");
+
+    } else {
+
+        //$("#salvar").prop("disabled", true);
+        //$("#cancelar").prop("disabled", true); // teste
+        var dados = $('#form_cad_material').serialize();
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+
+            url: base() + '/mod_cad_materiais',
+            async: true,
+            data: dados,
+            success: function(data) {
+                if (data['retorno'] == 1) {
+
+
+                    Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
+                    setTimeout(function() {
+                        window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
+                    }, 2000);
+
+                }
+                else if (data['retorno'] == 0) {
+                    $("#salvar").prop("disabled", false);
+                    $("#cancelar").prop("disabled", false);
+                    Command: toastr["warning"]("As alterações não foram salvas, erro no sistema",
+                        "Erro!");
+                }
+            }
+        });
+
+    }
+    return false;
+}
 
 // parâmetros da função moeda (pelo que entendi)
 // a = objeto do input // e = separador milésimo
@@ -338,118 +455,4 @@ function tagCreator(par) {
     })
 }
 tagCreator($('.tags'));
-
-//Salvar dados
-function cad_material() {
-
-    let grup_name = $("select[name=grup_name]").val();
-    let type_material = $("input[name=type_material]").val();
-    let dimensao = $("input[name=dimensao]").val();
-    let composicao = $("input[name=composicao]").val();
-    let type_acab = $("input[name=type_acab]").val();
-    let type_fornec = $("input[name=type_fornec]").val();
-    let type_encaixe = $("input[name=type_encaixe]").val();
-    let ean_ncm = $("input[name=ean_ncm]").val();
-    let cor = $("select[name=cor]").val();
-    let um = $("select[name=um]").val();
-    let estoq_mim = $("select[name=estoq_mim]").val();
-    let estoq_max = $("select[name=estoq_max]").val();
-    let apelido = $("select[name=apelido]").val();
-    let ref_fabric = $("input[name=ref_fabric]").val();
-    let ref_fornecedor = $("select[name=ref_fornecedor]").val();
-    let obs_material = $("input[name=obs_material]").val();
-    let desc_mat_tags = $("input[name=desc_mat_tags]").val();
-
-
-    if (grup_name == "") {
-        Command: toastr["warning"]("O campo 'Grupo do Material' é de preenchimento obrigatório", "Atenção!");
-    }
-    else if (type_material == "") {
-        toastr["warning"]("O campo 'Tipo do Material' é de preenchimento obrigatório", "Atenção!");
-
-    } else if (dimensao == "") {
-        toastr["warning"]("O campo 'Ref. de Dimensão' é de preenchimento obrigatório", "Atenção!");
-
-
-    } else if (composicao == "") {
-        toastr["warning"]("O campo 'Composição' é de preenchimento obrigatório", "Atenção!");
-
-
-    } else if (type_acab == "") {
-        toastr["warning"]("O campo 'Tipo de Acabamento' é de preenchimento obrigatório", "Atenção!");
-
-    } else if (type_encaixe == "") {
-        toastr["warning"]("O campo 'Tipo de Encaixe' é de preenchimento obrigatório", "Atenção!");
-
-    } else if (type_fornec == "") {
-        toastr["warning"]("O campo 'Tipo de Fornecimento' é de preenchimento obrigatório", "Atenção!");
-
-    } else if (cor == "") {
-        toastr["warning"]("O campo 'Cor' é de preenchimento obrigatório", "Atenção!");
-
-    } else if (um == "") {
-        toastr["warning"]("O campo 'Unidade de Medida' é de preenchimento obrigatório, caso não tenha user 'S/N'",
-            "Atenção!");
-    } else if (estoq_mim == "") {
-        toastr["warning"]("O campo 'de Quantidade Mínima' é de preenchimento obrigatório, caso não tenha user 'S/N'",
-            "Atenção!");
-
-    } else if (estoq_max == "") {
-        toastr["warning"](
-            "O campo 'de Quantidade Máxima' é de preenchimento obrigatório, caso não tenha user 'S/N'",
-            "Atenção!");
-
-    } else if (apelido == "") {
-        toastr["warning"](
-            "O campo 'Apelido ou Nome em que a produção identifica o material ' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ref_fabric == "") {
-        toastr["warning"](
-            "O campo 'Referencia de fabricante ou similar' é obrigatório é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ref_fornecedor == "") {
-        toastr["warning"]("O campo 'Referencia de fornecedor ou similiar' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (obs_material == "") {
-        toastr["warning"]("'Insira alguma observalção para o produto' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else if (ean_ncm == "") {
-        toastr["warning"]("'O Campo EAN/NCM do produto' é de preenchimento obrigatório",
-            "Atenção!");
-
-    } else {
-
-
-        var dados = $('#form_cad_material').serialize();
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-
-            url: base() + '/mod_cad_materiais',
-            async: true,
-            data: dados,
-            success: function(data) {
-                if (data['retorno'] == 1) {
-
-
-                    Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
-                    setTimeout(function() {
-                        window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
-                    }, 2000);
-
-                }
-                else if (data['retorno'] == 0) {
-                    Command: toastr["warning"]("As alterações não foram salvas, erro no sistema",
-                        "Erro!");
-                }
-            }
-        });
-
-    }
-    return false;
-}
 </script>

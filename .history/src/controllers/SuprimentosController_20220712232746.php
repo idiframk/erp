@@ -56,36 +56,36 @@ class SuprimentosController extends Controller
         $estoq_mim_php = str_replace(',', '.', $estoq_mim);
         $estoq_max_php =  str_replace(',', '.', $estoq_max);
 
-        //if (isset($apelido) && !empty($apelido)) {
-        $data = tbl_produto::select()->where('Prod_Apelido', 'LAMPADA LEDE')->execute();
+        if (isset($apelido) && !empty($apelido)) {
+            $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
 
 
-        if (count($data) === 0) {
-            tbl_produto::insert([
-                'gr_mat_cod' => $grup_name,
-                'Prod_Unid_Med' => $um,
-                'Prod_Tipo_Material' => $type_material,
-                'Prod_Dimensao' => $dimensao,
-                'Prod_Composicao' => $composicao,
-                'Prod_Tipo_Acab' => $type_acab,
-                'Prod_Tipo_Fonecimento' => $type_fornec,
-                'Prod_Tipo_Encaixe' => $type_encaixe,
-                'Prod_Esoq_min' => $estoq_mim_php,
-                'Prod_Estoq_max' => $estoq_max_php,
-                'Prod_EAN_NCM' => $ean_ncm,
-                'color_id' => $cor,
-                'Prod_Apelido' => $apelido,
-                'Prod_Ref_Fabric' => $ref_fabric,
-                'Prod_Ref_Fornecedor' => $ref_fornecedor,
-                'Prod_obs_material' => $obs_material,
-                'Prod_tags' => $desc_mat_tags
+            if (count($data) === 0) {
+                tbl_produto::insert([
+                    'gr_mat_cod' => $grup_name,
+                    'Prod_Unid_Med' => $um,
+                    'Prod_Tipo_Material' => $type_material,
+                    'Prod_Dimensao' => $dimensao,
+                    'Prod_Composicao' => $composicao,
+                    'Prod_Tipo_Acab' => $type_acab,
+                    'Prod_Tipo_Fonecimento' => $type_fornec,
+                    'Prod_Tipo_Encaixe' => $type_encaixe,
+                    'Prod_Esoq_min' => $estoq_mim_php,
+                    'Prod_Estoq_max' => $estoq_max_php,
+                    'Prod_EAN_NCM' => $ean_ncm,
+                    'color_id' => $cor,
+                    'Prod_Apelido' => $apelido,
+                    'Prod_Ref_Fabric' => $ref_fabric,
+                    'Prod_Ref_Fornecedor' => $ref_fornecedor,
+                    'Prod_obs_material' => $obs_material,
+                    'Prod_tags' => $desc_mat_tags
 
 
-            ])->execute();
-            $e['retorno'] = 1;
-        } else {
-            $e['retorno'] = 0;
+                ])->execute();
+                $e['retorno'] = 1;
+            } else {
+                $e['retorno'] = 0;
+            }
         }
-        // }
     }
 }

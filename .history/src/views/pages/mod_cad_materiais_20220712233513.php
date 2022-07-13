@@ -217,7 +217,7 @@
             Cancelar</button>
         <button id="salvar" type="button" onclick="cad_material()" class="btn btn-sm btn-success"><i
                 class="fa fa-save"></i>
-            Salvar </button>
+            Salvar <?php echo $e; ?></button>
     </div>
 </div>
 
@@ -237,107 +237,6 @@ $(function() {
 
 })
 
-
-// parâmetros da função moeda (pelo que entendi)
-// a = objeto do input // e = separador milésimo
-// r = separador decimal // t = evento
-
-function moeda(a, e, r, t) {
-    let n = "",
-        h = j = 0,
-        u = tamanho2 = 0,
-        l = ajd2 = "",
-        o = window.Event ? t.which : t.keyCode;
-    if (13 == o || 8 == o)
-        return !0;
-    if (n = String.fromCharCode(o),
-        -1 == "0123456789".indexOf(n))
-        return !1;
-    for (u = a.value.length,
-        h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++);
-    for (l = ""; h < u; h++) - 1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
-    if (l += n, 0 == (u = l.length) && (a.value = ""), 1 == u && (a.value = "0" + r + "0" + l), 2 == u && (a
-            .value =
-            "0" + r + l), u > 2) {
-        for (ajd2 = "",
-            j = 0,
-            h = u - 3; h >= 0; h--)
-            3 == j && (ajd2 += e,
-                j = 0),
-            ajd2 += l.charAt(h),
-            j++;
-        for (a.value = "",
-            tamanho2 = ajd2.length,
-            h = tamanho2 - 1; h >= 0; h--)
-            a.value += ajd2.charAt(h);
-        a.value += r + l.substr(u - 2, u)
-    }
-    return !1
-}
-
-function tagCreator(par) {
-    par.append('<div class="tagInsert"></div>');
-    var newTags = par.children('input:text');
-    newTags.addClass('newTag');
-    newTags.appendTo('.tagInsert');
-    $('.tagInsert').add(newTags);
-
-    var tags = newTags.val().split(',');
-
-    function renderTags() {
-        tags.forEach(function(el, i) {
-            if (i != tags.length) {
-                newTags.before('<div class="tag"><span class="tagName">' + el +
-                    '</span><span class="tagClose">x</span></div>');
-            }
-        })
-        $('.newTag').val('');
-    }
-    renderTags()
-    var i = 0;
-    newTags.bind("keydown", function(e) {
-
-        var keyCode = (e.keyCode ? e.keyCode : e.which)
-
-        $(this).css('max-width', $(this).closest('div').parent('div').width());
-        $(this).css('width', (this.value.length + 1) * 6);
-
-        $('.tag:last').css('opacity', '1');
-
-        if (keyCode == 13 || keyCode == 188) {
-            $(this).val(this.value.replace(/[,]/g, ''))
-            e.preventDefault();
-            if (/\w/g.test(this.value)) {
-                $('.tag').remove();
-                tags.push(this.value.replace(',', ''))
-                renderTags();
-            }
-        }
-
-        if (keyCode == 8 && this.value == "") {
-            i++;
-            if (i == 1) {
-                $('.tag:last').css('opacity', '0.6');
-            } else if (i == 2) {
-                $('.tag:last').remove();
-                tags.pop();
-                i = 0;
-            }
-        } else {
-            i = 0;
-        }
-    })
-
-    $(document).on('click', '.tagClose', function(e) {
-        tags.splice($(this).index('.tagClose'), 1);
-        $(this).closest('div.tag').remove();
-    })
-
-    par.on('click', function(e) {
-        newTags.focus();
-    })
-}
-tagCreator($('.tags'));
 
 //Salvar dados
 function cad_material() {
@@ -443,6 +342,8 @@ function cad_material() {
 
                 }
                 else if (data['retorno'] == 0) {
+                    $("#salvar").prop("disabled", false);
+                    $("#cancelar").prop("disabled", false);
                     Command: toastr["warning"]("As alterações não foram salvas, erro no sistema",
                         "Erro!");
                 }
@@ -452,4 +353,105 @@ function cad_material() {
     }
     return false;
 }
+
+// parâmetros da função moeda (pelo que entendi)
+// a = objeto do input // e = separador milésimo
+// r = separador decimal // t = evento
+
+function moeda(a, e, r, t) {
+    let n = "",
+        h = j = 0,
+        u = tamanho2 = 0,
+        l = ajd2 = "",
+        o = window.Event ? t.which : t.keyCode;
+    if (13 == o || 8 == o)
+        return !0;
+    if (n = String.fromCharCode(o),
+        -1 == "0123456789".indexOf(n))
+        return !1;
+    for (u = a.value.length,
+        h = 0; h < u && ("0" == a.value.charAt(h) || a.value.charAt(h) == r); h++);
+    for (l = ""; h < u; h++) - 1 != "0123456789".indexOf(a.value.charAt(h)) && (l += a.value.charAt(h));
+    if (l += n, 0 == (u = l.length) && (a.value = ""), 1 == u && (a.value = "0" + r + "0" + l), 2 == u && (a
+            .value =
+            "0" + r + l), u > 2) {
+        for (ajd2 = "",
+            j = 0,
+            h = u - 3; h >= 0; h--)
+            3 == j && (ajd2 += e,
+                j = 0),
+            ajd2 += l.charAt(h),
+            j++;
+        for (a.value = "",
+            tamanho2 = ajd2.length,
+            h = tamanho2 - 1; h >= 0; h--)
+            a.value += ajd2.charAt(h);
+        a.value += r + l.substr(u - 2, u)
+    }
+    return !1
+}
+
+function tagCreator(par) {
+    par.append('<div class="tagInsert"></div>');
+    var newTags = par.children('input:text');
+    newTags.addClass('newTag');
+    newTags.appendTo('.tagInsert');
+    $('.tagInsert').add(newTags);
+
+    var tags = newTags.val().split(',');
+
+    function renderTags() {
+        tags.forEach(function(el, i) {
+            if (i != tags.length) {
+                newTags.before('<div class="tag"><span class="tagName">' + el +
+                    '</span><span class="tagClose">x</span></div>');
+            }
+        })
+        $('.newTag').val('');
+    }
+    renderTags()
+    var i = 0;
+    newTags.bind("keydown", function(e) {
+
+        var keyCode = (e.keyCode ? e.keyCode : e.which)
+
+        $(this).css('max-width', $(this).closest('div').parent('div').width());
+        $(this).css('width', (this.value.length + 1) * 6);
+
+        $('.tag:last').css('opacity', '1');
+
+        if (keyCode == 13 || keyCode == 188) {
+            $(this).val(this.value.replace(/[,]/g, ''))
+            e.preventDefault();
+            if (/\w/g.test(this.value)) {
+                $('.tag').remove();
+                tags.push(this.value.replace(',', ''))
+                renderTags();
+            }
+        }
+
+        if (keyCode == 8 && this.value == "") {
+            i++;
+            if (i == 1) {
+                $('.tag:last').css('opacity', '0.6');
+            } else if (i == 2) {
+                $('.tag:last').remove();
+                tags.pop();
+                i = 0;
+            }
+        } else {
+            i = 0;
+        }
+    })
+
+    $(document).on('click', '.tagClose', function(e) {
+        tags.splice($(this).index('.tagClose'), 1);
+        $(this).closest('div.tag').remove();
+    })
+
+    par.on('click', function(e) {
+        newTags.focus();
+    })
+}
+tagCreator($('.tags'));
 </script>
