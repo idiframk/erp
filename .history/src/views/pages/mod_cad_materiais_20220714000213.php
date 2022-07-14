@@ -424,7 +424,7 @@ function cad_material() {
     } else {
 
 
-        var dados = $('#form_cad_material').serialize();
+        var dados = $('#form_cad_material');
         $.ajax({
             type: 'POST',
             dataType: 'json',

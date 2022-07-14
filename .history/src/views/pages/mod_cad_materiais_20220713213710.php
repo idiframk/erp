@@ -429,22 +429,21 @@ function cad_material() {
             type: 'POST',
             dataType: 'json',
 
-            url: base() + '/mod_cad_materiais', //link da action
+            url: base() + '/cad_list_material',
             async: true,
             data: dados,
             success: function(data) {
                 if (data['retorno'] == 1) {
 
+
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {
-                        window.location = "<?php $base; ?>/mod_cad_obras"; //lista geral<=
+                        window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
                     }, 2000);
-                    //sultec.eng.com/cad_list_material
 
                 }
                 else if (data['retorno'] == 0) {
-                    Command: toastr["warning"](
-                        "As alterações não foram salvas, entre em contato com administrador do sistema",
+                    Command: toastr["warning"]("As alterações não foram salvas, erro no sistema",
                         "Erro!");
                 }
             }

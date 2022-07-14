@@ -429,11 +429,12 @@ function cad_material() {
             type: 'POST',
             dataType: 'json',
 
-            url: base() + '/mod_cad_materiais', //link da action
+            url: base() + '/mod_cad_materiais',
             async: true,
             data: dados,
             success: function(data) {
                 if (data['retorno'] == 1) {
+
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {

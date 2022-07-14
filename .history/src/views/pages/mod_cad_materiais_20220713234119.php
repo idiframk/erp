@@ -7,8 +7,8 @@
             </button>
         </div>
         <div class="modal-body">
-            <form id="form_cad_material" method="POST" autocomplete="on" enctype="multipart/form-data"
-                class="form-horizontal">
+            <form id="form_cad_material" method="POST" action="/mod_cad_materiais" autocomplete="on"
+                enctype="multipart/form-data" class="form-horizontal">
                 <div class="card card-primary ">
 
                     <div class="card-body">
@@ -429,15 +429,16 @@ function cad_material() {
             type: 'POST',
             dataType: 'json',
 
-            url: base() + '/mod_cad_materiais', //link da action
+            url: base() + '/mod_cad_materiais',
             async: true,
             data: dados,
             success: function(data) {
                 if (data['retorno'] == 1) {
 
+
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {
-                        window.location = "<?php $base; ?>/mod_cad_obras"; //lista geral<=
+                        window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
                     }, 2000);
                     //sultec.eng.com/cad_list_material
 

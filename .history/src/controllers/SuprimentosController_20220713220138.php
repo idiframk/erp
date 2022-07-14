@@ -57,7 +57,7 @@ class SuprimentosController extends Controller
         $estoq_max_php =  str_replace(',', '.', $estoq_max);
 
         if (isset($apelido) && !empty($apelido)) {
-            $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
+            $data = tbl_produto::select()->where('Prod_Apelido', 'LAMPADA LEDE')->execute();
 
 
             if (count($data) === 0) {
@@ -82,7 +82,6 @@ class SuprimentosController extends Controller
 
 
                 ])->execute();
-                // $this->redirect('/mod_cad_obras');
                 $e['retorno'] = 1;
             } else {
                 $e['retorno'] = 0;

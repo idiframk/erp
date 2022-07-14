@@ -82,7 +82,6 @@ class SuprimentosController extends Controller
 
 
                 ])->execute();
-                // $this->redirect('/mod_cad_obras');
                 $e['retorno'] = 1;
             } else {
                 $e['retorno'] = 0;

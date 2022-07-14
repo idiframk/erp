@@ -429,7 +429,7 @@ function cad_material() {
             type: 'POST',
             dataType: 'json',
 
-            url: base() + '/mod_cad_materiais', //link da action
+            url: base() + '/mod_cad_materiais',
             async: true,
             data: dados,
             success: function(data) {
