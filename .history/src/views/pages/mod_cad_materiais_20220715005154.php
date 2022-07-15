@@ -445,9 +445,9 @@ function cad_material() {
                 if (data['retorno'] == 1) {
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
-                    setTimeout(function() {
+                    /*setTimeout(function() {
                         window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
-                    }, 1000);
+                    }, 1000);*/
                     //sultec.eng.com/cad_list_material
 
                 }

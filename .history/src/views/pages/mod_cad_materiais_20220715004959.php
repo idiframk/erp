@@ -125,11 +125,12 @@
                                             <select name="um" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha uma cor igual ou similar">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($undms as $undm) : ?>
-                                                <option value="<?= $undm['Id_Unid'] ?>">
-                                                    <?= $undm['Sigla_Unid'] ?>
-                                                </option>
-                                                <?php endforeach; ?>
+                                                <option data-select2-id="14" value="1"> G -GRAMA</option>
+                                                <option data-select2-id="74" value="2">KG - KILO GRAMA</option>
+                                                <option data-select2-id="94" value="3"> L - LITRO</option>
+                                                <option data-select2-id="35" value="4">PC - PECA</option>
+                                                <option data-select2-id="59" value="5">CX - CAIXA</option>
+                                                <option data-select2-id="78" value="6">UN - UNIDADE</option>
                                             </select>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info p-1 btn-sm"><i
@@ -445,9 +446,9 @@ function cad_material() {
                 if (data['retorno'] == 1) {
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
-                    setTimeout(function() {
+                    /*setTimeout(function() {
                         window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
-                    }, 1000);
+                    }, 1000);*/
                     //sultec.eng.com/cad_list_material
 
                 }

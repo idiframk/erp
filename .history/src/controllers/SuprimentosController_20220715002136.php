@@ -3,10 +3,8 @@
 namespace src\controllers;
 
 use \core\Controller;
-use src\models\tbl_color;
 use src\models\tbl_grupo_mat;
 use src\models\tbl_produto;
-use src\models\tbl_unid_medida;
 
 class SuprimentosController extends Controller
 {
@@ -35,18 +33,15 @@ class SuprimentosController extends Controller
     public function mod_cad_materiais()
     {
 
+        $this->render('mod_cad_materiais');
 
         $grup_mats = tbl_grupo_mat::select()->execute();
-        $colors = tbl_color::select()->execute();
-        $undms = tbl_unid_medida::select()->execute();
 
 
         $this->render(
             'mod_cad_materiais',
             [
-                'grup_mats' => $grup_mats,
-                'colors' => $colors,
-                'undms' => $undms
+                'grup_mats' => $grup_mats
 
             ]
         );
@@ -91,8 +86,6 @@ class SuprimentosController extends Controller
         $estoq_mim_php = str_replace($subject, $replace, $estoq_mim);
         $estoq_max_php =  str_replace($subject, $replace, $estoq_max);
 
-
-
         if (isset($apelido) && !empty($apelido)) {
             $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
 
@@ -115,8 +108,7 @@ class SuprimentosController extends Controller
                     'Prod_Ref_Fabric' => $ref_fabric,
                     'Prod_Ref_Fornecedor' => $ref_fornecedor,
                     'Prod_obs_material' => $obs_material,
-                    'Prod_tags' => $desc_mat_tags,
-                    'Prod_Desc_Longa' => $prod_desc_long
+                    'Prod_tags' => $desc_mat_tags
 
 
                 ])->execute();

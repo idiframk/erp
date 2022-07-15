@@ -104,11 +104,12 @@
                                             <select name="cor" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha uma cor igual ou similar">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($colors as $color) : ?>
-                                                <option value="<?= $color['color_id'] ?>">
-                                                    <?= $color['color_cor'] ?>
-                                                </option>
-                                                <?php endforeach; ?>
+                                                <option data-select2-id="12" value="1"> AM - AMRELO</option>
+                                                <option data-select2-id="32" value="2"> BR - BRANCO</option>
+                                                <option data-select2-id="3" value="3">VERD - VERDE</option>
+                                                <option data-select2-id="56" value="4">VERM - VERMELHO</option>
+                                                <option data-select2-id="61" value="5"> INC - INCOLOR</option>
+                                                <option data-select2-id="78" value="6"> PT - PRETO</option>
                                             </select>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info p-1 btn-sm"><i
@@ -125,11 +126,12 @@
                                             <select name="um" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha uma cor igual ou similar">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($undms as $undm) : ?>
-                                                <option value="<?= $undm['Id_Unid'] ?>">
-                                                    <?= $undm['Sigla_Unid'] ?>
-                                                </option>
-                                                <?php endforeach; ?>
+                                                <option data-select2-id="14" value="1"> G -GRAMA</option>
+                                                <option data-select2-id="74" value="2">KG - KILO GRAMA</option>
+                                                <option data-select2-id="94" value="3"> L - LITRO</option>
+                                                <option data-select2-id="35" value="4">PC - PECA</option>
+                                                <option data-select2-id="59" value="5">CX - CAIXA</option>
+                                                <option data-select2-id="78" value="6">UN - UNIDADE</option>
                                             </select>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info p-1 btn-sm"><i
@@ -240,11 +242,7 @@ $(function() {
 
 })
 
-function ordenarSelect() {
-    f$(".slc_Reuniao").html($("option", $(".slc_Reuniao")).sort(function(a, b) {
-        return a.text == b.text ? 0 : a.text < b.text ? -1 : 1;
-    }));
-};
+
 
 // parâmetros da função moeda (pelo que entendi)
 // a = objeto do input // e = separador milésimo
@@ -445,9 +443,9 @@ function cad_material() {
                 if (data['retorno'] == 1) {
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
-                    setTimeout(function() {
+                    /*setTimeout(function() {
                         window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
-                    }, 1000);
+                    }, 1000);*/
                     //sultec.eng.com/cad_list_material
 
                 }

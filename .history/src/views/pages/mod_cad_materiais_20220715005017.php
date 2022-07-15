@@ -125,9 +125,9 @@
                                             <select name="um" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha uma cor igual ou similar">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($undms as $undm) : ?>
-                                                <option value="<?= $undm['Id_Unid'] ?>">
-                                                    <?= $undm['Sigla_Unid'] ?>
+                                                <?php foreach ($colors as $color) : ?>
+                                                <option value="<?= $color['color_id'] ?>">
+                                                    <?= $color['color_cor'] ?>
                                                 </option>
                                                 <?php endforeach; ?>
                                             </select>
@@ -445,9 +445,9 @@ function cad_material() {
                 if (data['retorno'] == 1) {
 
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
-                    setTimeout(function() {
+                    /*setTimeout(function() {
                         window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
-                    }, 1000);
+                    }, 1000);*/
                     //sultec.eng.com/cad_list_material
 
                 }

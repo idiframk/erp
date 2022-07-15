@@ -23,12 +23,15 @@
                                             <select name="grup_name" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha um grupo para o material">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($grup_mats as $grup_mat) : ?>
-                                                <option value="<?= $grup_mat['gr_mat_cod'] ?>">
-                                                    <?= $grup_mat['gr_mat_sigla'] ?>
+                                                <option data-select2-id="57" value="1">PLUGUE ELETRICO</option>
+                                                <option data-select2-id="58" value="2">LUMINARIA
                                                 </option>
-                                                <?php endforeach; ?>
-                                            </select>-->
+                                                <option data-select2-id="59" value="3">ARGAMASSA
+                                                </option>
+                                                <option data-select2-id="61" value="4">FILTRO</option>
+                                                <option data-select2-id="62" value="5">ABRACADEIRA ENGATE RAPIDO
+                                                </option>
+                                            </select>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info p-1 btn-sm"><i
                                                         class="fas fa-plus"></i>
@@ -104,11 +107,12 @@
                                             <select name="cor" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha uma cor igual ou similar">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($colors as $color) : ?>
-                                                <option value="<?= $color['color_id'] ?>">
-                                                    <?= $color['color_cor'] ?>
-                                                </option>
-                                                <?php endforeach; ?>
+                                                <option data-select2-id="12" value="1"> AM - AMRELO</option>
+                                                <option data-select2-id="32" value="2"> BR - BRANCO</option>
+                                                <option data-select2-id="3" value="3">VERD - VERDE</option>
+                                                <option data-select2-id="56" value="4">VERM - VERMELHO</option>
+                                                <option data-select2-id="61" value="5"> INC - INCOLOR</option>
+                                                <option data-select2-id="78" value="6"> PT - PRETO</option>
                                             </select>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info p-1 btn-sm"><i
@@ -125,11 +129,12 @@
                                             <select name="um" class="form-control select2" style="width: 85%;"
                                                 data-placeholder="Escolha uma cor igual ou similar">
                                                 <option selected="selected"></option>
-                                                <?php foreach ($undms as $undm) : ?>
-                                                <option value="<?= $undm['Id_Unid'] ?>">
-                                                    <?= $undm['Sigla_Unid'] ?>
-                                                </option>
-                                                <?php endforeach; ?>
+                                                <option data-select2-id="14" value="1"> G -GRAMA</option>
+                                                <option data-select2-id="74" value="2">KG - KILO GRAMA</option>
+                                                <option data-select2-id="94" value="3"> L - LITRO</option>
+                                                <option data-select2-id="35" value="4">PC - PECA</option>
+                                                <option data-select2-id="59" value="5">CX - CAIXA</option>
+                                                <option data-select2-id="78" value="6">UN - UNIDADE</option>
                                             </select>
                                             <div class="input-group-prepend">
                                                 <button type="button" class="btn btn-info p-1 btn-sm"><i
@@ -145,22 +150,14 @@
                                         <input type="text" name="estoq_mim" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material" required
                                             maxlength="15" onkeypress="return(moeda(this,'.',',',event))">
-
-                                        <!--<input type="text" name="estoq_mim" class="form-control text-uppercase"
-                                            placeholder="Insira as dimensões do Produto/Material" required ">-->
-
                                     </div>
 
-                                    <div class=" form-group col-md-3">
+                                    <div class="form-group col-md-3">
                                         <label class="form-label">Estoq. Max.:<span class="text-danger">*</span>
                                         </label>
                                         <input type="text" name="estoq_max" class="form-control text-uppercase"
                                             placeholder="Insira as dimensões do Produto/Material" required
                                             maxlength="15" onkeypress="return(moeda(this,'.',',',event))">
-
-                                        <!-- <input type="text" name="estoq_max" class="form-control text-uppercase"
-                                            placeholder="Insira as dimensões do Produto/Material" required>-->
-
                                     </div>
 
                                 </div>
@@ -203,7 +200,7 @@
 
                                 <div class=" col-md-12">
                                     <div class="tags">
-                                        <input type="text" name="desc_mat_tags[]">
+                                        <input type="text" name="desc_mat_tags">
                                     </div>
                                 </div>
 
@@ -240,11 +237,6 @@ $(function() {
 
 })
 
-function ordenarSelect() {
-    f$(".slc_Reuniao").html($("option", $(".slc_Reuniao")).sort(function(a, b) {
-        return a.text == b.text ? 0 : a.text < b.text ? -1 : 1;
-    }));
-};
 
 // parâmetros da função moeda (pelo que entendi)
 // a = objeto do input // e = separador milésimo
@@ -431,8 +423,7 @@ function cad_material() {
 
     } else {
 
-        $("#salvar").prop("disabled", true);
-        $("#cancelar").prop("disabled", true); // teste
+
         var dados = $('#form_cad_material').serialize();
         $.ajax({
             type: 'POST',
@@ -447,7 +438,7 @@ function cad_material() {
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {
                         window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
-                    }, 1000);
+                    }, 2000);
                     //sultec.eng.com/cad_list_material
 
                 }
