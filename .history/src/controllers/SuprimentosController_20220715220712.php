@@ -19,14 +19,12 @@ class SuprimentosController extends Controller
     public function cad_list_material()
     {
         $grup_mats = tbl_grupo_mat::select()->execute();
-        $dec_products = tbl_produto::select()->execute();
 
 
         $this->render(
             'cad_list_material',
             [
-                'grup_mats' => $grup_mats,
-                'dec_products' => $dec_products
+                'grup_mats' => $grup_mats
 
             ]
         );
@@ -93,7 +91,7 @@ class SuprimentosController extends Controller
         $ch_dec = $grup_name . "" . $type_material_conv  . "" . $composicao . "" . $type_acab;
 
         if (isset($apelido) && !empty($apelido)) {
-            $data = tbl_produto::select()->where('ch_dec', $ch_dec)->execute();
+            $data = tbl_produto::select()->where('Prod_Apelido', $apelido)->execute();
 
 
             if (count($data) === 0) {
@@ -115,6 +113,7 @@ class SuprimentosController extends Controller
                     'Prod_Ref_Fornecedor' => $ref_fornecedor,
                     'Prod_obs_material' => $obs_material,
                     'Prod_tags' => $desc_mat_tags,
+                    'Prod_Desc_Longa' => $prod_desc_long,
                     'ch_dec' => $ch_dec
 
 

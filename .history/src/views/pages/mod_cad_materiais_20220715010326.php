@@ -431,7 +431,8 @@ function cad_material() {
 
     } else {
 
-        // teste
+        $("#salvar").prop("disabled", true);
+        $("#cancelar").prop("disabled", true); // teste
         var dados = $('#form_cad_material').serialize();
         $.ajax({
             type: 'POST',
@@ -442,19 +443,17 @@ function cad_material() {
             data: dados,
             success: function(data) {
                 if (data['retorno'] == 1) {
-                    $("#salvar").prop("disabled", true);
-                    $("#cancelar").prop("disabled", true);
+
                     Command: toastr["success"]("Cadastro Realizado com sucesso", "Sucesso!");
                     setTimeout(function() {
                         window.location = "<?php $base; ?>/cad_list_material"; //lista geral<=
                     }, 1000);
                     //sultec.eng.com/cad_list_material
 
-                } else if (data['retorno'] == 0) {
-                    $("#salvar").prop("enable", true);
-                    $("#cancelar").prop("enable", true);
+                }
+                else if (data['retorno'] == 0) {
                     Command: toastr["warning"](
-                        "Foram encontradas divergência de duplicidade ou houve um erro na hora de salvar. Caso o problema persistir entre em contato com administrador do sistema.",
+                        "As alterações não foram salvas, entre em contato com administrador do sistema",
                         "Erro!");
                 }
             }

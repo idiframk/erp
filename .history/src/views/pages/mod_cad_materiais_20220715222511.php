@@ -451,8 +451,7 @@ function cad_material() {
                     //sultec.eng.com/cad_list_material
 
                 } else if (data['retorno'] == 0) {
-                    $("#salvar").prop("enable", true);
-                    $("#cancelar").prop("enable", true);
+
                     Command: toastr["warning"](
                         "Foram encontradas divergência de duplicidade ou houve um erro na hora de salvar. Caso o problema persistir entre em contato com administrador do sistema.",
                         "Erro!");

@@ -18,8 +18,8 @@ $render('sidebar');
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="home">Home</a></li>
-                            <li class="breadcrumb-item"><a href="dash_material">Dashboard de Clientes</a></li>
-                            <li class="breadcrumb-item active">Cadastro de Materiais</li>
+                            <li class="breadcrumb-item"><a href="dash_material">Dashboard de Produtos/Materiais</a></li>
+                            <li class="breadcrumb-item active">Cadastro/Lista de Produtos/Materiais</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -36,9 +36,10 @@ $render('sidebar');
                         <div class="card-header card card-primary">
                             <div class="row">
                                 <div class="">
-                                    <button onclick="cadastrar(this)" modal="/mod_cad_obras" class="btn btn-success">
+                                    <button onclick="cadastrar(this)" modal="/mod_cad_materiais"
+                                        class="btn btn-success">
                                         <i class="fas fa-boxes "></i>
-                                        Cadastrar Material
+                                        Cadastrar Produtos/Materiais
                                     </button>
                                 </div>
                             </div>
@@ -55,15 +56,17 @@ $render('sidebar');
                             <table id="example1" style="width:100%" class="table table-sm table-bordered table-striped">
                                 <thead class="bg-gradient-dark text-sm">
                                     <tr>
-                                        <th style="width:32px;text-align: center">#Cod.</th>
-                                        <th>Num. Contrato</th>
-                                        <th>CNPJ</th>
-                                        <th>Nome da Obra</th>
-                                        <th>Razão Social</th>
-                                        <th>E-mail</th>
-                                        <th>Contato</th>
-                                        <th>UF</th>
-                                        <th>Municipio</th>
+
+                                        <th>#Cod. Material</th>
+                                        <th>Nome Do Produto/Material</th>
+                                        <th>Valor Med. Unit. R$</th>
+                                        <th>U.M</th>
+                                        <th>Estoq. Min.</th>
+                                        <th>Estoq. Max.</th>
+                                        <th>Estoque Atual</th>
+                                        <th>Entradas</th>
+                                        <th>Saídas</th>
+                                        <th>Estoque Futuro</th>
                                         <th style="width:10px;text-align: center">Status</th>
                                         <th style="width:10%;text-align: center">Ação</th>
                                     </tr>
@@ -144,15 +147,17 @@ $render('sidebar');
                                     <tr>
 
 
-                                        <th>#Cod.</th>
-                                        <th>Num. Contrato</th>
-                                        <th>CNPJ</th>
-                                        <th>Nome da Obra</th>
-                                        <th>Razão Social</th>
-                                        <th>E-mail</th>
-                                        <th>Contato</th>
-                                        <th>UF</th>
-                                        <th>Municipio</th>
+                                        <th>#Cod. Material</th>
+                                        <th>Foto</th>
+                                        <th>Nome Do Produto/Material</th>
+                                        <th>Valor Med. Unit. R$</th>
+                                        <th>U.M</th>
+                                        <th>Estoq. Min.</th>
+                                        <th>Estoq. Max.</th>
+                                        <th>Estoque Atual</th>
+                                        <th>Entradas</th>
+                                        <th>Saídas</th>
+                                        <th>Estoque Futuro</th>
                                         <th>Status</th>
                                         <th>Ação</th>
                                     </tr>

@@ -19,14 +19,13 @@ class SuprimentosController extends Controller
     public function cad_list_material()
     {
         $grup_mats = tbl_grupo_mat::select()->execute();
-        $dec_products = tbl_produto::select()->execute();
+        $dec_product = tbl_produto::select()->execute();
 
 
         $this->render(
             'cad_list_material',
             [
-                'grup_mats' => $grup_mats,
-                'dec_products' => $dec_products
+                'grup_mats' => $grup_mats
 
             ]
         );

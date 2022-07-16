@@ -58,7 +58,6 @@ $render('sidebar');
                                     <tr>
 
                                         <th>#Cod. Material</th>
-                                        <th>Foto</th>
                                         <th>Nome Do Produto/Material</th>
                                         <th>Valor Med. Unit. R$</th>
                                         <th>U.M</th>
